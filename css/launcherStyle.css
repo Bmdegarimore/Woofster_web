@@ -1,0 +1,162 @@
+body {
+      font: 1.25em 'Copse', serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  h2 {
+      font-size: 2.4em;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 3em;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+  }
+  h1{
+    font-size: 5em;
+    color: #1C0024;
+    font-weight: 400;
+    margin-bottom: 1.5em;
+  }
+  
+  #header-countdown{
+    font-size: 3em;
+    color: #fff;
+  }
+  .doggy{
+        background-image: url('../images/collie.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 75em;
+
+  }
+  .jumbotron2 {
+        margin-top: 10%;
+        color: #303030;
+        font-family: 'Copse', serif;
+                
+        margin-bottom: 0px;
+        min-height: 65em;
+        font-size: 120%;
+        background-position: 75% 20%;   
+  }
+  .container-fluid {
+      padding: 5% 2%;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #000;
+      font-size: 50px;
+  }
+  .logo {
+      color: #000;
+      font-size: 200px;
+  }
+  .navbar {
+      margin-bottom: 0;
+      background-color: #000;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #000 !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #000;
+  }
+  
+ 
+ .launchDay h2{
+    color: #303030 !important;
+    text-align: center;
+ }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;	
+      animation-duration: 1s;	
+      -webkit-animation-duration: 1s;
+      visibility: visible;			
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }	
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+  #signup.container{
+    
+  }
+    .logo {
+        font-size: 150px;
+    }
+    .jumbotron2{
+        margin-top: 18%;
+        background-size: cover;
+        min-height: 0px;
+        padding: 0 0;
+    }
+    
+    .col-sm-6{
+        padding-top: 30%;
+        margin-bottom: -30px;
+    }
+    
+     .col-sm-6 h1{
+        
+        padding-bottom: 6%;
+        text-align: center;
+     }
+     
+     .launchDay{
+      display: none;
+     }
+ 
+  }
