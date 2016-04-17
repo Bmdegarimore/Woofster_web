@@ -4,6 +4,7 @@
     <title>Woofster</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-client_id" content="931022949770-dqsih5ukkmtdgko5ev0sducs73oekhmd.apps.googleusercontent.com">
     <!-- Global CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -16,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="css/animate.css">
 
     <!-- Global JS -->
+    <!-- Google sign in js -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     
@@ -51,6 +54,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#signIn">ALREADY A MEMBER?</a></li>
+        <li><div class="g-signin2" data-onsuccess="onSignIn"></div></li>
         <!--<li><a href="#about">ABOUT US</a></li>   disabled -->
       </ul>
     </div>
