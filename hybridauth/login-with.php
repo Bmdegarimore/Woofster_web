@@ -15,12 +15,16 @@ if(isset($_GET['provider'])) {
 
                 if($user_profile && isset($user_profile->identifier))
                 {
-                        if(!isset($_SESSION['logged_in'])){
-                            $_SESSION['logged_in'] = true;
-                        }
-                        else {
-                            //Handle if the session is already in there
-                        }
+                        //Set logged_in session variable to true
+                        $_SESSION['logged_in'] = true;
+
+                        //Get the user's email, uid, and name
+                        $_SESSION['user_email'] = $user_profile->email;
+                        $_SESSION['user_uid'] = $user_profile->identifier;
+                        $_SESSION['user_name'] = $user_profile->displayName;
+
+                        //Query the model to see if the user is in the database, if they're not, add them to it
+                        
 
                         /*echo "<b>Name</b> :".$user_profile->displayName."<br>";
                         echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
