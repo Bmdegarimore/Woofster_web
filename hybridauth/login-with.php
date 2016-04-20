@@ -69,6 +69,8 @@ if(isset($_GET['provider'])) {
                 echo "<p>It looks like you encountered an error! <br> <a href='../index.html'>Back to home page</a></p>";
 
         }
-
+        
+        //Temporarily redirect the user back to the index page
+        header("Location: ../index.html");
 }
 ?>
