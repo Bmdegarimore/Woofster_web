@@ -1,0 +1,19 @@
+Error Codes for Hybrid auth: 
+
+Unspecified error --- 4040
+
+Hybridauth configuration error --- 3800
+
+Provider not properly configured --- 3900
+
+Unknown or disabled provider --- 4033
+
+Missing provider application credentials --- 4034
+
+Authentication failed. The user has canceled the authentication or the provider refused the connection --- 4200
+
+User profile request failed. Most likely the user is not connected to the provider and he should to authenticate again --- 4210
+
+User not connected to the provider --- 4100
+
+Provider does not support this feature --- 5090

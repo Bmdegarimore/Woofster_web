@@ -15,12 +15,19 @@ if(isset($_GET['provider'])) {
 
                 if($user_profile && isset($user_profile->identifier))
                 {
-                        echo "<b>Name</b> :".$user_profile->displayName."<br>";
+                        if(!isset($_SESSION['logged_in'])){
+                            $_SESSION['logged_in'] = true;
+                        }
+                        else {
+                            //Handle if the session is already in there
+                        }
+
+                        /*echo "<b>Name</b> :".$user_profile->displayName."<br>";
                         echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
                         echo "<b>Image</b> :".$user_profile->photoURL."<br> ";
                         echo "<img src='".$user_profile->photoURL."'/><br>";
                         echo "<b>Email</b> :".$user_profile->email."<br>";
-                        echo "<br> <a href='logout.php'>Logout</a>";
+                        echo "<br> <a href='logout.php'>Logout</a>";*/
                 }	        
 
         }
@@ -30,36 +37,36 @@ if(isset($_GET['provider'])) {
                 switch( $e->getCode() )
                 {
                         case 0 : 
-                                echo "Unspecified error."; break;
+                                echo "Error 4040"; break;
                         case 1 : 
-                                echo "Hybridauth configuration error."; break;
+                                echo "Error 3800"; break;
                         case 2 : 
-                                echo "Provider not properly configured."; break;
+                                echo "Error 3900"; break;
                         case 3 : 
-                                echo "Unknown or disabled provider."; break;
+                                echo "Error 4033"; break;
                         case 4 : 
-                                echo "Missing provider application credentials."; break;
+                                echo "Error 4034"; break;
                         case 5 : 
-                                echo "Authentication failed. The user has canceled the authentication" 
-                                       . "or the provider refused the connection.";
+                                echo "Error 4200";
                                 break;
                         case 6 : 
-                                echo "User profile request failed. Most likely the user is not connected "
-                                . "to the provider and he should to authenticate again.";
+                                echo "Error 4210";
                                 $authProvider->logout();
                                 break;
                         case 7 : 
-                                echo "User not connected to the provider.";
+                                echo "Error 4100";
                                 $authProvider->logout();
                                 break;
                         case 8 : 
-                                echo "Provider does not support this feature."; break;
+                                echo "Error 5090"; break;
                 }
 
                 // well, basically you should not display this to the end user, just give him a hint and move on..
                 /*echo "<br /><br /><b>Original error message:</b> " . $e->getMessage();
 
                 echo "<hr /><h3>Trace</h3> <pre>" . $e->getTraceAsString() . "</pre>";*/
+
+                echo "<p>It looks like you encountered an error! <br> <a href='../index.html'>Back to home page</a></p>";
 
         }
 
