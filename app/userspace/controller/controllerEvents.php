@@ -25,14 +25,9 @@
    switch($action){
     //User edit existing contact
     case "edit":
-        if(isset($_GET['id'])){
-            $index = (int)($_GET['id']);
-    
-            if($index == ($events[$index][eventID])){
-                include '../view/editEvent.php';
-            }else{
-                include '../view/failure.php';
-            }
+        if(isset($_GET['id']))
+        {
+            include '../view/editEvent.php';
         }else{
             include 'view/failure.php';
         }
@@ -47,12 +42,7 @@
     //Delete a contact
     case "delete":
         if(isset($_GET['id'])){
-            $index = (int)($_GET['id']);
-            if($index == ($events[$index][eventID])){
-                include '../view/deleteEvent.php';
-            }else{
-                include '../view/failure.php';
-            }
+            include '../view/deleteEvent.php';
         }else{
             include '../view/failure.php';
         }

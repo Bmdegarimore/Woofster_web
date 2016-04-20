@@ -43,6 +43,7 @@
  
         <tbody>
           <?php
+            $counter = 0;
             foreach($events as $row){
                 $dogName = $row['name'];
                 $eventTitle =$row['title'];
@@ -50,10 +51,11 @@
                 $isRepeated =$row['repeated'];
                 $repeatFreq =$row['repeatFrequency'];
                 $notes =$row['notes'];
-                $uuid = $row['eventID'];
-                $edit ="<a href='?action=edit&id=$uuid'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a>";
-                $delete ="<a href='?action=delete&id=$uuid'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a>";
-                
+                $eventID = $row['eventID'];
+                $userID = $row['unique_loginID'];
+                $edit ="<a href='?action=edit&row=$counter&id=$eventID'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a>";
+                $delete ="<a href='?action=delete&row=$counter&id=$eventID'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a>";
+                $counter++;
                 echo "<tr><td>$edit</td><td>$delete</td><td>$dogName</td><td>$eventTitle</td><td>$eventDate</td><td>$isRepeated</td><td>$repeatFreq</td><td>$notes</td></tdtr>";
             };
            ?>
