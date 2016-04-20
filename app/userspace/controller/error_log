@@ -1,0 +1,165 @@
+[19-Apr-2016 10:13:28 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 10:13:28 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function getEvents() in /home/woofster/public_html/app/controller/controllerEvents.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 18
+[19-Apr-2016 10:19:46 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function getEvents() in /home/woofster/public_html/app/controller/controllerEvents.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 20
+[19-Apr-2016 11:00:42 America/Chicago] PHP Warning:  parse_ini_file(/home/woofster/public_htmlconfig.ini): failed to open stream: No such file or directory in /home/woofster/public_html/app/model/eventModel.php on line 10
+[19-Apr-2016 11:01:05 America/Chicago] PHP Warning:  include(view/showEvents.php): failed to open stream: No such file or directory in /home/woofster/public_html/app/controller/controllerEvents.php on line 64
+[19-Apr-2016 11:01:05 America/Chicago] PHP Warning:  include(): Failed opening 'view/showEvents.php' for inclusion (include_path='.:/opt/php70/lib/php') in /home/woofster/public_html/app/controller/controllerEvents.php on line 64
+[19-Apr-2016 11:01:38 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:02:27 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:03:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:05:16 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:09:56 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:09:56 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:09:56 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:10:18 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:10:18 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:10:18 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:10:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:10:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:10:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:10:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:10:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:10:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:10:24 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:10:24 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/model/eventModel.php on line 38
+[19-Apr-2016 11:10:24 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:23:58 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on unknown in /home/woofster/public_html/app/model/eventModel.php:33
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(21): EventModel->select('Rex The Wonder ...')
+#1 {main}
+  thrown in /home/woofster/public_html/app/model/eventModel.php on line 33
+[19-Apr-2016 11:53:43 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 34
+[19-Apr-2016 11:54:25 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 34
+[19-Apr-2016 11:55:01 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:55:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 11:59:12 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home/woofster/public_html/app/view/showEvents.php on line 32
+[19-Apr-2016 12:36:25 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/view/showEvents.php:33
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(65): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/showEvents.php on line 33
+[19-Apr-2016 12:36:50 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/view/showEvents.php:33
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(65): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/showEvents.php on line 33
+[19-Apr-2016 13:36:45 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:51
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 51
+[19-Apr-2016 13:41:17 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 13:42:16 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 13:42:19 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 13:43:21 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 13:44:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 13:44:48 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 13:45:23 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 15:14:43 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 29
+[19-Apr-2016 15:19:23 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 29
+[19-Apr-2016 15:19:23 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 29
+[19-Apr-2016 15:19:53 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 29
+[19-Apr-2016 15:19:59 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 29
+[19-Apr-2016 15:23:31 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 29
+[19-Apr-2016 15:24:21 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 29
+[19-Apr-2016 15:34:49 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 15:34:53 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 15:40:40 America/Chicago] PHP Warning:  include(view/editEvent.php): failed to open stream: No such file or directory in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 15:40:40 America/Chicago] PHP Warning:  include(): Failed opening 'view/editEvent.php' for inclusion (include_path='.:/opt/php70/lib/php') in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 15:40:54 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:50
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 50
+[19-Apr-2016 15:41:59 America/Chicago] PHP Warning:  include(view/editEvent.php): failed to open stream: No such file or directory in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 15:41:59 America/Chicago] PHP Warning:  include(): Failed opening 'view/editEvent.php' for inclusion (include_path='.:/opt/php70/lib/php') in /home/woofster/public_html/app/controller/controllerEvents.php on line 31
+[19-Apr-2016 15:42:29 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in /home/woofster/public_html/app/view/editEvent.php:13
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(31): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/editEvent.php on line 13
+[19-Apr-2016 15:45:04 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in /home/woofster/public_html/app/view/editEvent.php:13
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(31): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/editEvent.php on line 13
+[19-Apr-2016 15:47:22 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in /home/woofster/public_html/app/view/editEvent.php:13
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(31): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/editEvent.php on line 13
+[19-Apr-2016 15:48:21 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in /home/woofster/public_html/app/view/editEvent.php:13
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(31): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/editEvent.php on line 13
+[19-Apr-2016 15:48:25 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in /home/woofster/public_html/app/view/editEvent.php:13
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(31): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/editEvent.php on line 13
+[19-Apr-2016 15:48:55 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in /home/woofster/public_html/app/view/editEvent.php:13
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(31): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/editEvent.php on line 13
+[19-Apr-2016 15:54:37 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in /home/woofster/public_html/app/view/editEvent.php:13
+Stack trace:
+#0 /home/woofster/public_html/app/controller/controllerEvents.php(31): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/view/editEvent.php on line 13
+[19-Apr-2016 17:19:15 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function get() on array in /home/woofster/public_html/app/controller/controllerEvents.php:50
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/app/controller/controllerEvents.php on line 50
+[19-Apr-2016 17:26:13 America/Chicago] PHP Warning:  parse_ini_file(/home/woofster/public_html/config.ini): failed to open stream: No such file or directory in /home/woofster/public_html/app/model/eventModel.php on line 10
+[19-Apr-2016 17:27:05 America/Chicago] PHP Warning:  parse_ini_file(/home/woofster/public_html../config/config.ini): failed to open stream: No such file or directory in /home/woofster/public_html/app/model/eventModel.php on line 10
+[19-Apr-2016 17:30:25 America/Chicago] PHP Warning:  parse_ini_file(../config/config.ini): failed to open stream: No such file or directory in /home/woofster/public_html/app/model/eventModel.php on line 10
+[19-Apr-2016 17:34:02 America/Chicago] PHP Warning:  include(view/success.php): failed to open stream: No such file or directory in /home/woofster/public_html/app/controller/controllerEvents.php on line 43
+[19-Apr-2016 17:34:02 America/Chicago] PHP Warning:  include(): Failed opening 'view/success.php' for inclusion (include_path='.:/opt/php70/lib/php') in /home/woofster/public_html/app/controller/controllerEvents.php on line 43

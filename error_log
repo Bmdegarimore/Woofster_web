@@ -1,0 +1,8 @@
+[19-Apr-2016 18:08:41 America/Chicago] PHP Warning:  require(/global/landingPage/index.html): failed to open stream: No such file or directory in /home/woofster/public_html/index.php on line 2
+[19-Apr-2016 18:08:41 America/Chicago] PHP Fatal error:  require(): Failed opening required '/global/landingPage/index.html' (include_path='.:/opt/php70/lib/php') in /home/woofster/public_html/index.php on line 2
+[19-Apr-2016 18:11:28 America/Chicago] PHP Warning:  require(/home/woofster/public_html/global/landingPage): failed to open stream: No such file or directory in /home/woofster/public_html/index.php on line 2
+[19-Apr-2016 18:11:28 America/Chicago] PHP Fatal error:  require(): Failed opening required 'global/landingPage/' (include_path='.:/opt/php70/lib/php') in /home/woofster/public_html/index.php on line 2
+[19-Apr-2016 18:13:26 America/Chicago] PHP Parse error:  syntax error, unexpected '<', expecting end of file in /home/woofster/public_html/index.php on line 3
+[19-Apr-2016 18:13:45 America/Chicago] PHP Parse error:  syntax error, unexpected 'Logged' (T_STRING) in /home/woofster/public_html/index.php on line 152
+[19-Apr-2016 18:30:25 America/Chicago] PHP Warning:  require(public_html/global/landingPage/index.html): failed to open stream: No such file or directory in /home/woofster/public_html/index.php on line 3
+[19-Apr-2016 18:30:25 America/Chicago] PHP Fatal error:  require(): Failed opening required 'public_html/global/landingPage/index.html' (include_path='.:/opt/php70/lib/php') in /home/woofster/public_html/index.php on line 3
