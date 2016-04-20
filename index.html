@@ -49,12 +49,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#myPage">Woofster</a>
+      <a class="navbar-brand" href="#myPage"><i class="fa fa-paw"></i> Woofster <i class="fa fa-paw"></i></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#signIn">ALREADY A MEMBER?</a></li>
-        <li><a href="hybridauth/login-with.php?provider=Google"><img src="img/signingoogle.png"></a></li>
+        <li><button class="btn btn-primary outline" data-toggle="modal" data-target="#myModal">ALREADY A MEMBER?</button></li>
+
         <!--<li><a href="#about">ABOUT US</a></li>   disabled -->
       </ul>
     </div>
@@ -68,23 +68,120 @@
         <div class="col-lg-6">
           <h1>Join Woofster Today!</h1>
           <br>
-          <form class="form-inline" role="form">
            
-            <button class="btn btn-success btn-lg">Sign Up</button>
+            <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+
+            <!-- Modal -->
+              <div id="signUpModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Join Woofster</h4>
+                    </div>
+                    <div class="modal-body"><!-- Sign Up Form-->
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign Up Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="Email">Email:</label>
+              <div class="controls">
+                <input id="Email" name="Email" class="form-control" type="text" placeholder="JoeSixpack@sixpacksrus.com" class="input-large" required="">
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">First Name:</label>
+              <div class="controls">
+                <input id="userid" name="userid" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">Last Name:</label>
+              <div class="controls">
+                <input id="userid" name="userid" class="form-control" type="text" placeholder="JoeSixpack" class="input-large" required="">
+              </div>
+            </div>
+            
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="password">Password:</label>
+              <div class="controls">
+                <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                <em>1-8 Characters</em>
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+              <div class="controls">
+                <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+              </div>
+            </div>
+            
+        
+
+            
+                    </div>
+                    <div class="modal-footer">
+                          <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="confirmsignup"></label>
+              <div class="controls">
+                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <!-- Sign In Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sign In</h4>
+                      </div>
+                      <div class="modal-body">
+                        <li><a href="hybridauth/login-with.php?provider=Google"><img src="img/signingoogle.png" class="img-responsive"></a></li>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
                  
         </div><!-- /col-lg-6 -->
 
-      </div>
 
-        <div class="row">
-        <div class="col-lg-6 pull-lg-right">
-          <img class="img-responsive" src="img/woofsterLogo2.png" alt="Branding Image">
+        <div class="col-lg-5 col-md-12">
+          <span class="pull-right"><img class="img-responsive" src="img/woofsterLogo2.png" alt="Branding Image"></span>
         </div><!-- /col-lg-6 -->
         
       </div><!-- /row -->
 
   </div><!-- /headerwrap -->
 </div>
+
+
+
 
 
 <!--<div class="doggy">
@@ -189,33 +286,38 @@
     <div class="row">
       <div class="col-sm-12">
         <h1><i class="fa fa-paw" aria-hidden="true"></i> About Woofster <i class="fa fa-paw" aria-hidden="true"></i></h1>
+        <div class="col-md-8 col-md-offset-2">
         <br>
-        <h4>Woofster is dedicated to helping pet parents improve the health and wellness of their canine companions. Our
+        <h4 class="landingText">Woofster is dedicated to helping pet parents improve the health and wellness of their canine companions. Our
         goal is to provide a one stop shop for all of your pet's needs. We have developed an online and mobile platform that
         connects dog owners with pet service providers and pet friendly establishments in their area and incorporates the ability
         to track medication and learn more about their pet's health needs. We believe that the bond between a dog and their owner is
         unlike any other bond and as such should be nurtured.</h4><br>
-        
+        </div>
       </div>
 
     </div>
 </div>
 
-<!-- Container (Social Media Section) -->
+<!-- Container-->
 <div class="">
 <div id="about" class="container-fluid text-center">
   <h1><i class="fa fa-paw" aria-hidden="true"></i> The Team <i class="fa fa-paw" aria-hidden="true"></i></h1>
   <br>
-  <h4>We are a passionate team of software development and marketing professionals who feel that understanding our pet's
+  <div class="col-md-8 col-md-offset-2">
+  <h4 class="landingText">We are a passionate team of software development and marketing professionals who feel that understanding our pet's
   needs is critical to ensuring that they live a happy healthy life. Our expertise in pets, technology, and marketing has
   driven us to develop a platform  to connect other pet parents to  all the resources that they need for their canine companion in one
-  easy to use location.</h4>
+  easy to use location.</h4><br>
+  </div>
 </div>
 
 <div id="" class="container-fluid text-center">
 
 </div>
 </div>
+
+
 
 <footer class="container-fluid text-center bg-grey">
   <a class="topPage" href="#myPage" title="To Top">
@@ -235,6 +337,7 @@ $(".topPage").hover(function(){
  },function() {
     $( this ).find('i').attr("class", "glyphicon glyphicon-chevron-up");
   });
+
 </script>
 
 </body>
