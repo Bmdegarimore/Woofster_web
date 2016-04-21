@@ -15,11 +15,23 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="assets/img/img1.jpg" alt="..." class="img-circle profile_img"><!--NEEDS PHP Variable for Profile Image -->
+              <div class="profile_pic">
+              <?php 
+                //Get the profile picture
+                if(isset($_SESSION['user_photoURL'])) { 
+                  echo "<img src='" . $_SESSION['user_photoURL'] . 
+                        "' alt='User profile picture' class='img-circle profile_img'>"; 
+                }
+              ?>
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>Brandon Degarimore</h2><!--NEEDS PHP Variable for user first and Last name -->
+             <?php 
+                //Show the user's name if it's set
+                if(isset($_SESSION['user_name'])) { 
+                  echo "<h2>" . $_SESSION['user_name'] . "</h2>"; 
+                }
+              ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -33,10 +45,11 @@
               <h3>Features</h3>
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                  </ul>
                 </li>
                 <li><a href="events.html"><i class="fa fa-table"></i> Events <span class="fa fa-chevron-down"></span></a>
+                  <!--<ul class="nav child_menu" style="display: none">-->
+                    <!--<li><a ><i class="fa fa-add"></i>Add Event</a>-->
+                   <!-- </li>-->
                 </li>
               </ul>
             </div>
