@@ -1,7 +1,7 @@
 <div class="text-center container">
     <h2>Add Event</h2>
 
-    <form  class="form-horizontal" method="post" action="controllerEvents.php">
+    <form  class="form-horizontal" method="post" action="?select=events">
        <div class="col-sm-6">
             <label for="eventTitle" class="control-label">Event Title</label>
             <input type="text" class="form-control" id="eventTitle">
@@ -26,13 +26,13 @@
             <textarea class="form-control" rows="4" id="notes"></textarea>
         </div>
         
-        
         <div class="row">
+            <br>
             <div class="col-sm-4">
-            <button type="submit" class="btn btn-primary btn-lg" name="cancel">No</button>
+            <button type="submit" class="btn btn-primary btn-lg" name="cancel">Cancel</button>
             </div>
             <div class="col-sm-4 col-sm-offset-4">
-            <button type="submit" class="btn btn-primary btn-lg" name="update" value="delete">Yes</button>
+            <button type="submit" class="btn btn-primary btn-lg" name="update" value="delete">Add</button>
             </div>
         </div>
         
