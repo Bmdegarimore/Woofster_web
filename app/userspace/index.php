@@ -75,11 +75,11 @@
             <div class="menu_section">
               <h3>Features</h3>
               <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                <li><a href="?select=main"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                   </ul>
                 </li>
-                <li><a href="events.html"><i class="fa fa-table"></i> Events <span class="fa fa-chevron-down"></span></a>
+                <li><a href="?select=events"><i class="fa fa-table"></i> Events <span class="fa fa-chevron-down"></span></a>
                 </li>
               </ul>
             </div>
@@ -230,14 +230,32 @@
        
         <div class="row">
             <!-- Page content goes here -->
+            <!-- select makes a choice of page to load, then grab any additional GETs to change logic, or default to main.php-->
             <?php
               if (isset($_GET['select']))
               {
-                $page = $_GET['select'];
+                  if($_GET['select'] == "events"){
+                        $page = "controllerEvents";
+                          if(isset($_GET['action'])){
+                            $action= $_GET['action'];
+                           
+                            if(isset($_GET['row']))
+                          {
+                            $row= $_GET['row'];
+                            $id= $_GET['id'];
+                          }
+                        }
+                        
+                  }else{
+                      $page = $_GET['select'];
+                  
+                  }
+                
               }else{
                 $page = "main";//Default
               }
-              include ($page.".php");
+              
+              include($page.'.php');
             ?>
         </div>
 

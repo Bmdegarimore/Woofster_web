@@ -1,0 +1,16 @@
+[15-Apr-2016 19:51:12 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/woofster/public_html/global/tests/php-db-connect-test.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/global/tests/php-db-connect-test.php on line 10
+[15-Apr-2016 19:57:20 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/woofster/public_html/global/tests/php-db-connect-test.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/global/tests/php-db-connect-test.php on line 10
+[15-Apr-2016 19:57:21 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/woofster/public_html/global/tests/php-db-connect-test.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/global/tests/php-db-connect-test.php on line 10
+[15-Apr-2016 19:57:52 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/woofster/public_html/global/tests/php-db-connect-test.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/global/tests/php-db-connect-test.php on line 10

@@ -1,7 +1,7 @@
 <div class="text-center container">
     <h2>Edit Event</h2>
 
-    <form  class="form-horizontal" method="post" action="controllerEvents.php">
+    <form  class="form-horizontal" method="post" action="?select=events">
     
         <div class="col-sm-6">
             <label for="eventTitle" class="control-label">Event Title</label>

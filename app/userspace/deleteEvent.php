@@ -1,7 +1,7 @@
 <div class="text-center container">
     <h2>Delete Event</h2>
 
-    <form  class="form-horizontal" method="post" action="controllerEvents.php">
+    <form  class="form-horizontal" method="post" action="?select=events">
        <div class="col-sm-6">
             <label for="eventTitle" class="control-label">Event Title</label>
             <input type="text" class="form-control" id="eventTitle" value="<?php if(isset($_GET['id'])){echo($events[$_GET['row']][title]);}; ?>">

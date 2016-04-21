@@ -1,0 +1,30 @@
+[20-Apr-2016 10:00:07 America/Chicago] PHP Fatal error:  Uncaught Hybrid_Exception: You cannot access this page directly. in /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php:125
+Stack trace:
+#0 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(51): Hybrid_Endpoint->processAuthStart()
+#1 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(72): Hybrid_Endpoint->__construct(Array)
+#2 /home/woofster/public_html/hybridauth/hybridauth/index.php(15): Hybrid_Endpoint::process()
+#3 {main}
+  thrown in /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php on line 125
+[20-Apr-2016 20:25:48 America/Chicago] PHP Fatal error:  Uncaught Hybrid_Exception: You cannot access this page directly. in /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php:125
+Stack trace:
+#0 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(51): Hybrid_Endpoint->processAuthStart()
+#1 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(72): Hybrid_Endpoint->__construct(Array)
+#2 /home/woofster/public_html/hybridauth/hybridauth/index.php(15): Hybrid_Endpoint::process()
+#3 {main}
+  thrown in /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php on line 125
+[20-Apr-2016 22:34:54 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Hybrid_Exception' not found in /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php:205
+Stack trace:
+#0 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(117): Hybrid_Endpoint->authInit()
+#1 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(51): Hybrid_Endpoint->processAuthStart()
+#2 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(72): Hybrid_Endpoint->__construct(Array)
+#3 /home/woofster/public_html/hybridauth/hybridauth/index.php(15): Hybrid_Endpoint::process()
+#4 {main}
+  thrown in /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php on line 205
+[20-Apr-2016 22:40:21 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Hybrid_Exception' not found in /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php:205
+Stack trace:
+#0 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(117): Hybrid_Endpoint->authInit()
+#1 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(51): Hybrid_Endpoint->processAuthStart()
+#2 /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php(72): Hybrid_Endpoint->__construct(Array)
+#3 /home/woofster/public_html/hybridauth/hybridauth/index.php(15): Hybrid_Endpoint::process()
+#4 {main}
+  thrown in /home/woofster/public_html/hybridauth/hybridauth/Hybrid/Endpoint.php on line 205
