@@ -101,7 +101,6 @@
                 </li>
                 <li><a href="?select=events"><i class="fa fa-table"></i> Events <span class="fa fa-chevron-down"></span></a>
                   <!--<ul class="nav child_menu" style="display: none">-->
-                    <li><a ><i class="fa fa-add"></i>Add Event</a></li>
                   <!--<li><a ><i class="fa fa-add"></i>Add Event</a></li>-->
                   <!--</ul>-->
                 </li>

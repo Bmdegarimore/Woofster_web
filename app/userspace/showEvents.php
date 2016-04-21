@@ -61,7 +61,7 @@
     </table>
     <br>
      <div class='text-center'>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">Add Contact</button>
+        <a href="?select=events&action=add"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">Add Contact</button></a>
         <br><br>
     </div>
     
