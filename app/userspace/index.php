@@ -1,3 +1,8 @@
+<?php 
+  //Starting session so I can grab stuff from $_SESSION
+  session_start();
+?>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!-- Meta, title, CSS, favicons, etc. -->
@@ -51,18 +56,29 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Woofster!</span></a>
+            <a href="./" class="site_title"><i class="fa fa-paw"></i> <span>Woofster!</span></a>
           </div>
           <div class="clearfix"></div>
 
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="assets/img/img1.jpg" alt="..." class="img-circle profile_img"><!--NEEDS PHP Variable for Profile Image -->
+              <?php 
+                //Get the profile picture
+                if(isset($_SESSION['user_photoURL'])) { 
+                  echo "<img src='" . $_SESSION['user_photoURL'] . 
+                        "' alt='User profile picture' class='img-circle profile_img'>"; 
+                }
+              ?>
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>Brandon Degarimore</h2><!--NEEDS PHP Variable for user first and Last name -->
+              <?php 
+                //Show the user's name if it's set
+                if(isset($_SESSION['user_name'])) { 
+                  echo "<h2>" . $_SESSION['user_name'] . "</h2>"; 
+                }
+              ?>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -75,7 +91,7 @@
             <div class="menu_section">
               <h3>Features</h3>
               <ul class="nav side-menu">
-                <li><a href="?select=main"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                <li><a href="./"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                   </ul>
                 </li>
@@ -134,7 +150,13 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="assets/img/img1.jpg" alt="">bmdegarimore <!--NEEDS PHP Variable for username and profile image-->
+                  <?php 
+                    //Get the profile picture & username
+                    if(isset($_SESSION['user_photoURL']) && isset($_SESSION['user_name'])) { 
+                      echo "<img src='" . $_SESSION['user_photoURL'] . 
+                            "' alt='User profile picture'> " . $_SESSION['user_name']; 
+                    }
+                  ?>
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -230,31 +252,39 @@
        
         <div class="row">
             <!-- Page content goes here -->
-            <!-- select makes a choice of page to load, then grab any additional GETs to change logic, or default to main.php-->
             <?php
-              if (isset($_GET['select']))
-              {
-                  if($_GET['select'] == "events"){
-                        $page = "controllerEvents";
-                          if(isset($_GET['action'])){
-                            $action= $_GET['action'];
-                           
-                            if(isset($_GET['row']))
-                          {
-                            $row= $_GET['row'];
-                            $id= $_GET['id'];
-                          }
-                        }
-                        
-                  }else{
-                      $page = $_GET['select'];
+              /* select makes a choice of page to load, then grab any additional GETs to change logic, or default to main.php */
+
+              //Check the get array for the select element
+              if (isset($_GET['select'])) {
+                //If it's equal to events...
+                if($_GET['select'] == "events") {
+                  //Set the page to the controller for events
+                  $page = "controllerEvents";
                   
+                  //Check if the action is set in the get array
+                  if(isset($_GET['action'])) {
+                    //Grab the action from the get array
+                    $action = $_GET['action'];
+                     
+                    //Get the row & id if they're set
+                    if(isset($_GET['row']) && isset($_GET['id'])) {
+                      $row = $_GET['row'];
+                      $id = $_GET['id'];
+                    }
                   }
-                
-              }else{
-                $page = "main";//Default
+                }
+                //If the selection isn't for events
+                else {
+                  //Load whatever is selected 
+                  $page = $_GET['select'];
+                }
+              }
+              else {
+                $page = "main"; //Default
               }
               
+              //Load the page
               include($page.'.php');
             ?>
         </div>
