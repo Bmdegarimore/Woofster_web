@@ -3,17 +3,22 @@ session_start();
 include('config.php');
 include('hybridauth/Hybrid/Auth.php');
 
-/* TODO: Handle if headers are already in existance, probably just destroy them */
+/* Handle if headers are already in existance, just destroy them */
+if($_SESSION['logged_in'] || $_SESSION['user_uid']){
+        session_destroy();
+}
 
 if(isset($_GET['provider'])) {
         $provider = $_GET['provider'];
 
         try{
-
+                //Create a new hybridauth object with the configuration 
                 $hybridauth = new Hybrid_Auth( $config );
 
+                //Authenticate the user with their provider
                 $authProvider = $hybridauth->authenticate($provider);
 
+                //Try to grab the profile
                 $user_profile = $authProvider->getUserProfile();
 
                 if($user_profile && isset($user_profile->identifier))
@@ -68,7 +73,10 @@ if(isset($_GET['provider'])) {
                                 echo "Error 5090"; break;
                 }
 
-                // well, basically you should not display this to the end user, just give him a hint and move on..
+                //Destroy any lingering session variables
+                session_destroy();
+
+                //Can be used down the road if we want to automatically send data to the server on an error
                 /*echo "<br /><br /><b>Original error message:</b> " . $e->getMessage();
 
                 echo "<hr /><h3>Trace</h3> <pre>" . $e->getTraceAsString() . "</pre>";*/
