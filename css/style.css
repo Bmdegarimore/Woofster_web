@@ -1,10 +1,18 @@
-
+html{
+    height: 100%;
+}
+h1{
+    font-size: 4em;
+}
+.modal-title{
+    color: #A5ACAF;
+}
 /* HeaderWrap */
 .landing {
 	/* background: url(../img/bg01.jpg) no-repeat center top; */
 	background-color: #00a8ff;
-	margin-top: -2.5em;
-	padding-top: 25em;
+	color: #f6f6f6;
+	padding-top: 16em;
 	background-attachment: relative;
 	background-position: center center;
 	min-height: 60em;
@@ -22,7 +30,7 @@
 }
 
 .bg-grey {
-      background-color: #f6f6f6;
+      background-color: #69BE28;
   }
 .socialMediaIcon{
     margin: 1em;
@@ -30,7 +38,50 @@
 
 .landingText{
     font-size: 1.5em;
-    line-height: 1.5em;
+    line-height: 1.8em;
+}
+
+.featureImage{
+    margin-top: 5em;
+    max-height: 150em;
+    max-width: 75em;
+
+}
+
+#features{
+    max-height: 300em;
+    background-color: #002244;
+   
+
+}
+#features h1, h4{
+
+    color: #f6f6f6;
+
+}
+#socialMedia h1{
+    color: #f6f6f6;
+}
+#socialMedia{
+    margin-bottom: 10em;
+    padding-top: 10em;
+}
+
+#about{
+    margin-bottom: 5em;
+    margin-top: 5em;
+}
+#team{
+    
+    margin-top: 5em;
+}
+
+.bg-social{
+    background-color: #33bbff;
+}
+
+#team h1{
+    color: #f6f6f6;
 }
 
 /***********************

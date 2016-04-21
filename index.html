@@ -64,110 +64,14 @@
 <!-- Landing Section -->
   <div class="landing">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
+      <div class="row animated bounceInDown">
+        <div class="col-lg-7">
           <h1>Join Woofster Today!</h1>
           <br>
            
             <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
 
-            <!-- Modal -->
-              <div id="signUpModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Join Woofster</h4>
-                    </div>
-                    <div class="modal-body"><!-- Sign Up Form-->
-            <form class="form-horizontal">
-            <fieldset>
-              
-            <!-- Sign Up Form -->
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="Email">Email:</label>
-              <div class="controls">
-                <input id="Email" name="Email" class="form-control" type="text" placeholder="joe.baxter@email.com" class="input-large" required="">
-              </div>
-            </div>
             
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="userid">First Name:</label>
-              <div class="controls">
-                <input id="userid" name="userid" class="form-control" type="text" placeholder="Joe" class="input-large" required="">
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="userid">Last Name:</label>
-              <div class="controls">
-                <input id="userid" name="userid" class="form-control" type="text" placeholder="Baxter" class="input-large" required="">
-              </div>
-            </div>
-            
-            <!-- Password input-->
-            <div class="control-group">
-              <label class="control-label" for="password">Password:</label>
-              <div class="controls">
-                <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
-                <em>1-8 Characters</em>
-              </div>
-            </div>
-            
-            <!-- Text input-->
-            <div class="control-group">
-              <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
-              <div class="controls">
-                <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
-              </div>
-            </div>
-            
-        
-
-            
-                    </div>
-                    <div class="modal-footer">
-                          <!-- Button -->
-            <div class="control-group">
-              <label class="control-label" for="confirmsignup"></label>
-              <div class="controls">
-                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
-              </div>
-            </div>
-            </fieldset>
-            </form>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-
-              <!-- Sign In Modal -->
-                <div id="myModal" class="modal fade" role="dialog">
-                  <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Sign In</h4>
-                      </div>
-                      <div class="modal-body">
-                        <li><a href="hybridauth/login-with.php?provider=Google"><img src="img/signingoogle.png" class="img-responsive"></a></li>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
                  
         </div><!-- /col-lg-6 -->
 
@@ -180,6 +84,7 @@
 
   </div><!-- /headerwrap -->
 </div>
+
 
 
 
@@ -244,29 +149,109 @@
 </div>
 -->
 
+<!-- Modal Sign Up -->
+              <div id="signUpModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Sign Up For Woofster</h4>
+                    </div>
+                    <div class="modal-body"><!-- Sign Up Form-->
+            <form action="https://formspree.io/fitpuphealth@gmail.com" method="POST" class="form-horizontal">
+              <!-- Sign Up Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="Email">Email:</label>
+              <div class="controls">
+                <input id="Email" name="Email" class="form-control" type="email" placeholder="Fit.fido@email.com" class="input-large" required>
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">First Name:</label>
+              <div class="controls">
+                <input id="userid" name="userid" class="form-control" type="text" placeholder="Fit" class="input-large" required="">
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">Last Name:</label>
+              <div class="controls">
+                <input id="userid" name="userid" class="form-control" type="text" placeholder="Fido" class="input-large" required="">
+              </div>
+            </div>
+          
+            
+        
+
+            
+            </div>
+            <div class="modal-footer">
+                          <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="confirmsignup"></label>
+              <div class="controls">
+                <input type="submit" id="confirmsignup" name="confirmsignup" class="btn btn-success" value="Sign Up!"></input>
+              </div>
+            </div>
+          </div>
+            </fieldset>
+            </form>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <!-- Sign In Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sign In</h4>
+                      </div>
+                      <div class="modal-body">
+                        <a href="hybridauth/login-with.php?provider=Google"><img src="img/signingoogle.png" class="img-responsive"></a>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
 <!-- Container (Features Section) -->
-<div class="bg-grey">
-<div id="missionStatement" class="container-fluid text-center">
+<div id="features" class="col-lg-12 container-fluid text-center">
   <br>
-  <h1><i class="fa fa-paw" aria-hidden="true"></i> Features <i class="fa fa-paw" aria-hidden="true"></i>
-</h1>
-
   <br>
-  
-</div>
+    <h1><i class="fa fa-paw" aria-hidden="true"></i> About Woofster <i class="fa fa-paw" aria-hidden="true"></i></h1><br><br>
+    <div class="col-lg-8 col-lg-offset-2 text-center">
+    <h4 class="landingText">Woofster is dedicated to helping pet parents improve the health and wellness of their canine companions. Our goal is to provide a one stop shop for all of your pet's needs. We have developed an online and mobile platform that connects dog owners with pet service providers and pet friendly establishments in their area and incorporates the ability to track medication and learn more about their pet's health needs. We believe that the bond between a dog and their owner is unlike any other bond and as such should be nurtured.</h4>
+    </div>
+    <img src="img/dashboard.png" class="featureImage">
+    <br><br>
+    <div class="col-lg-8 col-lg-offset-2 text-center">
+    <h4 class="landingText"></h4><br>
+    </div>
+    
 
-<div id="" class="col-lg-12 container-fluid text-center">
-  <p>Features text will go here by the by.</p>
-</div>
-<br>
 </div>
 
 <!-- Container (Social Media Section) -->
-<div class="bg-info">
-<div id="socialMedia" class="container-fluid text-center">
+<div class="bg-social col-lg-12 container-fluid text-center">
+<div id="socialMedia">
+  <br>
   <h1><i class="fa fa-paw" aria-hidden="true"></i> Stay Connected <i class="fa fa-paw" aria-hidden="true"></i></h1>
   <br>
-</div>
 
 <div class="container-fluid text-center">
     <a class="btn btn-social-icon btn-lg btn-facebook socialMediaIcon" href="https://www.facebook.com/woofsterapp">
@@ -276,33 +261,16 @@
     <a class="btn btn-social-icon btn-lg btn-instagram socialMediaIcon" href="https://www.instagram.com/woofsterapp/">
       <i class="fa fa-instagram"></i>
     </a>
-
-  <h3>Be a part of our growing community!</h3>
-</div>
 <br>
-
+  <h4>Be a part of our growing community!</h4>
 </div>
-
-<div id="about" class="container-fluid text-center">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1><i class="fa fa-paw" aria-hidden="true"></i> About Woofster <i class="fa fa-paw" aria-hidden="true"></i></h1>
-        <div class="col-md-8 col-md-offset-2">
-        <br>
-        <h4 class="landingText">Woofster is dedicated to helping pet parents improve the health and wellness of their canine companions. Our
-        goal is to provide a one stop shop for all of your pet's needs. We have developed an online and mobile platform that
-        connects dog owners with pet service providers and pet friendly establishments in their area and incorporates the ability
-        to track medication and learn more about their pet's health needs. We believe that the bond between a dog and their owner is
-        unlike any other bond and as such should be nurtured.</h4><br>
-        </div>
-      </div>
-
-    </div>
 </div>
-
+</div>
 <!-- Container-->
-<div class="">
-<div id="about" class="container-fluid text-center">
+
+<div id="team" class="container-fluid text-center bg-grey col-lg-12">
+  <br>
+  <div class="row">
   <h1><i class="fa fa-paw" aria-hidden="true"></i> The Team <i class="fa fa-paw" aria-hidden="true"></i></h1>
   <br>
   <div class="col-md-8 col-md-offset-2">
@@ -312,12 +280,7 @@
   easy to use location.</h4><br>
   </div>
 </div>
-
-<div id="" class="container-fluid text-center">
-
 </div>
-</div>
-
 
 
 <footer class="container-fluid text-center bg-grey">
