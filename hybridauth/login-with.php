@@ -2,6 +2,8 @@
 session_start();
 include('config.php');
 include('hybridauth/Hybrid/Auth.php');
+include('dbModel.php');
+include('UserUniqueIdentifier.php');
 
 /* Handle if headers are already in existance, just destroy them */
 if($_SESSION['logged_in'] || $_SESSION['user_uid']){
@@ -33,6 +35,41 @@ if(isset($_GET['provider'])) {
                         $_SESSION['user_photoURL'] = $user_profile->photoURL;
 
                         //Query the model to see if the user is in the database, if they're not, add them to it
+                        $model = new DBModel();
+
+                        $model->connect();
+
+                        //Concat the user id and the provider
+                        $uniqueIdentifier = new UserUniqueIdentifier($user_profile->identifier, $provider);
+                        $uidstr = $uniqueIdentifier->uniqueId;
+
+                        //Store the user's uniqueIdentifier 
+                        $_SESSION['user_uniqueId'] = $uidstr;
+
+                        //Query the database to see if the uidstr is stored in the user's database
+                        $userResult = $model->selectUser($uidstr);
+
+                        //Check if there was a result
+                        if($userResult == 1){
+                                //Check if the user has a dog
+                                $dogResult = $model->selectDog($uidstr);
+
+                                //If the user has a dog
+                                if($dogResult == 1){
+                                        //do nothing, it's all good
+                                }
+                                else {
+                                        //Create the dog
+                                        $model->insertDog('dog', $uidstr);
+                                }
+                        }
+                        else {
+                                //Create the user using the email, provider, and uidstr
+                                $model->insertUser($user_profile->email, $provider, $uidstr);
+
+                                //Create the dog
+                                $model->insertDog('dog', $uidstr);
+                        }
 
                         /*echo "<b>Name</b> :".$user_profile->displayName."<br>";
                         echo "<b>Profile URL</b> :".$user_profile->profileURL."<br>";
