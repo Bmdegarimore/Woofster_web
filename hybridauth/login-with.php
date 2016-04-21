@@ -74,7 +74,7 @@ if(isset($_GET['provider'])) {
 
         }
         
-        //Temporarily redirect the user back to the index page
-        header("Location: ../index.html");
+        //Redirect the user to the userspace
+        header("Location: ../app/userspace/");
 }
 ?>
