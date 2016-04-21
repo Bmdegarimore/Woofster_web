@@ -2,6 +2,9 @@
 session_start();
 include('config.php');
 include('hybridauth/Hybrid/Auth.php');
+
+/* TODO: Handle if headers are already in existance, probably just destroy them */
+
 if(isset($_GET['provider'])) {
         $provider = $_GET['provider'];
 
