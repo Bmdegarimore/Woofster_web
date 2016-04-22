@@ -58,12 +58,12 @@ if(isset($_GET['provider'])) {
                                 if($dogResult == 1){
                                         //do nothing, it's all good
                                 }
-                                else {
+                                else if ($dogResult == 0) {
                                         //Create the dog
                                         $model->insertDog('dog', $uidstr);
                                 }
                         }
-                        else {
+                        else if($userResult == 0) {
                                 //Create the user using the email, provider, and uidstr
                                 $model->insertUser($user_profile->email, $provider, $uidstr);
 
