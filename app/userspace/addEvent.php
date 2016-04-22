@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <div class="text-center container">
     <h2>Add Event</h2>
 
@@ -34,7 +37,7 @@
             </div>
             <div class="col-sm-4 col-sm-offset-4">
             <br>
-            <button type="submit" class="btn btn-primary btn-lg" name="update" value="delete">Add</button>
+            <button type="submit" class="btn btn-primary btn-lg" name="update" value="add">Add</button>
             </div>
         </div>
         

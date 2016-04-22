@@ -1,4 +1,9 @@
 <?php
+session_start();
+//set uidstr to equal the session id
+$uidstr = $_SESSION['user_uniqueId'];
+
+
     class EventModel{
         
         // Place to store the database connection
@@ -29,10 +34,10 @@
         
         public function select($query){
             try{
-		
                 // Creates a prepared select statement
-		$statement = self::$connection->prepare("SELECT eventDate,notes,repeated,repeatFrequency,title,dogs.name,eventID, events.unique_loginID FROM events,dogs WHERE events.dogID=dogs.dogID and events.unique_loginID=:user order by dogs.name");
-               // $statement = self::$connection->prepare("SELECT * FROM Dogs INNER JOIN Events ON Dogs.dogID = Events.dogID WHERE Dogs.unique_loginID =d41d8cd98f00b204e9800998ecf8427e order by dogs.name");
+		//$statement = self::$connection->prepare("SELECT eventDate,notes,repeated,repeatFrequency,title,dogs.name,eventID, events.unique_loginID FROM events,dogs WHERE events.dogID=dogs.dogID and events.unique_loginID=:user order by dogs.name");
+		$statement = self::$connection->prepare("SELECT eventDate,notes,repeated,repeatFrequency,title,dogs.name,eventID, events.unique_loginID FROM events,dogs WHERE events.unique_loginID=:user and dogs.unique_loginID=:user order by dogs.name");
+	       // $statement = self::$connection->prepare("SELECT * FROM Dogs INNER JOIN Events ON Dogs.dogID = Events.dogID WHERE Dogs.unique_loginID =d41d8cd98f00b204e9800998ecf8427e order by dogs.name");
                 // References namespace of dog to query
 		$statement->bindParam(':user', $query, PDO::PARAM_STR);
                 $statement->execute();
@@ -49,15 +54,18 @@
         }
         
         public function insert($content){
-	    //Insert new events
-            $statement = self::$connection->prepare("INSERT INTO events (eventDate,notes,repeated,repeatFrequency,title)VALUES (:eventDate,notes,repeated,repeatFrequency,title)");
-            $statement->bindParam(':secid', $sectionId, PDO::PARAM_STR);
-            $statement->bindParam(':term', $text, PDO::PARAM_STR);
-            $statement->bindParam(':img', $sqlImageFile, PDO::PARAM_STR);
-            $statement->bindParam(':audio', $sqlAudioFile, PDO::PARAM_STR);
-            $statement->bindParam(':sentence', $sentence, PDO::PARAM_STR);
+        //Insert new events
+            $statement = self::$connection->prepare("INSERT INTO events (eventDate,notes,repeated,repeatFrequency,title, unique_loginID)VALUES (:eventDate, :notes, :repeated, :repeatFrequency, :title, :uidstr )");
+            $statement->bindParam(':eventDate', $content['eventDate'], PDO::PARAM_STR);
+            $statement->bindParam(':notes', $content['notes'], PDO::PARAM_STR);
+            $statement->bindParam(':repeated', $content['repeated'], PDO::PARAM_STR);
+            $statement->bindParam(':repeatFrequency', $content['frequency'], PDO::PARAM_STR);
+            $statement->bindParam(':title', $content['title'], PDO::PARAM_STR);
+            $statement->bindParam(':uidstr', $content['uidstr'], PDO::PARAM_STR);
+
             $statement->execute();
         }
+        
         
         public function delete(){
            //Delete events 
