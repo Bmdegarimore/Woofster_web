@@ -37,14 +37,13 @@ h1{
 }
 
 .landingText{
-    font-size: 1.5em;
+    font-size: 1.8em;
     line-height: 1.8em;
 }
 
+
 .featureImage{
-    margin-top: 5em;
-    max-height: 150em;
-    max-width: 75em;
+max-width: 80%;
 
 }
 
@@ -65,6 +64,7 @@ h1{
 #socialMedia{
     margin-bottom: 10em;
     padding-top: 10em;
+
 }
 
 #about{
@@ -73,7 +73,7 @@ h1{
 }
 #team{
     
-    margin-top: 5em;
+   
 }
 
 .bg-social{
@@ -106,5 +106,28 @@ h1{
     border-color: #007299;
     color: #007299;
     box-shadow: none;
+}
+
+
+/************************
+    Media Query
+*************************/
+
+
+@media (max-width: 600px) {
+
+h1{
+    font-size: 3em;
+}
+
+.landingText{
+    font-size: 1.2em;
+    line-height: 1.8em;
+}
+
+.landingImg{
+    display: none;
+}
+
 }
 
