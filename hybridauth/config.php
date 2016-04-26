@@ -15,6 +15,13 @@ $config =array(
 			"Google" => array ( 
 				"enabled" => true,
 				"keys"    => array ( "id" => "77308977075-d6krcuc0khaa7ofqikabr75vap2vemp6.apps.googleusercontent.com", "secret" => "zsH95AemdKkv-Bfsgk0HgXGM" ), 
+			),
+
+			"Facebook" => array(
+				"enabled" => true,
+				"keys" => array("id" => "523418967837533", "secret" => "713ba2ef401dbe589405289f6df3703a"),
+				"scope"   => "email, public_profile",
+				"trustForwarded" => false
 			)
 		),
 		// if you want to enable logging, set 'debug_mode' to true  then provide a writable file by the web server on "debug_file"

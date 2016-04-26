@@ -50,7 +50,7 @@ if(isset($_GET['provider'])) {
                         $userResult = $model->selectUser($uidstr);
 
                         //Check if there was a result
-                        if($userResult == 1){
+                        if(count($userResult) == 1){
                                 //Check if the user has a dog
                                 $dogResult = $model->selectDog($uidstr);
 
@@ -63,7 +63,7 @@ if(isset($_GET['provider'])) {
                                         $model->insertDog('dog', $uidstr);
                                 }
                         }
-                        else if($userResult == 0) {
+                        else if(count($userResult) == 0) {
                                 //Create the user using the email, provider, and uidstr
                                 $model->insertUser($user_profile->email, $provider, $uidstr);
 
@@ -77,8 +77,10 @@ if(isset($_GET['provider'])) {
                         echo "<img src='".$user_profile->photoURL."'/><br>";
                         echo "<b>Email</b> :".$user_profile->email."<br>";
                         echo "<br> <a href='logout.php'>Logout</a>";*/
-                }	        
 
+                        //Redirect the user to the userspace
+                        header("Location: ../app/userspace/");
+                }	  
         }
         catch( Exception $e )
         { 
@@ -121,8 +123,5 @@ if(isset($_GET['provider'])) {
                 echo "<p>It looks like you encountered an error! <br> <a href='../index.html'>Back to home page</a></p>";
 
         }
-        
-        //Redirect the user to the userspace
-        header("Location: ../app/userspace/");
 }
 ?>

@@ -52,7 +52,6 @@
             try{
         
                 // Creates a prepared select statement
-                // $statement = self::$connection->prepare("SELECT * FROM Dogs INNER JOIN Events ON Dogs.dogID = Events.dogID WHERE Dogs.unique_loginID =d41d8cd98f00b204e9800998ecf8427e order by dogs.name");
                 $statement = self::$connection->prepare("SELECT * FROM users WHERE unique_loginID = :uid");
 
                 // References namespace of dog to query
