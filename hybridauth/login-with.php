@@ -80,6 +80,7 @@ if(isset($_GET['provider'])) {
                         echo "<br> <a href='logout.php'>Logout</a>";*/
 
                         //Redirect the user to the userspace
+                        $model->disconnect();
                         header("Location: ../app/userspace/");
                 }	  
         }

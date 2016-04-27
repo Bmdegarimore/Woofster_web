@@ -6,3 +6,11 @@
 [20-Apr-2016 22:35:55 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/woofster/public_html/hybridauth/login-with.php:57) in /home/woofster/public_html/hybridauth/login-with.php on line 78
 [21-Apr-2016 09:58:17 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/woofster/public_html/hybridauth/login-with.php:57) in /home/woofster/public_html/hybridauth/login-with.php on line 78
 [21-Apr-2016 12:32:56 America/Chicago] PHP Catchable fatal error:  Object of class UserUniqueIdentifier could not be converted to string in /home/woofster/public_html/hybridauth/dbModel.php on line 59
+[27-Apr-2016 10:46:28 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function disconnect() in /home/woofster/public_html/hybridauth/login-with.php:83
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/hybridauth/login-with.php on line 83
+[27-Apr-2016 10:46:33 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function disconnect() in /home/woofster/public_html/hybridauth/login-with.php:83
+Stack trace:
+#0 {main}
+  thrown in /home/woofster/public_html/hybridauth/login-with.php on line 83

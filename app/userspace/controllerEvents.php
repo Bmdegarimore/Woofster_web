@@ -12,12 +12,14 @@ session_start();
    
    //Post used to confirm change in contact
    if($_POST['update']== 'update'){
-    $action = 'save';
+    $action = 'update';
    } else if($_POST['update']== 'delete'){
-    $action = 'save';
+    $action = 'delete';
    } else if($_POST['update']== 'add'){
     $action = 'insert';
    }
+   
+   echo($_POST['update']);
    
    // Initialize Database
    $db = new EventModel();
@@ -39,7 +41,7 @@ session_start();
         break;
        
     //Save contact after edit
-    case "save":
+    case "update":
          //create array to hold content for insertion in db
         $content = array();
         $content['title'] = $_POST['eventTitle'];
@@ -53,11 +55,18 @@ session_start();
        
     //Delete a contact
     case "delete":
-        if(isset($_GET['id'])){
-            include 'deleteEvent.php';
-        }else{
-            include 'failure.php';
-        }
+        $eventIDInfo = $_POST['event'];
+        $loginIDInfo = $uidstr;
+        
+        echo('Event:'.$eventIDInfo);
+        echo('Login:'.$loginIDInfo);
+        
+        $db->deleteEvent($eventIDInfo,$loginIDInfo);
+        
+        //reload display
+        $events = $db->selectEvents($uidstr);
+        // Load show events
+        include_once 'showEvents.php';
         break;
        
     //Insert a contact
@@ -69,10 +78,11 @@ session_start();
         $existingUser = $uidstr;
         
         //Attempt to insert into database
-        $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
+        //$db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
         //reload display
         $events = $db->selectEvents($uidstr);
-        include_once 'showEvents.php';
+        // Load show events
+        //include_once 'showEvents.php';
         break;
        
     //Display list

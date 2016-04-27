@@ -43,8 +43,10 @@
                 $notes =$row['notes'];
                 $eventID = $row['eventID'];
                 $userID = $row['unique_loginID'];
-                $edit ="<a href='?select=events&action=edit&row=$counter&id=$eventID'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a>";
-                $delete ="<a href='?select=events&action=delete&row=$counter&id=$eventID'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>";
+                $edit="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Edit' data-value='update'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>";
+                $delete="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Delete' data-value='delete' data-event=$eventID><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>";
+                //$edit ="<a href='?select=events&action=edit&row=$counter&id=$eventID'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a>";
+                //$delete ="<a href='?select=events&action=delete&row=$counter&id=$eventID'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>";
                 $counter++;
                 echo "<tr><td>$eventTitle</td><td>$eventDate</td><td>$notes</td><td>$edit</td><td>$delete</td></tdtr>";
             };
@@ -53,7 +55,7 @@
     </table>
     <br>
      <div class='text-center'>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAdd">Add Contact</button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAdd" data-title='Add' data-value='add'>Add Contact</button>
         <br><br>
     </div>
      
@@ -84,11 +86,12 @@
                             <label for="notes" class="control-label">Notes</label>
                             <textarea class="form-control" rows="4" name="notes" id="notes"></textarea>
                         </div>
+                         <input type="hidden" name="eventID" value="">
                 </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Close</button>
-                <button type="submit" class="btn btn-primary" id="add" name="update" value="add">Add Event</button>
+                <button type="submit" class="btn btn-primary" id="button" name="update" value="add">Add Event</button>
               </div>
             </div>
         </form>
@@ -103,7 +106,24 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script>
-    $(document).ready(function() {
-    $('#example').DataTable();
-} );
+    $(document).ready(function()
+    {
+        $('#example').DataTable();
+        
+        $('#modalAdd').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var title = button.data('title'); // Extract info from data-* attributes
+            var changedValue = button.data('value');
+            // Needed to pass event ID to delete
+            var eventID = button.data('event');
+        
+            var modal = $(this);
+            modal.find('.modal-title').text(title + " Event");
+            modal.find('#button').text(title + " Event");
+            modal.find('#button').val(changedValue);
+            modal.find('#event').val(eventID);
+            //$('#button').val(changedValue);
+            //$('#event').val(eventID);
+        });
+    } );
 </script>
