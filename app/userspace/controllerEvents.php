@@ -25,7 +25,7 @@ session_start();
    
    //$query = "d41d8cd98f00b204e9800998ecf8427e";
    //Help pass contacts to different switches
-   $events = $db->select($uidstr);
+   $events = $db->selectEvents($uidstr);
    //print_r($events);
    
    switch($action){
@@ -45,12 +45,10 @@ session_start();
         $content = array();
         $content['title'] = $_POST['eventTitle'];
         $content['eventDate'] = $_POST['eventDate'];
-        $content['repeated'] = $_POST['isRepeated'];
-        $content['frequency'] = $_POST['repeatFreq'];
         $content['notes'] = $_POST['notes'];
         $content['uidstr'] = $uidstr;
         //save to db
-        $db->insert($content);
+        $db->insertEvent($content);
         include 'success.php';
         break;
        
