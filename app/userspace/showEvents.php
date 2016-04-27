@@ -55,7 +55,7 @@
     </table>
     <br>
      <div class='text-center'>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAdd" data-title='Add' data-value='add'>Add Contact</button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAdd" data-title='Add' data-value='add'>Add Event</button>
         <br><br>
     </div>
      
@@ -110,20 +110,23 @@
     {
         $('#example').DataTable();
         
+        //When the button is clicked, show the appropriate modal
         $('#modalAdd').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Button that triggered the modal
-            var title = button.data('title'); // Extract info from data-* attributes
+        	// Button that triggered the modal
+            var button = $(event.relatedTarget); 
+            
+            // Extract info from data-* attributes
+            var title = button.data('title'); 
             var changedValue = button.data('value');
+            
             // Needed to pass event ID to delete
             var eventID = button.data('event');
-        
+        	
             var modal = $(this);
             modal.find('.modal-title').text(title + " Event");
             modal.find('#button').text(title + " Event");
             modal.find('#button').val(changedValue);
             modal.find('#eventID').val(eventID);
-            //$('#button').val(changedValue);
-            //$('#event').val(eventID);
         });
     } );
 </script>
