@@ -52,23 +52,24 @@ if(isset($_GET['provider'])) {
                         //Check if there was a result
                         if(count($userResult) == 1){
                                 //Check if the user has a dog
-                                $dogResult = $model->selectDog($uidstr);
+                                //$dogResult = $model->selectDog($uidstr);
 
                                 //If the user has a dog
+                                /* Disabled til another sprint
                                 if($dogResult == 1){
                                         //do nothing, it's all good
                                 }
                                 else if ($dogResult == 0) {
                                         //Create the dog
                                         $model->insertDog('dog', $uidstr);
-                                }
+                                } */
                         }
                         else if(count($userResult) == 0) {
                                 //Create the user using the email, provider, and uidstr
                                 $model->insertUser($user_profile->email, $provider, $uidstr);
 
                                 //Create the dog
-                                $model->insertDog('dog', $uidstr);
+                                //$model->insertDog('dog', $uidstr);
                         }
 
                         /*echo "<b>Name</b> :".$user_profile->displayName."<br>";
