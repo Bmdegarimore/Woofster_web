@@ -16,14 +16,13 @@ session_start();
    } else if($_POST['update']== 'delete'){
     $action = 'save';
    } else if($_POST['update']== 'add'){
-    $action = 'save';
+    $action = 'insert';
    }
    
    // Initialize Database
    $db = new EventModel();
    $db->connect();
-   
-   //$query = "d41d8cd98f00b204e9800998ecf8427e";
+ 
    //Help pass contacts to different switches
    $events = $db->selectEvents($uidstr);
    //print_r($events);
@@ -59,6 +58,21 @@ session_start();
         }else{
             include 'failure.php';
         }
+        break;
+       
+    //Insert a contact
+    case "insert":
+        //Grab Posts to insert into database
+        $newTitle = $_POST['eventTitle'];
+        $newDateTime= $_POST['eventDate'];
+        $newNotes = $_POST['notes'];
+        $existingUser = $uidstr;
+        
+        //Attempt to insert into database
+        $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
+        //reload display
+        $events = $db->selectEvents($uidstr);
+        include_once 'showEvents.php';
         break;
        
     //Display list

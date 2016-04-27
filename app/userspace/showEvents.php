@@ -60,37 +60,38 @@
     <!-- Modal to Add -->
     <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Add Event</h4>
-          </div>
-          <div class="modal-body">
-            <div class="text-center container">
-            
-                <form  class="form-horizontal" method="post" action="?select=events">
-                   <div class="col-sm-12">
-                        <label for="eventTitle" class="control-label">Event Title</label>
-                        <input type="text" class="form-control" name="eventTitle" id="eventTitle">
-                    </div>
-                    <div class="col-sm-12">
-                        
-                        <label for="eventDate" class="control-label">Event Date</label>
-                        <input type="text" class="form-control" name="eventDate" id="eventDate">
-                    </div>
-                   
-                    <div class="col-sm-12">
-                        <label for="notes" class="control-label">Notes</label>
-                        <textarea class="form-control" rows="4" name="notes" id="notes"></textarea>
-                    </div>
-                </form>
+        <form id="addForm"  class="form-horizontal" method="post" action="?select=events">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Event</h4>
+              </div>
+              <div class="modal-body">
+                <div class="text-center container">
+                
+                    
+                       <div class="col-sm-12">
+                            <label for="eventTitle" class="control-label">Event Title</label>
+                            <input type="text" class="form-control" name="eventTitle" id="eventTitle">
+                        </div>
+                        <div class="col-sm-12">
+                            
+                            <label for="eventDate" class="control-label">Event Date</label>
+                            <input type="text" class="form-control" name="eventDate" id="eventDate">
+                        </div>
+                       
+                        <div class="col-sm-12">
+                            <label for="notes" class="control-label">Notes</label>
+                            <textarea class="form-control" rows="4" name="notes" id="notes"></textarea>
+                        </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Close</button>
+                <button type="submit" class="btn btn-primary" id="add" name="update" value="add">Add Event</button>
+              </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Close</button>
-            <button type="button" class="btn btn-primary" name="add">Add Event</button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
     <!-- End of Add -->
@@ -99,6 +100,8 @@
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
     $('#example').DataTable();
