@@ -44,7 +44,7 @@
                 $eventID = $row['eventID'];
                 $userID = $row['unique_loginID'];
                 $edit ="<a href='?select=events&action=edit&row=$counter&id=$eventID'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></a>";
-                $delete ="<a href='?select=events&action=delete&row=$counter&id=$eventID'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a>";
+                $delete ="<a href='?select=events&action=delete&row=$counter&id=$eventID'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>";
                 $counter++;
                 echo "<tr><td>$eventTitle</td><td>$eventDate</td><td>$notes</td><td>$edit</td><td>$delete</td></tdtr>";
             };
@@ -53,9 +53,47 @@
     </table>
     <br>
      <div class='text-center'>
-        <a href="?select=events&action=add"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal">Add Contact</button></a>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAdd">Add Contact</button>
         <br><br>
     </div>
+     
+    <!-- Modal to Add -->
+    <div class="modal fade" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Add Event</h4>
+          </div>
+          <div class="modal-body">
+            <div class="text-center container">
+            
+                <form  class="form-horizontal" method="post" action="?select=events">
+                   <div class="col-sm-12">
+                        <label for="eventTitle" class="control-label">Event Title</label>
+                        <input type="text" class="form-control" name="eventTitle" id="eventTitle">
+                    </div>
+                    <div class="col-sm-12">
+                        
+                        <label for="eventDate" class="control-label">Event Date</label>
+                        <input type="text" class="form-control" name="eventDate" id="eventDate">
+                    </div>
+                   
+                    <div class="col-sm-12">
+                        <label for="notes" class="control-label">Notes</label>
+                        <textarea class="form-control" rows="4" name="notes" id="notes"></textarea>
+                    </div>
+                </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Close</button>
+            <button type="button" class="btn btn-primary" name="add">Add Event</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Add -->
     
 
 

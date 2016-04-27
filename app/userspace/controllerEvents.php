@@ -60,12 +60,7 @@ session_start();
             include 'failure.php';
         }
         break;
-      
-    //Add a user
-    case "add":
-        // TODO: Add to database
-        include 'addEvent.php';
-        break;
+       
     //Display list
     default:
         include 'showEvents.php';
