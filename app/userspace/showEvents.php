@@ -86,7 +86,7 @@
                             <label for="notes" class="control-label">Notes</label>
                             <textarea class="form-control" rows="4" name="notes" id="notes"></textarea>
                         </div>
-                         <input type="hidden" name="eventID" value="">
+                         <input type="hidden" id="eventID" name="eventID" value="">
                 </div>
               </div>
               <div class="modal-footer">
@@ -121,7 +121,7 @@
             modal.find('.modal-title').text(title + " Event");
             modal.find('#button').text(title + " Event");
             modal.find('#button').val(changedValue);
-            modal.find('#event').val(eventID);
+            modal.find('#eventID').val(eventID);
             //$('#button').val(changedValue);
             //$('#event').val(eventID);
         });

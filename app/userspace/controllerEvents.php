@@ -55,7 +55,7 @@ session_start();
        
     //Delete a contact
     case "delete":
-        $eventIDInfo = $_POST['event'];
+        $eventIDInfo = $_POST['eventID'];
         $loginIDInfo = $uidstr;
         
         echo('Event:'.$eventIDInfo);
@@ -78,11 +78,11 @@ session_start();
         $existingUser = $uidstr;
         
         //Attempt to insert into database
-        //$db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
+        $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
         //reload display
         $events = $db->selectEvents($uidstr);
         // Load show events
-        //include_once 'showEvents.php';
+        include_once 'showEvents.php';
         break;
        
     //Display list
