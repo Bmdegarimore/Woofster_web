@@ -18,9 +18,8 @@
                 <th>Event Title</th>
                 <th>Event Date</th>
                 <th>Notes</th>
-                <th>Event Title</th>
-                <th>Event Date</th>
-                <th>Notes</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
  
@@ -36,6 +35,7 @@
  
         <tbody>
           <?php
+            // Counter to keep track of multidimensional array
             $counter = 0;
             foreach($events as $row){
                 $eventTitle =$row['title'];

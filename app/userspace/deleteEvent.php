@@ -11,15 +11,6 @@
             <label for="eventDate" class="control-label">Event Date</label>
             <input type="text" class="form-control" name="eventDate" id="eventDate" value="<?php if(isset($_GET['id'])){echo($events[$_GET['row']][eventDate]);}; ?>">
         </div>
-        <div class="col-sm-6">
-       
-            <label for="isRepeated" class="control-label">Repeated</label>
-            <input type="text" class="form-control" name="isRepeated" id="isRepeated" value="<?php if(isset($_GET['id'])){echo($events[$_GET['row']][repeated]);}; ?>">
-        </div>
-        <div class="col-sm-6">
-            <label for="repeatFreq" class="control-label">How Frequent</label>
-            <input type="text" class="form-control" name="repeatFreq" id="repeatFreq" value="<?php if(isset($_GET['id'])){echo($events[$_GET['row']][repeatFrequency]);}; ?>">
-        </div>
        
         <div class="col-sm-12">
             <label for="notes" class="control-label">Notes</label>

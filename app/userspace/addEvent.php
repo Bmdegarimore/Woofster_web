@@ -14,15 +14,6 @@ session_start();
             <label for="eventDate" class="control-label">Event Date</label>
             <input type="text" class="form-control" name="eventDate" id="eventDate">
         </div>
-        <div class="col-sm-6">
-       
-            <label for="isRepeated" class="control-label">Repeated</label>
-            <input type="text" class="form-control" name="isRepeated" id="isRepeated">
-        </div>
-        <div class="col-sm-6">
-            <label for="repeatFreq" class="control-label">How Frequent</label>
-            <input type="text" class="form-control" name="repeatFreq" id="repeatFreq">
-        </div>
        
         <div class="col-sm-12">
             <label for="notes" class="control-label">Notes</label>
