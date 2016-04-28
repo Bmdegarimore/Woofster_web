@@ -14,10 +14,12 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment-with-locales.js">
   <!--<link rel="stylesheet" href="css/launcherStyle.css">-->
 
   <!-- Custom styling plus plugins -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.css">
   <!--<link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.3.css" />-->
   <link href="assets/css/icheck/flat/green.css" rel="stylesheet" />
   <link href="assets/css/floatexamples.css" rel="stylesheet" type="text/css" />
@@ -25,6 +27,7 @@
   <!-- Global JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="assets/js/bootstrap-datetimepicker.min.js"></script>
 
   <!-- Custom JS -->
   <script src="js/nprogress.js"></script>
