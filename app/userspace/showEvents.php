@@ -43,8 +43,8 @@
                 $notes =$row['notes'];
                 $eventID = $row['eventID'];
                 $userID = $row['unique_loginID'];
-                $edit="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Edit' data-value='update'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>";
-                $delete="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Delete' data-value='delete' data-event=$eventID><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>";
+                $edit="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Edit' data-value='update' data-row=$counter><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>";
+                $delete="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Delete' data-value='delete' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>";
                 $counter++;
                 echo "<tr><td>$eventTitle</td><td>$eventDate</td><td>$notes</td><td>$edit</td><td>$delete</td></tdtr>";
             };
@@ -114,13 +114,10 @@
 <script>
     $(document).ready(function()
     {
+        //Grabs all events and puts into jsonarray
+        var jsonEvents = <?php echo json_encode($events, JSON_PRETTY_PRINT) ?>;
         
-        $('#eventDate').datetimepicker({
-            inline:true,
-            minDate: '0'
-            
-
-        });
+       
  
         $('#example').DataTable();
         
@@ -133,14 +130,45 @@
             var title = button.data('title'); 
             var changedValue = button.data('value');
             
-            // Needed to pass event ID to delete
-            var eventID = button.data('event');
-        	
+            // Grabs row to edit or delete
+            var rowSelected = button.data('row');
+            
             var modal = $(this);
             modal.find('.modal-title').text(title + " Event");
             modal.find('#button').text(title + " Event");
             modal.find('#button').val(changedValue);
-            modal.find('#eventID').val(eventID);
+            
+            //Make sure fields avail to edit
+            modal.find('#eventTitle').prop('disabled',false);
+            modal.find('#notes').prop('disabled', false);
+            
+            // Loads empty modal
+            if (title == 'Add') {
+                // Make sure add fields are blank
+                rowSelected = null;
+                modal.find("input[type=text], textarea").val("")
+                $('#eventDate').datetimepicker({
+                    inline:true,
+                    minDate: '0',
+                    value: '0'
+                });
+                
+            } else {
+                // Populates data to see from event either delete or edit
+                // Needed to pass event ID to delete
+                var eventID = button.data('event');
+                modal.find('#eventID').val(eventID);
+                modal.find('#eventTitle').val(jsonEvents[rowSelected].title);
+                modal.find('#notes').val(jsonEvents[rowSelected].notes);
+                modal.find('#eventDate').val(jsonEvents[rowSelected].eventDate);
+                $('#eventDate').datetimepicker({inline:true, value: jsonEvents[rowSelected].eventDate});
+                if (title == 'Delete') {
+                    //Adds read only to fields
+                    modal.find('#eventTitle').prop('disabled',true);
+                    modal.find('#notes').prop('disabled', true);
+                    //Insert disabled calendar
+                }
+            }
         });
     } );
 </script>
