@@ -72,12 +72,12 @@
                     
                        <div class="col-sm-12">
                             <label for="eventTitle" class="control-label">Event Title</label>
-                            <input type="text" class="form-control" name="eventTitle" id="eventTitle">
+                            <input type="text" class="form-control" name="eventTitle" id="eventTitle" maxlength="128" required>
                         </div>
                         <br>
                         <div class="col-sm-12">
                             <label for="notes" class="control-label">Notes</label>
-                            <textarea class="form-control" rows="4" name="notes" id="notes"></textarea>
+                            <textarea class="form-control" rows="4" name="notes" id="notes" maxlength="255"></textarea>
                         </div>
                         <br>
                         <div class="col-sm-12">
@@ -86,7 +86,7 @@
                                     <label for="eventDate" class="control-label">Event Date</label>
                                 </div>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="eventDate" name="eventDate"/>
+                                    <input type="text" class="form-control" id="eventDate" name="eventDate" required/>
                                 </div>
                             </div>
                         </div>
@@ -117,9 +117,11 @@
         //Grabs all events and puts into jsonarray
         var jsonEvents = <?php echo json_encode($events, JSON_PRETTY_PRINT) ?>;
         
-       
- 
-        $('#example').DataTable();
+        $('#example').DataTable( {
+        "scrollY":        "30em",
+        "scrollCollapse": false,
+        "paging":         false
+    } );
         
         //When the button is clicked, show the appropriate modal
         $('#modalAdd').on('show.bs.modal', function (event) {
