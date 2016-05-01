@@ -1,6 +1,6 @@
 <?php
 session_start();
-    include("eventModel.php");
+    include("model/eventModel.php");
     //set $uidstr to equal the session id
     $uidstr = $_SESSION['user_uniqueId'];
     
@@ -30,17 +30,8 @@ session_start();
    //print_r($events);
    
    switch($action){
-    //User edit existing contact
-    case "edit":
-        if(isset($_GET['id']))
-        {
-            include 'editEvent.php';
-        }else{
-            include 'failure.php';
-        }
-        break;
        
-    //Save contact after edit
+    //Save event after edit
     case "update":
         $updatedTitle = $_POST['eventTitle'];
         $updatedDate = $_POST['eventDate'];
@@ -59,10 +50,10 @@ session_start();
         $events = $db->selectEvents($userID);
         
         // Load show events
-        include_once 'showEvents.php';
+        include_once 'view/showEvents.php';
         break;
        
-    //Delete a contact
+    //Delete an event
     case "delete":
         $eventIDInfo = $_POST['eventID'];
         $loginIDInfo = $uidstr;
@@ -75,10 +66,10 @@ session_start();
         //reload display
         $events = $db->selectEvents($uidstr);
         // Load show events
-        include_once 'showEvents.php';
+        include_once 'view/showEvents.php';
         break;
        
-    //Insert a contact
+    //Insert an event
     case "insert":
         //Grab Posts to insert into database
         $newTitle = $_POST['eventTitle'];
@@ -91,12 +82,12 @@ session_start();
         //reload display
         $events = $db->selectEvents($uidstr);
         // Load show events
-        include_once 'showEvents.php';
+        include_once 'view/showEvents.php';
         break;
        
     //Display list
     default:
-        include 'showEvents.php';
+        include 'view/showEvents.php';
         
     
    }
