@@ -43,7 +43,7 @@
                 $notes =$row['notes'];
                 $eventID = $row['eventID'];
                 $userID = $row['unique_loginID'];
-                $edit="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Edit' data-value='update' data-row=$counter><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>";
+                $edit="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Edit' data-value='update' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>";
                 $delete="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Delete' data-value='delete' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>";
                 $counter++;
                 echo "<tr><td>$eventTitle</td><td>$eventDate</td><td>$notes</td><td>$edit</td><td>$delete</td></tdtr>";
@@ -155,7 +155,7 @@
                 
             } else {
                 // Populates data to see from event either delete or edit
-                // Needed to pass event ID to delete
+               
                 var eventID = button.data('event');
                 modal.find('#eventID').val(eventID);
                 modal.find('#eventTitle').val(jsonEvents[rowSelected].title);

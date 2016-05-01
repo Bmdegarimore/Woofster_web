@@ -42,15 +42,24 @@ session_start();
        
     //Save contact after edit
     case "update":
-         //create array to hold content for insertion in db
-        $content = array();
-        $content['title'] = $_POST['eventTitle'];
-        $content['eventDate'] = $_POST['eventDate'];
-        $content['notes'] = $_POST['notes'];
-        $content['uidstr'] = $uidstr;
+        $updatedTitle = $_POST['eventTitle'];
+        $updatedDate = $_POST['eventDate'];
+        $updatedNotes = $_POST['notes'];
+        $existingEventID = $_POST['eventID'];
+        $userID = $uidstr;
+        echo('Title:'.$updatedTitle);
+        echo('date:'.$updatedDate);
+        echo('note:'.$updatedNotes);
+        echo('eventID'.$eventID);
+        echo('user'.$userID);
         //save to db
-        $db->insertEvent($content);
-        include 'success.php';
+        $db->updateEvent($updatedTitle,$updatedDate,$updatedNotes,$existingEventID,$userID);
+        
+        //reload display
+        $events = $db->selectEvents($userID);
+        
+        // Load show events
+        include_once 'showEvents.php';
         break;
        
     //Delete a contact
