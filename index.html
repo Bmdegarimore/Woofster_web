@@ -39,46 +39,67 @@
 <!-- End Of Analytics -->
 
 </head>
-<body id="myPage">
-
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#myPage"><i class="fa fa-paw"></i> Woofster <i class="fa fa-paw"></i></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><button class="btn btn-primary outline" data-toggle="modal" data-target="#myModal">ALREADY A MEMBER?</button></li>
-
-        <!--<li><a href="#about">ABOUT US</a></li>   disabled -->
-      </ul>
-    </div>
-  </div>
-</nav>
+<body>
 
 <!-- Landing Section -->
   <div class="landing">
     <div class="container">
-      <div class="row animated bounceInDown">
-        <div class="col-lg-7 ">
-          <h1>Join Woofster Today!</h1>
-          <br>
-           
-            <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+      <div class="row animated bounceInDown well">
+        <div class="col-lg-12">
 
-            
+
+  <div class="text-center">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Sign in</h2>
+
+      <h2 class="text-muted">Please Sign in with Social Media</h2>
+      <br><br>
+
+      
+<p>
+<a class="btn btn-primary social-login-btn social-facebook" href="hybridauth/login-with.php?provider=Facebook"><i class="fa fa-facebook"></i></a>
+<a class="btn btn-primary social-login-btn social-google" href="hybridauth/login-with.php?provider=Google"><i class="fa fa-google-plus"></i></a>
+</p>
+
+<!--<div class="btn-group social-login-more">
+  <button type="button" class="btn btn-default dropdown-toggle btn-block" data-toggle="dropdown">
+    More...
+  </button>
+  <ul class="dropdown-menu text-left " role="menu">
+    <li><a href="#"><i class="fa fa-tumblr-sign"></i>   Tumblr</a></li>
+    <li><a href="#"><i class="fa fa-github-alt"></i>   Github</a></li>
+    <li><a href="#"><i class="fa fa-dropbox"></i>   Dropbox</a></li>
+    <li><a href="/auth/amazon"><span class="zocial-amazon"></span>   Amazon</a></li>
+    <li><a href="#"><span class="zocial-bitbucket"></span>   Bitbucket</a></li>
+    <li><a href="#"><span class="zocial-evernote"></span>   Evernote</a></li>
+    <li><a href="#"><span class="zocial-meetup"></span>   Meetup</a></li>
+    <li><a href="#"><i class="fa fa-windows"></i>   Windows Live</a></li>
+    <li><a href="#"><i class="fa fa-weibo"></i>   Weibo</a></li>
+    <li><a href="#"><i class="fa fa-foursquare"></i>   Foursquare</a></li>
+    <li><a href="#"><i class="fa fa-stackexchange"></i>   Stack Exchange</a></li>
+    <li><a href="#"><i class="fa fa-trello"></i>   Trello</a></li>
+    <li><a href="#"><span class="zocial-wordpress"></span>   Wordpress</a></li>
+  </ul>
+</div>
+<br><br>-->
+
+        <br><br>
+
+          <fieldset disabled>
+          <input class="form-control login-input disabledTextInput" placeholder="Email Address" type="text">
+          <br>
+          <input class="form-control disabledTextInput" placeholder="Password" type="password">
+          <br>
+          <button class="btn btn-lg btn-primary btn-block btn-center" type="submit">Sign in</button>
+          <br>
+          </fieldset >
+          <!--
+          <small class="create-account text-muted">Dont have a [your service] or social network account? <button class=" btn btn-sm btn-default"> Sign Up </button> </small>-->
+      </form>
+    </div>
                  
         </div><!-- /col-lg-6 -->
 
-
-        <div class="col-lg-5">
-          <span class="pull-right"><img class="landingImg img-responsive img-fluid" src="img/woofsterLogo2.png" alt="Branding Image"></span>
-        </div><!-- /col-lg-6 -->
         
       </div><!-- /row -->
 
@@ -231,58 +252,7 @@
 
                   </div>
                 </div>
-<!-- Container (Features Section) -->
-<div id="features" class="col-lg-12 container-fluid text-center">
-  <br>
-  <br>
-    <h1><i class="fa fa-paw" aria-hidden="true"></i> About Woofster <i class="fa fa-paw" aria-hidden="true"></i></h1><br><br>
-    <div class="col-lg-8 col-lg-offset-2 text-center">
-    <h4 class="landingText">Woofster is dedicated to helping pet parents improve the health and wellness of their canine companions. Our goal is to provide a one stop shop for all of your pet's needs. We have developed an online and mobile platform that connects dog owners with pet service providers and pet friendly establishments in their area and incorporates the ability to track medication and learn more about their pet's health needs. We believe that the bond between a dog and their owner is unlike any other bond and as such should be nurtured.</h4>
-    </div>
-    <img src="img/dashboard.png" class="featureImage">
-    <br><br>
-    <div class="col-lg-8 col-lg-offset-2 text-center">
-    <h4 class="landingText"></h4><br>
-    </div>
-    
 
-</div>
-
-<!-- Container (Social Media Section) -->
-<div class="bg-social col-lg-12 container-fluid text-center">
-<div id="socialMedia">
-  <br>
-  <h1><i class="fa fa-paw" aria-hidden="true"></i> Stay Connected <i class="fa fa-paw" aria-hidden="true"></i></h1>
-  <br>
-
-<div class="container-fluid text-center">
-    <a class="btn btn-social-icon btn-lg btn-facebook socialMediaIcon" href="https://www.facebook.com/woofsterapp">
-      <i class="fa fa-facebook"></i>
-    </a>
-
-    <a class="btn btn-social-icon btn-lg btn-instagram socialMediaIcon" href="https://www.instagram.com/woofsterapp/">
-      <i class="fa fa-instagram"></i>
-    </a>
-<br>
-  <h4 class="landingText">Be a part of our growing community!</h4>
-</div>
-</div>
-</div>
-<!-- Container-->
-
-<div id="team" class="container-fluid text-center bg-grey col-lg-12">
-  <br>
-  <div class="row">
-  <h1><i class="fa fa-paw" aria-hidden="true"></i> The Team <i class="fa fa-paw" aria-hidden="true"></i></h1>
-  <br>
-  <div class="col-md-8 col-md-offset-2">
-  <h4 class="landingText">We are a passionate team of software development and marketing professionals who feel that understanding our pet's
-  needs is critical to ensuring that they live a happy healthy life. Our expertise in pets, technology, and marketing has
-  driven us to develop a platform  to connect other pet parents to  all the resources that they need for their canine companion in one
-  easy to use location.</h4><br>
-  </div>
-</div>
-</div>
 
 <footer class="container-fluid text-center bg-grey">
   <a class="topPage" href="#myPage" title="To Top">
@@ -291,19 +261,6 @@
   <p>&copy; 2016 Team Woofster</p>		
 </footer>
 
-<!-- 
-  
-  <script src="js/site.js"></script> -->
-
-<!-- Page JS-->
-<script>
-$(".topPage").hover(function(){
-    $(this).find('i').attr("class", "fa fa-paw fa-lg");
- },function() {
-    $( this ).find('i').attr("class", "glyphicon glyphicon-chevron-up");
-  });
-
-</script>
 
 </body>
 </html>
