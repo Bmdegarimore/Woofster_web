@@ -5,7 +5,7 @@
     <!-- Latest compiled and minified CSS -->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.5/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     
 
 
@@ -79,7 +79,7 @@
                         <div class="col-sm-12">
                             
                             <label for="eventDate" class="control-label">Event Date</label>
-                            <input type="text" class="form-control" name="eventDate" id="eventDate">
+                            <input type="text" class="form-control" id="eventDate" name="eventDate"/>
                         </div>
                        
                         <div class="col-sm-12">
@@ -105,9 +105,17 @@
 <script src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="assets/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
 <script>
     $(document).ready(function()
     {
+        
+        $('#eventDate').datetimepicker({
+            inline:true,
+            sideBySide: true
+
+        });
+ 
         $('#example').DataTable();
         
         //When the button is clicked, show the appropriate modal
