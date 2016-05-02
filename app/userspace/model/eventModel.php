@@ -77,34 +77,32 @@ class EventModel {
   public function deleteEvent($eventID,$loginID) {
     try{
       //Grab the event from events table
-      $statement = self::$connection->prepare("SELECT FROM 'events' WHERE eventID = :eventID and unique_loginID = :loginID");
+      $statement = self::$connection->prepare("SELECT * FROM events WHERE eventID = :eventID and unique_loginID = :loginID");
       $statement->bindParam(':eventID', $eventID, PDO::PARAM_INT);
       $statement->bindParam(':loginID', $loginID, PDO::PARAM_STR);
       $statement->execute();
 
       $row = $statement->fetchAll();
-
+      
       //Get the event data
-      $eventTitle =$row['title'];
-      $eventDate =$row['eventDate'];
-      $notes =$row['notes'];
-      $eventID = $row['eventID'];
-      $userID = $row['unique_loginID'];
+      $eventTitle = $row[0]['title'];
+      $eventDate = $row[0]['eventDate'];
+      $notes = $row[0]['notes'];
 
       //insert the event into the deleted events table
-      $statement = self::$connection->prepare("INSERT INTO deletedEvents (title,eventDate,notes,unique_loginID,eventID)VALUES(:title,:eventDate,:notes,:unique_loginID,:eventID)");
-      $statement->bindParam(':title', $title, PDO::PARAM_STR);
-      $statement->bindParam(':eventDate', $eventDate, PDO::PARAM_STR);
-      $statement->bindParam(':notes',$notes, PDO::PARAM_STR);
-      $statement->bindParam(':unique_loginID', $userID, PDO::PARAM_STR);
-      $statement->bindParam(':eventID', $eventID, PDO::PARAM_INT);
-      $statement->execute();
+      $statement2 = self::$connection->prepare("INSERT INTO deletedEvents (title,eventDate,notes,unique_loginID,eventID)VALUES(:title,:eventDate,:notes,:unique_loginID,:eventID)");
+      $statement2->bindParam(':title', $eventTitle, PDO::PARAM_STR);
+      $statement2->bindParam(':eventDate', $eventDate, PDO::PARAM_STR);
+      $statement2->bindParam(':notes',$notes, PDO::PARAM_STR);
+      $statement2->bindParam(':unique_loginID', $loginID, PDO::PARAM_STR);
+      $statement2->bindParam(':eventID', $eventID, PDO::PARAM_INT);
+      $statement2->execute();
 
       // Deletes an event based on eventID and loginID
-      $statement = self::$connection->prepare("DELETE FROM `events` WHERE eventID = :eventID and unique_loginID = :loginID");
-      $statement->bindParam(':eventID', $eventID, PDO::PARAM_INT);
-      $statement->bindParam(':loginID', $loginID, PDO::PARAM_STR);
-      $statement->execute();
+      $statement3 = self::$connection->prepare("DELETE FROM events WHERE eventID = :eventID and unique_loginID = :loginID");
+      $statement3->bindParam(':eventID', $eventID, PDO::PARAM_INT);
+      $statement3->bindParam(':loginID', $loginID, PDO::PARAM_STR);
+      $statement3->execute();
     } catch(PDOException  $e ) {
       print "Error!: " . $e->getMessage() . "<br/>";
       return false;
