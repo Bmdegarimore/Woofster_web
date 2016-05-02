@@ -2,6 +2,7 @@
 session_start();
 //set uidstr to equal the session id
 $uidstr = $_SESSION['user_uniqueId'];
+$action = $_SESSION['action'];
 
 
 class EventModel {
@@ -53,21 +54,25 @@ class EventModel {
 
   // Adds a new event to event table
   public function insertEvent($title,$eventDate,$notes,$unique_loginID){
+
     try{
       //Insert new events
       $statement = self::$connection->prepare("INSERT INTO events (title,eventDate,notes,unique_loginID)VALUES(:title,:eventDate,:notes,:unique_loginID)");
-      $statement->bindParam(':title', $title, PDO::PARAM_STR);
-      $statement->bindParam(':eventDate', $eventDate, PDO::PARAM_STR);
-      $statement->bindParam(':notes',$notes, PDO::PARAM_STR);
-      $statement->bindParam(':unique_loginID', $unique_loginID, PDO::PARAM_STR);		
+        $statement->bindParam(':title', $title, PDO::PARAM_STR);
+        $statement->bindParam(':eventDate', $eventDate, PDO::PARAM_STR);
+        $statement->bindParam(':notes',$notes, PDO::PARAM_STR);
+        $statement->bindParam(':unique_loginID', $unique_loginID, PDO::PARAM_STR);		
 
       $statement->execute();
-    } catch(PDOException  $e ) {
-      print "Error!: " . $e->getMessage() . "<br/>";
-      return false;
-    }	  
+
+      } catch(PDOException  $e ) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return false;
+      }	 
+     
   }
 
+  /*TODO: look into creating a column titled "Status" w/default of active, when user selects event to delete, then the status will changed to deleted (or colomn deleted as a bool), save on tables maybe*/
 
   public function deleteEvent($eventID,$loginID) {
     try{
@@ -123,6 +128,45 @@ class EventModel {
       print "Error!: " . $e->getMessage() . "<br/>";
       return false;
     }	  
+  }
+
+  
+  public function validate($eventTitle, $eventDate, $notes){
+  
+    $isValid = true;
+
+    //validate title
+    if(!empty($eventTitle) && $eventTitle <= 128){
+        $eventTitle = trim($eventTitle);
+        $eventTitle = stripslashes($eventTitle);
+        $eventTitle = htmlspecialchars($eventTitle);
+    }
+    else{
+      $e = "You must enter a title containing no more than 128 characters.";
+      $isValid = false;
+    }
+    //validate date
+    if(!empty($eventDate)){
+        $eventDate = trim($eventDate);
+        $eventDate = stripslashes($eventDate);
+        $eventDate = htmlspecialchars($eventDate);
+    }
+    else{
+      $e = "You must enter a date for your event.";
+      $isValid = false;
+    }
+    //validation for notes
+    if(strlen($notes) <= 255){
+        $notes = trim($notes);
+        $notes = stripslashes($notes);
+        $notes= htmlspecialchars($notes);
+    }
+    else{
+      $e = "Your notes must be less than 255 charcters.";
+      $isValid = false;
+    }
+    
+  
   }
 
 

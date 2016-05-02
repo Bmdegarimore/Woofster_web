@@ -73,11 +73,13 @@
                        <div class="col-sm-12">
                             <label for="eventTitle" class="control-label">Event Title</label>
                             <input type="text" class="form-control" name="eventTitle" id="eventTitle" maxlength="128" required>
+                            <span class = "error"><?php echo $e;?></span>
                         </div>
                         <br>
                         <div class="col-sm-12">
                             <label for="notes" class="control-label">Notes</label>
                             <textarea class="form-control" rows="4" name="notes" id="notes" maxlength="255"></textarea>
+                            <span class = "error"><?php echo $e;?></span>
                         </div>
                         <br>
                         <div class="col-sm-12">
@@ -87,6 +89,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control" id="eventDate" name="eventDate" required/>
+                                    <span class = "error"><?php echo $e;?></span>
                                 </div>
                             </div>
                         </div>

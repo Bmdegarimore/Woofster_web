@@ -3,11 +3,13 @@ session_start();
     include("model/eventModel.php");
     //set $uidstr to equal the session id
     $uidstr = $_SESSION['user_uniqueId'];
+
     
     
    //Get action
    if(isset($_GET['action'])){
-    $action=$_GET['action'];    
+    $action=$_GET['action']; 
+    $_SESSION['action'] = $action;   
    }
    
    //Post used to confirm change in contact
@@ -39,8 +41,8 @@ session_start();
         $existingEventID = $_POST['eventID'];
         $userID = $uidstr;
         echo('Title:'.$updatedTitle);
-        echo('date:'.$updatedDate);
-        echo('note:'.$updatedNotes);
+        echo('Date:'.$updatedDate);
+        echo('Notes:'.$updatedNotes);
         echo('eventID'.$eventID);
         echo('user'.$userID);
         //save to db
@@ -77,6 +79,7 @@ session_start();
         $newNotes = $_POST['notes'];
         $existingUser = $uidstr;
         
+        $db->validate($newTitle, $newDateTime, $newNotes);
         //Attempt to insert into database
         $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
         //reload display
