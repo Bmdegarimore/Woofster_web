@@ -36,8 +36,8 @@
                 $currentDate->sub(new DateInterval("PT2H"));
                 $beginTimePST = $currentDate->format('Y-m-d H:00');
                 
-                $currentDate->add(new DateInterval("PT1H"));
-                $endTimePST = $currentDate->format('Y-m-d H:00');
+                //$currentDate->add(new DateInterval("PT1H59I"));
+                $endTimePST = $currentDate->format('Y-m-d H:59');
                 echo($endTimePST."end and begin".$beginTimePST);
                 
                 // Creates a prepared select statement
@@ -54,7 +54,6 @@
               print "Error!: " . $e->getMessage() . "<br/>";
               return false;
             }
-        
             return $row;
         }
         
@@ -69,18 +68,11 @@
                 echo("Title:".$individualEvents['title']);
                 echo("Note:".$individualEvents['notes']);
                 echo("Date:".$individualEvents['eventDate']);
-                echo("Email:".$individualEvents['username']);
-                $message = "<p>Title: ".$individualEvents['title']." Event</p><p>Notes for Event: ".$individualEvents['notes']."</p>";
+                echo("Email:".$individualEvents['username']."\n");
+                $message = "<p><b>Title:</b> ".$individualEvents['title']." Event</p><p>Date and Time".$individualEvents['eventDate']."</p><p><b>Notes for Event:</b> ".$individualEvents['notes']."</p>";
                 $this->sendEmail($individualEvents['username'], $message);
                 
             }
-            /*
-            $txt = "John Denver\n";
-            fwrite($myfile, $txt);
-            $txt = "Jane Doe\n";
-            fwrite($myfile, $txt);
-            fclose($myfile);
-            */
         }
         
         private function sendEmail($to, $body , $subject = "Event Reminder"){
@@ -131,19 +123,6 @@
             $mailer->send($message);
     
             //END OF EMAIL
-        }
-        
-        function append_cronjob($command){
-
-            if(is_string($command)&&!empty($command)&&cronjob_exists($command)===FALSE){
-        
-                //add job to crontab
-                exec('echo -e "`crontab -l`\n'.$command.'" | crontab -', $output);
-        
-        
-            }
-        
-            return $output;
         }
         
         
