@@ -23,18 +23,6 @@
   <!--<link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.3.css" />-->
   <link href="assets/css/icheck/flat/green.css" rel="stylesheet" />
   
-  
-  <!-- Global JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment-with-locales.js"></script>
-  
-   
-
-
-  <!-- Custom JS -->
-  <script src="assets/js/nprogress.js"></script>
-  <script src="assets/js/custom.js"></script>
 
   <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>

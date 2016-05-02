@@ -73,13 +73,11 @@
                        <div class="col-sm-12">
                             <label for="eventTitle" class="control-label">Event Title</label>
                             <input type="text" class="form-control" name="eventTitle" id="eventTitle" maxlength="128" required>
-                            <span class = "error"><?php echo $e;?></span>
                         </div>
                         <br>
                         <div class="col-sm-12">
                             <label for="notes" class="control-label">Notes</label>
                             <textarea class="form-control" rows="4" name="notes" id="notes" maxlength="255"></textarea>
-                            <span class = "error"><?php echo $e;?></span>
                         </div>
                         <br>
                         <div class="col-sm-12">
@@ -89,7 +87,6 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control" id="eventDate" name="eventDate" required/>
-                                    <span class = "error"><?php echo $e;?></span>
                                 </div>
                             </div>
                         </div>
@@ -109,71 +106,4 @@
     
 
 
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script src="assets/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
-<script>
-    $(document).ready(function()
-    {
-        //Grabs all events and puts into jsonarray
-        var jsonEvents = <?php echo json_encode($events, JSON_PRETTY_PRINT) ?>;
-        
-        $('#example').DataTable( {
-        "scrollY":        "30em",
-        "scrollCollapse": false,
-        "paging":         false
-    } );
-        
-        //When the button is clicked, show the appropriate modal
-        $('#modalAdd').on('show.bs.modal', function (event) {
-        	// Button that triggered the modal
-            var button = $(event.relatedTarget); 
-            
-            // Extract info from data-* attributes
-            var title = button.data('title'); 
-            var changedValue = button.data('value');
-            
-            // Grabs row to edit or delete
-            var rowSelected = button.data('row');
-            
-            var modal = $(this);
-            modal.find('.modal-title').text(title + " Event");
-            modal.find('#button').text(title + " Event");
-            modal.find('#button').val(changedValue);
-            
-            //Make sure fields avail to edit
-            modal.find('#eventTitle').prop('disabled',false);
-            modal.find('#notes').prop('disabled', false);
-            
-            // Loads empty modal
-            if (title == 'Add') {
-                // Make sure add fields are blank
-                rowSelected = null;
-                modal.find("input[type=text], textarea").val("")
-                $('#eventDate').datetimepicker({
-                    inline:true,
-                    minDate: '0',
-                    value: '0'
-                });
-                
-            } else {
-                // Populates data to see from event either delete or edit
-               
-                var eventID = button.data('event');
-                modal.find('#eventID').val(eventID);
-                modal.find('#eventTitle').val(jsonEvents[rowSelected].title);
-                modal.find('#notes').val(jsonEvents[rowSelected].notes);
-                modal.find('#eventDate').val(jsonEvents[rowSelected].eventDate);
-                $('#eventDate').datetimepicker({inline:true, value: jsonEvents[rowSelected].eventDate});
-                if (title == 'Delete') {
-                    //Adds read only to fields
-                    modal.find('#eventTitle').prop('disabled',true);
-                    modal.find('#notes').prop('disabled', true);
-                    //Insert disabled calendar
-                }
-            }
-        });
-    } );
-</script>
+
