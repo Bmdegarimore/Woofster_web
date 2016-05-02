@@ -34,10 +34,10 @@
                 //Grabs todays date and pulls a range of notifications
                 $currentDate = new DateTime(); //current date/time
                 $currentDate->sub(new DateInterval("PT2H"));
-                $beginTimePST = $currentDate->format('Y-m-d H:i:s');
+                $beginTimePST = $currentDate->format('Y-m-d H:00');
                 
                 $currentDate->add(new DateInterval("PT1H"));
-                $endTimePST = $currentDate->format('Y-m-d H:i:s');
+                $endTimePST = $currentDate->format('Y-m-d H:00');
                 echo($endTimePST."end and begin".$beginTimePST);
                 
                 // Creates a prepared select statement
