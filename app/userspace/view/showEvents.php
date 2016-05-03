@@ -8,7 +8,31 @@
     <link rel="stylesheet" href="assets/css/style.css">
     
 
+    <?php
+        //Check if an event had been added, edited, or removed
+        if(isset($_SESSION['event_flag'])){
+            $alert_message = '';
 
+            //Switch to see what message to put into the alert
+            switch ($_SESSION['event_flag']) {
+                case 'edited':
+                    $alert_message = "Event was updated";
+                    break;
+                case 'deleted':
+                    $alert_message = "Event was deleted";
+                    break;
+                case 'added':
+                    $alert_message = "Event was added";
+                    break;
+            }
+
+            //unset the session variable for event_flag
+            unset($_SESSION['event_flag']);
+
+            //Display the alert
+            echo "<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>$alert_message</strong></div>";
+        }
+    ?>
     
     <h1 class="text-center">Events Page:</h1>
     <br>

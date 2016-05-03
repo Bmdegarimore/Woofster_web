@@ -60,6 +60,9 @@ session_start();
         echo $updatedNotes . "<br>";
         echo $e . "<br>";
         
+        //Set a flag to indicate that the event has been added
+        $_SESSION['event_flag'] = 'edited';
+
         //reload display
         $events = $db->selectEvents($userID);
         
@@ -77,6 +80,9 @@ session_start();
         
         $db->deleteEvent($eventIDInfo,$loginIDInfo);
         
+        //set a flag to indicate successful delete
+        $_SESSION['event_flag'] = 'deleted';
+
         //reload display
         $events = $db->selectEvents($uidstr);
         // Load show events
@@ -100,6 +106,12 @@ session_start();
         echo $validatedTitle . "<br>";
         echo $validatedDate . "<br>";
         echo $validatedNotes . "<br>";
+
+        $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
+
+        //Set a flag to indicate that the event has been added
+        $_SESSION['event_flag'] = 'added';
+
         //reload display
         $events = $db->selectEvents($uidstr);
         // Load show events
