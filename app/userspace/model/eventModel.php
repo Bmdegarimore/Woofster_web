@@ -9,8 +9,6 @@ $action = $_SESSION['action'];
 
 class EventModel {
 
-
-
   // Place to store the database connection
   protected static $connection;
 
@@ -132,27 +130,72 @@ class EventModel {
     }	  
   }
 
-  public function validateTitle($data){
+  //validate title
+  public function validateTitle($eventTitle){
 
-      if(!empty($data)){
-
-        if(strlen($data) <= 12){
-          $eventTitle = trim($eventTitle);
-          $eventTitle = stripslashes($eventTitle);
-          $eventTitle = htmlspecialchars($eventTitle);
-          echo "Your title has been validated.";
-        }
+      //if is not empty and less than 128 characters
+      if(!empty($eventTitle) && strlen($eventTitle) <= 5){
+      
+        //then sanitize and fliter input 
+        $eventTitle = trim($eventTitle);
+        $eventTitle = stripslashes($eventTitle);
+        $eventTitle = htmlspecialchars($eventTitle);
+        //echo $eventTitle;
+        
+       }   
         else{
-          $e = "Please entere a title less than 128 characters.";
-          return -1;
-          }
+          $e = "Please enter a title less than 128 characters.";
+          //$_SESSION['event_flag'] = 'Was not able to edit your event' . $e ;
+          return false;
         }
-        else{
-          $e =  "Please enter an event title";
-          return -1;
-      }
-      return $data;
+        return $eventTitle;
   }
+
+
+
+    //validate date
+  public function validateDate($eventDate){
+
+      //if is not empty and less than 128 characters
+      if(!empty($eventDate)){
+      
+        //then sanitize and fliter input 
+        $eventDate = trim($eventDate);
+        $eventDate = stripslashes($eventDate);
+        $eventDate = htmlspecialchars($eventDate);
+        //echo $eventDate;
+        
+       }   
+        else{
+          $e = "Please enter a valid date and time for your event";
+          //$_SESSION['event_flag'] = 'Was not able to edit your event';
+          return false;
+        }
+        return $eventDate;
+  }
+
+
+ //validate notes
+  public function validateNotes($notes){
+
+      //if is not empty and less than 128 characters
+      if(isset($notes)){
+        
+        if(strlen($notes) <= 255){
+        //then sanitize and fliter input 
+        $notes = trim($notes);
+        $notes = stripslashes($notes);
+        $notes = htmlspecialchars($notes);
+        //echo $notes;
+      }
+      else{
+        $e = "Please keep your notes under 255 characters.";
+        return false;
+        } 
+        return $notes;
+      }    
+  }
+
 
 
 

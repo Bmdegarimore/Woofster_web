@@ -26,6 +26,7 @@ session_start();
    }
    
    echo($_POST['update']);
+
    
    // Initialize Database
    $db = new EventModel();
@@ -35,6 +36,7 @@ session_start();
    $events = $db->selectEvents($uidstr);
    //print_r($events);
    
+
    switch($action){
        
     //Save event after edit
@@ -44,21 +46,29 @@ session_start();
         $updatedNotes = $_POST['notes'];
         $existingEventID = $_POST['eventID'];
         $userID = $uidstr;
-        echo('Title:'.$updatedTitle);
-        echo('Date:'.$updatedDate);
-        echo('Notes:'.$updatedNotes);
-        echo('eventID'.$eventID);
-        echo('user'.$userID);
+
+        echo('Title:'.$updatedTitle) . "<br>";
+        echo('Date:'.$updatedDate) . "<br>";
+        echo('Notes:'.$updatedNotes) . "<br>";
+        echo('eventID'.$eventID) . "<br>";
+        echo('user'.$userID) . "<br>";
 
          //validate user input
-        $db->validateTitle($updatedTitle);
-        //save to db
-
-        $db->updateEvent($updatedTitle,$updatedDate,$updatedNotes,$existingEventID,$userID);
-        echo $updatedTitle . "<br>";
-        echo $updatedDate . "<br>";
-        echo $updatedNotes . "<br>";
-        echo $e . "<br>";
+        $validatedTitle = $db->validateTitle($updatedTitle);
+        $validatedDate = $db->validateDate($updatedDate);
+        $validatedNotes = $db->validateNotes($updatedNotes);
+        
+        //if files are valid, then save to db
+        if(($validatedTitle != false) && ($validatedDate != false) && ($validatedNotes != false)){
+          $db->updateEvent($validatedTitle,$validatedDate,$validatedNotes,$existingEventID,$userID);
+        }
+        else{
+          echo $e;
+        }
+        echo $validatedTitle . "<br>";
+        echo $validatedDate . "<br>";
+        echo $validatedNotes . "<br>";
+        
         
         //Set a flag to indicate that the event has been added
         $_SESSION['event_flag'] = 'edited';
@@ -98,16 +108,23 @@ session_start();
         $existingUser = $uidstr;
         
         //validate user input
-        
+        $validatedTitle = $db->validateTitle($newTitle);
+        $validatedDate = $db->validateDate($newDateTime);
+        $validatedNotes = $db->validateNotes($newNotes);
         //validation funtion returns new validated vars
         //Attempt to insert into database
-       $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
+        if(($validatedTitle != false) && ($validatedDate != false) && ($validatedNotes != false)){
+            $db->insertEvent($validatedTitle,$validatedDate,$validatedNotes,$existingUser);
+          }
+          else{
+            echo $e;
+          }
 
         echo $validatedTitle . "<br>";
         echo $validatedDate . "<br>";
         echo $validatedNotes . "<br>";
 
-        $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
+       // $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
 
         //Set a flag to indicate that the event has been added
         $_SESSION['event_flag'] = 'added';
