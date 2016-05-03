@@ -94,24 +94,20 @@
                 <div class="text-center container">
                 
                     
-                       <div class="col-sm-12">
+                       <div class="col-lg-12">
                             <label for="eventTitle" class="control-label">Event Title</label>
                             <input type="text" class="form-control" name="eventTitle" id="eventTitle" maxlength="128" required>
                         </div>
                         <br>
-                        <div class="col-sm-12">
+                        <div class="col-lg-12">
                             <label for="notes" class="control-label">Notes</label>
                             <textarea class="form-control" rows="4" name="notes" id="notes" maxlength="255"></textarea>
                         </div>
                         <br>
-                        <div class="col-sm-12">
+                        <div class="col-lg-12">
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <label for="eventDate" class="control-label">Event Date</label>
-                                </div>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="eventDate" name="eventDate" required/>
-                                </div>
+                                    <label for="datetimepicker12" class="control-label">Event Date</label>
+                                    <div type="datetime" class="eventDate" id="datetimepicker12" name="eventDate" required></div>
                             </div>
                         </div>
                         
