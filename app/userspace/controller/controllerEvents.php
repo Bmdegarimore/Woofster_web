@@ -1,19 +1,23 @@
 <?php
+
 session_start();
+
     include("model/eventModel.php");
     //set $uidstr to equal the session id
     $uidstr = $_SESSION['user_uniqueId'];
+
+   // $_SESSION['action'] = $action;
 
     
     
    //Get action
    if(isset($_GET['action'])){
     $action=$_GET['action']; 
-    $_SESSION['action'] = $action;   
+    $_SESSION['action'] = $action; 
    }
    
    //Post used to confirm change in contact
-   if($_POST['update']== 'update'){
+   if($_POST['update'] == 'update'){
     $action = 'update';
    } else if($_POST['update']== 'delete'){
     $action = 'delete';
@@ -45,8 +49,16 @@ session_start();
         echo('Notes:'.$updatedNotes);
         echo('eventID'.$eventID);
         echo('user'.$userID);
+
+         //validate user input
+        $db->validateTitle($updatedTitle);
         //save to db
+
         $db->updateEvent($updatedTitle,$updatedDate,$updatedNotes,$existingEventID,$userID);
+        echo $updatedTitle . "<br>";
+        echo $updatedDate . "<br>";
+        echo $updatedNotes . "<br>";
+        echo $e . "<br>";
         
         //reload display
         $events = $db->selectEvents($userID);
@@ -79,9 +91,15 @@ session_start();
         $newNotes = $_POST['notes'];
         $existingUser = $uidstr;
         
-        $db->validate($newTitle, $newDateTime, $newNotes);
+        //validate user input
+        
+        //validation funtion returns new validated vars
         //Attempt to insert into database
-        $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
+       $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
+
+        echo $validatedTitle . "<br>";
+        echo $validatedDate . "<br>";
+        echo $validatedNotes . "<br>";
         //reload display
         $events = $db->selectEvents($uidstr);
         // Load show events

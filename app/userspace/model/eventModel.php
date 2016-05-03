@@ -5,7 +5,11 @@ $uidstr = $_SESSION['user_uniqueId'];
 $action = $_SESSION['action'];
 
 
+
+
 class EventModel {
+
+
 
   // Place to store the database connection
   protected static $connection;
@@ -72,7 +76,7 @@ class EventModel {
      
   }
 
-  /*TODO: look into creating a column titled "Status" w/default of active, when user selects event to delete, then the status will changed to deleted (or colomn deleted as a bool), save on tables maybe*/
+  
 
   public function deleteEvent($eventID,$loginID) {
     try{
@@ -128,46 +132,105 @@ class EventModel {
     }	  
   }
 
-  
-  public function validate($eventTitle, $eventDate, $notes){
-  
-    $isValid = true;
+  public function validateTitle($data){
 
-    //validate title
-    if(!empty($eventTitle) && $eventTitle <= 128){
-        $eventTitle = trim($eventTitle);
-        $eventTitle = stripslashes($eventTitle);
-        $eventTitle = htmlspecialchars($eventTitle);
-    }
-    else{
-      $e = "You must enter a title containing no more than 128 characters.";
-      $isValid = false;
-    }
-    //validate date
-    if(!empty($eventDate)){
-        $eventDate = trim($eventDate);
-        $eventDate = stripslashes($eventDate);
-        $eventDate = htmlspecialchars($eventDate);
-    }
-    else{
-      $e = "You must enter a date for your event.";
-      $isValid = false;
-    }
-    //validation for notes
-    if(strlen($notes) <= 255){
-        $notes = trim($notes);
-        $notes = stripslashes($notes);
-        $notes= htmlspecialchars($notes);
-    }
-    else{
-      $e = "Your notes must be less than 255 charcters.";
-      $isValid = false;
-    }
-    
-  
+      if(!empty($data)){
+
+        if(strlen($data) <= 12){
+          $eventTitle = trim($eventTitle);
+          $eventTitle = stripslashes($eventTitle);
+          $eventTitle = htmlspecialchars($eventTitle);
+          echo "Your title has been validated.";
+        }
+        else{
+          $e = "Please entere a title less than 128 characters.";
+          return -1;
+          }
+        }
+        else{
+          $e =  "Please enter an event title";
+          return -1;
+      }
+      return $data;
   }
 
 
-}
+
+
+
+
+  /*public function validate($eventTitle){//, $eventDate, $notes){
+
+     $isValid = false;
+
+    //validate title
+    if(!empty($eventTitle)){ //&& strlen($eventTitle) <= 1){
+
+        echo sizeof($eventTitle);
+        $eventTitle = trim($eventTitle);
+        $eventTitle = stripslashes($eventTitle);
+        $eventTitle = htmlspecialchars($eventTitle);
+        $this->eventTitle = $eventTitle;
+        $isValid = true;
+
+        
+    }
+    else{
+      $e = "You must enter a title containing no more than 128 characters.";
+      
+    }
+
+    //validate date
+    if(!empty($eventDate)){
+
+        $eventDate = trim($eventDate);
+        $eventDate = stripslashes($eventDate);
+        $eventDate = htmlspecialchars($eventDate);
+        $isValid = true;
+        
+    }
+    else{
+      $e = "You must enter a date for your event.";
+
+    }
+
+    //validation for notes
+    if(strlen($notes) <= 255){
+
+        $notes = trim($notes);
+        $notes = stripslashes($notes);
+        $notes= htmlspecialchars($notes);
+        $isValid = true;
+        
+    }
+    else{
+      $e = "Your notes must be less than 255 charcters.";
+     
+    }
+    
+    if($isValid = true){
+
+      $_SESSION['eventTitle'] = $eventTitle;
+      $_SESSION['eventDate'] = $eventDate;
+      $_SESSION['notes'] = $notes;
+
+        if($action == "insert"){
+           echo "Your event has been created and added to the database.";
+        }
+        else if($action == "update"){
+          echo "Your event has been updated.";
+        }
+      }//end of isValid = true
+      else if ($isValid = false){
+
+        echo $e;
+      }
+  
+  }//end of validate function*/
+
+
+
+
+}//end of eventModel
 
 ?>
