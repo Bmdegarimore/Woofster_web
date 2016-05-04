@@ -107,11 +107,11 @@
                         <div class="col-lg-12">
                             <div class="row">
                                     <label for="datetimepicker12" class="control-label">Event Date</label>
-                                    <div type="datetime" class="eventDate" id="datetimepicker12" name="eventDate" required></div>
+                                    <input type="hidden" class="eventDate" id="datetimepicker12" name="eventDate" required>
                             </div>
                         </div>
                         
-                         <input type="hidden" id="eventID" name="eventID" value="">
+                        <input type="hidden" id="eventID" name="eventID" value="">
                 </div>
               </div>
               <div class="modal-footer">

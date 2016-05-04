@@ -43,9 +43,9 @@
         </div>
         
         <!-- Global JS -->
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+        
         <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment-with-locales.js"></script>
+        
         
          
       
@@ -54,11 +54,12 @@
         <script src="assets/js/nprogress.js"></script>
         <script src="assets/js/custom.js"></script>
               
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
         <script src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <script src="assets/datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
+       
+
+
         <script>
             $(document).ready(function()
             {
@@ -69,7 +70,14 @@
                 "scrollY":        "30em",
                 "scrollCollapse": false,
                 "paging":         false
-            } );
+                } );
+              
+              // Coverts time back to YYYY-MM-DD HH:mm:ss format
+              $('#button').click(function(){
+                var convertTime = moment($('#datetimepicker12').val()).format('YYYY-MM-DD HH:mm:ss');
+                $('#datetimepicker12').val(convertTime);
+                
+              });
                 
                 //When the button is clicked, show the appropriate modal
                 $('#modalAdd').on('show.bs.modal', function (event) {
@@ -84,6 +92,7 @@
                     var rowSelected = button.data('row');
                     
                     var modal = $(this);
+                    // Updates the Title of Event to Add, Update, or Delete
                     modal.find('.modal-title').text(title + " Event");
                     modal.find('#button').text(title + " Event");
                     modal.find('#button').val(changedValue);
@@ -96,22 +105,35 @@
                     if (title == 'Add') {
                         // Make sure add fields are blank
                         rowSelected = null;
-                        modal.find("input[type=text], textarea").val("")
-                        $('#eventDate').datetimepicker({
-                            inline:true,
-                            minDate: '0',
-                            value: '0'
+                        modal.find("input[type=text], textarea").val("");
+                        // Sets the date time picker based on the add button
+                        $('#datetimepicker12').datetimepicker({
+                          inline: true,
+                          sideBySide: true,
+                          useCurrent: true
                         });
-                        
+ 
                     } else {
                         // Populates data to see from event either delete or edit
-                       
                         var eventID = button.data('event');
                         modal.find('#eventID').val(eventID);
                         modal.find('#eventTitle').val(jsonEvents[rowSelected].title);
                         modal.find('#notes').val(jsonEvents[rowSelected].notes);
-                        modal.find('#eventDate').val(jsonEvents[rowSelected].eventDate);
-                        $('#eventDate').datetimepicker({inline:true, value: jsonEvents[rowSelected].eventDate});
+                        
+                        // Needed for now when edit or delete selected. Can eventually move out of condition logic
+                        $('#datetimepicker12').datetimepicker({
+                          inline: true,
+                          sideBySide: true
+                          //Make value equal edit or delete   
+                        });
+                        
+                        var testTime = jsonEvents[rowSelected].eventDate;
+                        // Set date and time
+                        $('#datetimepicker12').datetimepicker({
+                          format: 'YYYY-MM-DD hh:mm:ss'
+                        });
+                        $('#datetimepicker12').data("DateTimePicker").date(moment(testTime));
+                       
                         if (title == 'Delete') {
                             //Adds read only to fields
                             modal.find('#eventTitle').prop('disabled',true);
@@ -123,5 +145,5 @@
             } );
         </script>
         
-    </body
+    </body>
 </html>
