@@ -109,16 +109,11 @@ session_start();
         $existingUser = $uidstr;
         
         // Delete once everything is working 
-<<<<<<< Updated upstream
-        echo('Before validation Title:'.$newTitle.'<br>');
-        echo('Before validation Date Time:'.$newDateTime.'<br>');
-        echo('Before validation Notes:'.$newNotes.'<br>');
-=======
         /*echo('Before validation Title:'.$newTitle.'<br>');
         echo('Before validation Date Time:'.$newDateTime.'<br>');
         echo('Before validation Notes:'.$newNotes.'<br>');
         echo $user_uniqueId;*/
->>>>>>> Stashed changes
+
         
         //validate user input
         $validatedTitle = $db->validateTitle($newTitle);
