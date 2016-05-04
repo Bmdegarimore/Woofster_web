@@ -100,10 +100,19 @@
                     //Make sure fields avail to edit basically resets to original state
                     modal.find('#eventTitle').prop('disabled',false);
                     modal.find('#notes').prop('disabled', false);
+<<<<<<< Updated upstream
                     $('#datetimepicker12').prop('type','hidden');
                     
                     
                     
+=======
+                    //$('#datetimepicker12').prop('disabled','false');
+                    //$('#datetimepicker12').prop('type','hidden');
+                    //$('#datetimepicker12').data("DateTimePicker").show();
+                    
+                    
+                    
+>>>>>>> Stashed changes
                     // Sets the date time picker
                         $('#datetimepicker12').datetimepicker({
                           inline: true,
@@ -138,6 +147,7 @@
                             modal.find('#notes').prop('disabled', true);
                             //Insert disabled calendar
                             //$('#datetimepicker12').data("DateTimePicker").disable();
+<<<<<<< Updated upstream
                             //$('#datetimepicker12').prop('type','datetime');
                             $('#datetimepicker12').datetimepicker({
                               inline: true,
@@ -146,6 +156,12 @@
                               pickTime: false
                               
                             });
+=======
+                          $('#datetimepicker12').prop('type','datetime');
+                         // $('#datetimepicker12').prop('disabled',true);
+
+                          //$('#datetimepicker12').data("DateTimePicker").hide();
+>>>>>>> Stashed changes
                           
                         }
                     }

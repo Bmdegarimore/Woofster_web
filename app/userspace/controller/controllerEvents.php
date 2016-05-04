@@ -63,11 +63,12 @@ session_start();
           $db->updateEvent($validatedTitle,$validatedDate,$validatedNotes,$existingEventID,$userID);
         }
         else{
-          echo $e;
+          echo "<p style='color:red;'>" . "we were unable to edit your event." . "</p>";
         }
-        echo $validatedTitle . "<br>";
+        //for debugging purposes
+        /*echo $validatedTitle . "<br>";
         echo $validatedDate . "<br>";
-        echo $validatedNotes . "<br>";
+        echo $validatedNotes . "<br>";*/
         
         
         //Set a flag to indicate that the event has been added
@@ -108,9 +109,16 @@ session_start();
         $existingUser = $uidstr;
         
         // Delete once everything is working 
+<<<<<<< Updated upstream
         echo('Before validation Title:'.$newTitle.'<br>');
         echo('Before validation Date Time:'.$newDateTime.'<br>');
         echo('Before validation Notes:'.$newNotes.'<br>');
+=======
+        /*echo('Before validation Title:'.$newTitle.'<br>');
+        echo('Before validation Date Time:'.$newDateTime.'<br>');
+        echo('Before validation Notes:'.$newNotes.'<br>');
+        echo $user_uniqueId;*/
+>>>>>>> Stashed changes
         
         //validate user input
         $validatedTitle = $db->validateTitle($newTitle);
@@ -122,12 +130,15 @@ session_start();
             $db->insertEvent($validatedTitle,$validatedDate,$validatedNotes,$existingUser);
           }
           else{
-            echo $e;
+            echo "<p style='color:red;'>" . "we were unable to add your event." . "</p>";
+
+
           }
 
-        echo $validatedTitle . "<br>";
-        echo $validatedDate . "<br>";
-        echo $validatedNotes . "<br>";
+          //for debugging purposes
+        /*echo "After validate title:" . $validatedTitle . "<br>";
+        echo "After validation Date:" . $validatedDate . "<br>";
+        echo "After validation notes:" . $validatedNotes . "<br>";*/
 
        // $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
 

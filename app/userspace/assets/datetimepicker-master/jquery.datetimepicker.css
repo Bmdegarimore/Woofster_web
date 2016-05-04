@@ -85,7 +85,8 @@
 }
 
 .xdsoft_datetimepicker .xdsoft_timepicker {
-	width: 58px;
+	/* changed from 58px */
+	width: 88px;
 	float: left;
 	text-align: center;
 	margin-left: 8px;
@@ -166,7 +167,8 @@
 	height: 15px;
 	width: 30px;
 	display: block;
-	margin-left: 14px;
+	/* changed from 14px */
+	margin-left: 29px;
 	margin-top: 7px;
 }
 .xdsoft_datetimepicker.xdsoft_rtl .xdsoft_timepicker .xdsoft_prev,

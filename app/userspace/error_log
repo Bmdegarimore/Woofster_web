@@ -1,0 +1,44 @@
+[02-May-2016 06:29:27 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 69
+[02-May-2016 06:31:35 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 69
+[02-May-2016 06:31:40 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 69
+[02-May-2016 06:38:29 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function validate() in /home/woofster/public_html/app/userspace/model/eventModel.php:62
+Stack trace:
+#0 /home/woofster/public_html/app/userspace/controller/controllerEvents.php(83): EventModel->insertEvent('1', '2016/05/02 04:3...', '', '115313427909355...')
+#1 /home/woofster/public_html/app/userspace/index.php(37): include('/home/woofster/...')
+#2 {main}
+  thrown in /home/woofster/public_html/app/userspace/model/eventModel.php on line 62
+[02-May-2016 06:51:21 America/Chicago] PHP Parse error:  syntax error, unexpected '(string)' (string) (T_STRING_CAST) in /home/woofster/public_html/app/userspace/model/eventModel.php on line 142
+[02-May-2016 06:51:53 America/Chicago] PHP Parse error:  syntax error, unexpected ';', expecting ',' or ')' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 162
+[02-May-2016 18:11:21 America/Chicago] PHP Parse error:  syntax error, unexpected 'true' (T_STRING) in /home/woofster/public_html/app/userspace/model/eventModel.php on line 173
+[02-May-2016 18:44:13 America/Chicago] PHP Parse error:  syntax error, unexpected '$', expecting variable (T_VARIABLE) in /home/woofster/public_html/app/userspace/model/eventModel.php on line 135
+[02-May-2016 18:44:51 America/Chicago] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/woofster/public_html/app/userspace/model/eventModel.php on line 141
+[02-May-2016 18:54:30 America/Chicago] PHP Parse error:  syntax error, unexpected 'var' (T_VAR), expecting variable (T_VARIABLE) in /home/woofster/public_html/app/userspace/model/eventModel.php on line 13
+[02-May-2016 19:10:22 America/Chicago] PHP Parse error:  syntax error, unexpected '>' in /home/woofster/public_html/app/userspace/controller/controllerEvents.php on line 101
+[02-May-2016 19:10:40 America/Chicago] PHP Parse error:  syntax error, unexpected '<', expecting case (T_CASE) or default (T_DEFAULT) or '}' in /home/woofster/public_html/app/userspace/controller/controllerEvents.php on line 101
+[02-May-2016 19:11:11 America/Chicago] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting ',' or ';' in /home/woofster/public_html/app/userspace/controller/controllerEvents.php on line 101
+[02-May-2016 19:16:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function strnlen() in /home/woofster/public_html/app/userspace/model/eventModel.php:143
+Stack trace:
+#0 /home/woofster/public_html/app/userspace/controller/controllerEvents.php(95): EventModel->validate('123454558u695uy...', '05/20/2016 12:0...', 'testhing')
+#1 /home/woofster/public_html/app/userspace/index.php(37): include('/home/woofster/...')
+#2 {main}
+  thrown in /home/woofster/public_html/app/userspace/model/eventModel.php on line 143
+[02-May-2016 20:08:38 America/Chicago] PHP Parse error:  syntax error, unexpected 'pubic' (T_STRING), expecting function (T_FUNCTION) in /home/woofster/public_html/app/userspace/model/eventModel.php on line 135
+[02-May-2016 20:09:22 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined method EventModel::validate() in /home/woofster/public_html/app/userspace/controller/controllerEvents.php:54
+Stack trace:
+#0 /home/woofster/public_html/app/userspace/index.php(37): include()
+#1 {main}
+  thrown in /home/woofster/public_html/app/userspace/controller/controllerEvents.php on line 54
+[02-May-2016 20:12:26 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/woofster/public_html/app/userspace/model/eventModel.php on line 144
+[02-May-2016 20:15:29 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 146
+[02-May-2016 22:30:25 America/Chicago] PHP Parse error:  syntax error, unexpected 'break' (T_BREAK) in /home/woofster/public_html/app/userspace/view/showEvents.php on line 20
+[02-May-2016 22:31:04 America/Chicago] PHP Parse error:  syntax error, unexpected 'break' (T_BREAK) in /home/woofster/public_html/app/userspace/view/showEvents.php on line 20
+[02-May-2016 22:31:11 America/Chicago] PHP Parse error:  syntax error, unexpected 'break' (T_BREAK) in /home/woofster/public_html/app/userspace/view/showEvents.php on line 20
+[03-May-2016 01:41:19 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 138
+[03-May-2016 01:41:23 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 138
+[03-May-2016 01:41:33 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 138
+[03-May-2016 01:41:49 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 138
+[03-May-2016 03:03:41 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home/woofster/public_html/app/userspace/model/eventModel.php on line 160
+[03-May-2016 03:11:29 America/Chicago] PHP Parse error:  syntax error, unexpected '!=' (T_IS_NOT_EQUAL) in /home/woofster/public_html/app/userspace/controller/controllerEvents.php on line 62
+[03-May-2016 03:12:57 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home/woofster/public_html/app/userspace/controller/controllerEvents.php on line 63
+[03-May-2016 03:13:33 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/woofster/public_html/app/userspace/controller/controllerEvents.php on line 65
+[03-May-2016 03:14:01 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/woofster/public_html/app/userspace/controller/controllerEvents.php on line 64

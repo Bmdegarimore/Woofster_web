@@ -134,21 +134,23 @@ class EventModel {
   public function validateTitle($eventTitle){
 
       //if is not empty and less than 128 characters
-      if(!empty($eventTitle) && strlen($eventTitle) <= 5){
+      if((!empty($eventTitle)) && (strlen($eventTitle) <= 128)){
       
         //then sanitize and fliter input 
         $eventTitle = trim($eventTitle);
         $eventTitle = stripslashes($eventTitle);
         $eventTitle = htmlspecialchars($eventTitle);
         //echo $eventTitle;
+         return $eventTitle;
         
        }   
         else{
-          $e = "Please enter a title less than 128 characters.";
+     
+          echo "<p style='color:red;'>" . "Please enter a title less than 128 characters," . "</p>";
           //$_SESSION['event_flag'] = 'Was not able to edit your event' . $e ;
           return false;
         }
-        return $eventTitle;
+       
   }
 
 
@@ -164,14 +166,16 @@ class EventModel {
         $eventDate = stripslashes($eventDate);
         $eventDate = htmlspecialchars($eventDate);
         //echo $eventDate;
+        return $eventDate;
         
        }   
         else{
-          $e = "Please enter a valid date and time for your event";
+
+          echo "<p style='color:red;'>" . "Please enter a valid date and time for your event," . . "</p>";;
           //$_SESSION['event_flag'] = 'Was not able to edit your event';
           return false;
         }
-        return $eventDate;
+        
   }
 
 
@@ -187,12 +191,14 @@ class EventModel {
         $notes = stripslashes($notes);
         $notes = htmlspecialchars($notes);
         //echo $notes;
+        return $notes;
       }
       else{
-        $e = "Please keep your notes under 255 characters.";
+      
+        echo  "<p style='color:red;'>" . "Please keep your notes under 800 characters."  . "</p>";;
         return false;
         } 
-        return $notes;
+        
       }    
   }
 

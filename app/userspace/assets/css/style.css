@@ -5404,4 +5404,7 @@ ul.notifications {
   height: 2px;
 }
 
-
+.eventDate{
+  padding-top: 5em;
+  padding-bottom: 5em;
+}

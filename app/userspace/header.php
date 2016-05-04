@@ -19,9 +19,16 @@
 
   <!-- Custom styling plus plugins -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="assets/datetimepicker-master/jquery.datetimepicker.css"/>
+  
   <!--<link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.3.css" />-->
   <link href="assets/css/icheck/flat/green.css" rel="stylesheet" />
+
+  <!--DatePicker Required Order -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment-with-locales.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.css">
   
 
   <!--[if lt IE 9]>
