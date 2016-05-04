@@ -16,24 +16,6 @@
             <div class="row">
             <!-- Page content goes here -->
             <?php
-               /* select makes a choice of page to load, then grab any additional GETs to change logic, or default to controllerEvents.php */
-
-              //Check the get array for the select element
-              /* Disable til add additional menus
-              if (isset($_GET['select'])) {
-                //If it's equal to events...
-                if($_GET['select'] == "events") {
-                  //Set the page to the controller for events
-                  $page = "controller/controllerEvents";
-                }
-                else {
-                  $page = "main"; //Default
-                }
-              //Load the page
-              include($page.'.php');
-              } else {
-                include('controller/controllerEvents.php');
-              }*/
               include('controller/controllerEvents.php');
             ?>
             </div>
@@ -42,14 +24,7 @@
             ?>
         </div>
         
-        <!-- Global JS -->
-        
-        <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
-        
-        
-         
-      
-      
+
         <!-- Custom JS -->
         <script src="assets/js/nprogress.js"></script>
         <script src="assets/js/custom.js"></script>
@@ -100,12 +75,7 @@
                     //Make sure fields avail to edit basically resets to original state
                     modal.find('#eventTitle').prop('disabled',false);
                     modal.find('#notes').prop('disabled', false);
-                    //$('#datetimepicker12').prop('disabled','false');
-                    //$('#datetimepicker12').prop('type','hidden');
-                    //$('#datetimepicker12').data("DateTimePicker").show();
-                    
-                    
-                    
+
                     // Sets the date time picker
                         $('#datetimepicker12').datetimepicker({
                           inline: true,
@@ -138,13 +108,6 @@
                           //Adds read only to fields
                           modal.find('#eventTitle').prop('disabled',true);
                           modal.find('#notes').prop('disabled', true);
-                          //Insert disabled calendar
-                          //$('#datetimepicker12').data("DateTimePicker").disable();
-                          //$('#datetimepicker12').prop('type','datetime');
-                         // $('#datetimepicker12').prop('disabled',true);
-
-                          //$('#datetimepicker12').data("DateTimePicker").hide();
-                          
                         }
                     }
                 });

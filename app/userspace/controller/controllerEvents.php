@@ -2,42 +2,34 @@
 
 session_start();
 
-    include("model/eventModel.php");
-    //set $uidstr to equal the session id
-    $uidstr = $_SESSION['user_uniqueId'];
-
-   // $_SESSION['action'] = $action;
+include("model/eventModel.php");
+//set $uidstr to equal the session id
+$uidstr = $_SESSION['user_uniqueId'];
 
     
-    
-   //Get action
-   if(isset($_GET['action'])){
-    $action=$_GET['action']; 
+//Get action
+if(isset($_GET['action'])){
+	$action=$_GET['action']; 
     $_SESSION['action'] = $action; 
-   }
+}
    
-   //Post used to confirm change in contact
-   if($_POST['update'] == 'update'){
-    $action = 'update';
-   } else if($_POST['update']== 'delete'){
+//Post used to confirm change in contact
+if($_POST['update'] == 'update'){
+	$action = 'update';
+} else if($_POST['update']== 'delete'){
     $action = 'delete';
-   } else if($_POST['update']== 'add'){
+} else if($_POST['update']== 'add'){
     $action = 'insert';
-   }
-   
-   echo($_POST['update']);
-
-   
-   // Initialize Database
-   $db = new EventModel();
-   $db->connect();
+}
+  
+// Initialize Database
+$db = new EventModel();
+$db->connect();
  
-   //Help pass contacts to different switches
-   $events = $db->selectEvents($uidstr);
-   //print_r($events);
-   
+//Help pass contacts to different switches
+$events = $db->selectEvents($uidstr);
 
-   switch($action){
+switch($action){
        
     //Save event after edit
     case "update":
@@ -46,12 +38,6 @@ session_start();
         $updatedNotes = $_POST['notes'];
         $existingEventID = $_POST['eventID'];
         $userID = $uidstr;
-
-        echo('Title:'.$updatedTitle) . "<br>";
-        echo('Date:'.$updatedDate) . "<br>";
-        echo('Notes:'.$updatedNotes) . "<br>";
-        echo('eventID'.$eventID) . "<br>";
-        echo('user'.$userID) . "<br>";
 
          //validate user input
         $validatedTitle = $db->validateTitle($updatedTitle);
@@ -63,13 +49,8 @@ session_start();
           $db->updateEvent($validatedTitle,$validatedDate,$validatedNotes,$existingEventID,$userID);
         }
         else{
-          echo "<p style='color:red;'>" . "we were unable to edit your event." . "</p>";
+          echo $e;
         }
-        //for debugging purposes
-        /*echo $validatedTitle . "<br>";
-        echo $validatedDate . "<br>";
-        echo $validatedNotes . "<br>";*/
-        
         
         //Set a flag to indicate that the event has been added
         $_SESSION['event_flag'] = 'edited';
@@ -85,9 +66,6 @@ session_start();
     case "delete":
         $eventIDInfo = $_POST['eventID'];
         $loginIDInfo = $uidstr;
-        
-        echo('Event:'.$eventIDInfo);
-        echo('Login:'.$loginIDInfo);
         
         $db->deleteEvent($eventIDInfo,$loginIDInfo);
         
@@ -108,13 +86,6 @@ session_start();
         $newNotes = $_POST['notes'];
         $existingUser = $uidstr;
         
-        // Delete once everything is working 
-        /*echo('Before validation Title:'.$newTitle.'<br>');
-        echo('Before validation Date Time:'.$newDateTime.'<br>');
-        echo('Before validation Notes:'.$newNotes.'<br>');
-        echo $user_uniqueId;*/
-
-        
         //validate user input
         $validatedTitle = $db->validateTitle($newTitle);
         $validatedDate = $db->validateDate($newDateTime);
@@ -123,19 +94,11 @@ session_start();
         //Attempt to insert into database
         if(($validatedTitle != false) && ($validatedDate != false) && ($validatedNotes != false)){
             $db->insertEvent($validatedTitle,$validatedDate,$validatedNotes,$existingUser);
-          }
-          else{
-            echo "<p style='color:red;'>" . "we were unable to add your event." . "</p>";
+        }
+        else{
+        	echo $e;
+        }
 
-
-          }
-
-          //for debugging purposes
-        /*echo "After validate title:" . $validatedTitle . "<br>";
-        echo "After validation Date:" . $validatedDate . "<br>";
-        echo "After validation notes:" . $validatedNotes . "<br>";*/
-
-       // $db->insertEvent($newTitle,$newDateTime,$newNotes,$existingUser);
 
         //Set a flag to indicate that the event has been added
         $_SESSION['event_flag'] = 'added';
@@ -149,7 +112,6 @@ session_start();
     //Display list
     default:
         include 'view/showEvents.php';
-        
-    
-   }
+		break;    
+}
 ?>
