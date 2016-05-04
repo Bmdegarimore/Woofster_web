@@ -34,10 +34,13 @@
                 //Grabs todays date and pulls a range of notifications
                 $currentDate = new DateTime(); //current date/time
                 $currentDate->sub(new DateInterval("PT2H"));
-                $beginTimePST = $currentDate->format('Y-m-d H:00');
+                //$beginTimePST = $currentDate->format('Y-m-d H:00');
+                $beginTimePST = $currentDate->format('Y-m-d H:i:00');
                 
                 //$currentDate->add(new DateInterval("PT1H59I"));
-                $endTimePST = $currentDate->format('Y-m-d H:59');
+                // Check 15 mins out from current time
+                $currentDate->modify('+15 minutes');
+                $endTimePST = $currentDate->format('Y-m-d H:i:00');
                 echo($endTimePST."end and begin".$beginTimePST);
                 
                 // Creates a prepared select statement
@@ -49,6 +52,7 @@
           
                 // Returns selected rows
                 $row = $statement->fetchAll();
+                print_r($row);
           
             } catch(PDOException  $e ){
               print "Error!: " . $e->getMessage() . "<br/>";

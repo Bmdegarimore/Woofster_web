@@ -63,14 +63,15 @@
             $counter = 0;
             foreach($events as $row){
                 $eventTitle =$row['title'];
-                $eventDate =$row['eventDate'];
+                $miltaryDate=$row['eventDate'];
+                $eventDate = date('m/d/Y h:i a', strtotime($miltaryDate));
                 $notes =$row['notes'];
                 $eventID = $row['eventID'];
                 $userID = $row['unique_loginID'];
                 $edit="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Edit' data-value='update' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>";
                 $delete="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Delete' data-value='delete' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>";
                 $counter++;
-                echo "<tr><td>$eventTitle</td><td>$eventDate</td><td>$notes</td><td>$edit</td><td>$delete</td></tdtr>";
+                echo "<tr><td>$eventTitle</td><td class='timeDate'>$eventDate</td><td>$notes</td><td>$edit</td><td>$delete</td></tdtr>";
             };
            ?>
         </tbody>
