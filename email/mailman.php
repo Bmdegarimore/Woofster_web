@@ -1,5 +1,6 @@
 <?php
     Class Mailman{
+        
         // Place to store the database connection
         protected static $mailman;
         // Stores the batched emails to send
@@ -9,8 +10,7 @@
             try {
                 // Retrieves data needed to connect to data base via config.ini
                 $config = parse_ini_file('../../config/config.ini');
-                // Retrieves data needed to connect to data base via config.ini
-                //$config = parse_ini_file($_SERVER["DOCUMENT_ROOT"].'/capstone/config.ini');
+
                 // Attempts to connect to database
                 self::$mailman = new PDO($config['dbname'], $config['username'], $config['password']);
               
@@ -25,10 +25,12 @@
         
         }
         
+        // Disconnects from database
         public function disconnect(){
             self::$connection = null;
         }
         
+        // Select emails to send from DB and return emails to send
         private function selectDailyEvents(){
             try{
                 //Grabs todays date and pulls a range of notifications
@@ -61,13 +63,11 @@
             return $row;
         }
         
+        // Takes DB queries and sends out emails to customer
         public function checkTheMail(){
             // Select all the daily notifications
             $notifications = $this->selectDailyEvents();
-            
-            // Opens dailyMail file to add new content.  Old content erases if rewrite to file.
-            //$myfile = fopen($this->dailyMail, "w") or die("Unable to open file!");
-            //print_r($notifications);
+         
             foreach($notifications as $individualEvents){
                 echo("Title:".$individualEvents['title']);
                 echo("Note:".$individualEvents['notes']);
@@ -79,6 +79,7 @@
             }
         }
         
+        // Method that calls email
         private function sendEmail($to, $body , $subject = "Event Reminder"){
             //Email to applicant     
             require_once('swift_required.php');
@@ -86,17 +87,7 @@
             $email_address = "";
             //Create the Transport
             $transport = Swift_MailTransport::newInstance();
-             
-            /*
-            You could alternatively use a different transport such as Sendmail or Mail:
-             
-            //Sendmail
-            $transport = Swift_SendmailTransport::newInstance('/usr/sbin/sendmail -bs');
-             
-            //Mail
-            $transport = Swift_MailTransport::newInstance();
-            */
-             
+                  
             //Create the Mailer using your created Transport
             $mailer = Swift_Mailer::newInstance($transport);
             // Create the message

@@ -1,10 +1,13 @@
 <?php
     include("mailman.php");
-    $woofsterMailman = new Mailman();
-    $woofsterMailman->connect();
-    $woofsterMailman->checkTheMail();
     
+    // Creates a new Mailman
+    $woofsterMailman = new Mailman();
+    
+    // Mailman connects to DB
+    $woofsterMailman->connect();
+    
+    // Mailman checks the mail and sends it out
+    $woofsterMailman->checkTheMail();
 
-
-//sendEmail("branflakes@outlook.com", "Hello World", "Event Reminder");
 ?>
