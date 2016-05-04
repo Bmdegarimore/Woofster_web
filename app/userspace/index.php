@@ -135,12 +135,12 @@
                         $('#datetimepicker12').data("DateTimePicker").date(moment(testTime));
                        
                         if (title == 'Delete') {
-                            //Adds read only to fields
-                            modal.find('#eventTitle').prop('disabled',true);
-                            modal.find('#notes').prop('disabled', true);
-                            //Insert disabled calendar
-                            //$('#datetimepicker12').data("DateTimePicker").disable();
-                          $('#datetimepicker12').prop('type','datetime');
+                          //Adds read only to fields
+                          modal.find('#eventTitle').prop('disabled',true);
+                          modal.find('#notes').prop('disabled', true);
+                          //Insert disabled calendar
+                          //$('#datetimepicker12').data("DateTimePicker").disable();
+                          //$('#datetimepicker12').prop('type','datetime');
                          // $('#datetimepicker12').prop('disabled',true);
 
                           //$('#datetimepicker12').data("DateTimePicker").hide();
