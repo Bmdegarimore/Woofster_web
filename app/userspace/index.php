@@ -97,21 +97,26 @@
                     modal.find('#button').text(title + " Event");
                     modal.find('#button').val(changedValue);
                     
-                    //Make sure fields avail to edit
+                    //Make sure fields avail to edit basically resets to original state
                     modal.find('#eventTitle').prop('disabled',false);
                     modal.find('#notes').prop('disabled', false);
+                    $('#datetimepicker12').prop('type','hidden');
                     
+                    
+                    
+                    // Sets the date time picker
+                        $('#datetimepicker12').datetimepicker({
+                          inline: true,
+                          sideBySide: true,
+                          useCurrent: true
+                          
+                        });
                     // Loads empty modal
                     if (title == 'Add') {
                         // Make sure add fields are blank
                         rowSelected = null;
                         modal.find("input[type=text], textarea").val("");
-                        // Sets the date time picker based on the add button
-                        $('#datetimepicker12').datetimepicker({
-                          inline: true,
-                          sideBySide: true,
-                          useCurrent: true
-                        });
+                        
  
                     } else {
                         // Populates data to see from event either delete or edit
@@ -119,14 +124,7 @@
                         modal.find('#eventID').val(eventID);
                         modal.find('#eventTitle').val(jsonEvents[rowSelected].title);
                         modal.find('#notes').val(jsonEvents[rowSelected].notes);
-                        
-                        // Needed for now when edit or delete selected. Can eventually move out of condition logic
-                        $('#datetimepicker12').datetimepicker({
-                          inline: true,
-                          sideBySide: true
-                          //Make value equal edit or delete   
-                        });
-                        
+                          
                         var testTime = jsonEvents[rowSelected].eventDate;
                         // Set date and time
                         $('#datetimepicker12').datetimepicker({
@@ -139,6 +137,16 @@
                             modal.find('#eventTitle').prop('disabled',true);
                             modal.find('#notes').prop('disabled', true);
                             //Insert disabled calendar
+                            //$('#datetimepicker12').data("DateTimePicker").disable();
+                            //$('#datetimepicker12').prop('type','datetime');
+                            $('#datetimepicker12').datetimepicker({
+                              inline: true,
+                              sideBySide: true,
+                              useCurrent: true ,
+                              pickTime: false
+                              
+                            });
+                          
                         }
                     }
                 });

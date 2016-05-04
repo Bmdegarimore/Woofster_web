@@ -107,6 +107,11 @@ session_start();
         $newNotes = $_POST['notes'];
         $existingUser = $uidstr;
         
+        // Delete once everything is working 
+        echo('Before validation Title:'.$newTitle.'<br>');
+        echo('Before validation Date Time:'.$newDateTime.'<br>');
+        echo('Before validation Notes:'.$newNotes.'<br>');
+        
         //validate user input
         $validatedTitle = $db->validateTitle($newTitle);
         $validatedDate = $db->validateDate($newDateTime);
