@@ -158,8 +158,8 @@ class EventModel {
     //validate date
   public function validateDate($eventDate){
 
-      //if is not empty and less than 128 characters
-      if(!empty($eventDate)){
+      //if date is set
+      if(isset($eventDate)){
       
         //then sanitize and fliter input 
         $eventDate = trim($eventDate);
@@ -171,7 +171,7 @@ class EventModel {
        }   
         else{
 
-          echo "<p style='color:red;'>" . "Please enter a valid date and time for your event," . . "</p>";;
+          echo "<p style='color:red;'>" . "Please enter a valid date and time for your event,"  . "</p>";;
           //$_SESSION['event_flag'] = 'Was not able to edit your event';
           return false;
         }
@@ -182,7 +182,7 @@ class EventModel {
  //validate notes
   public function validateNotes($notes){
 
-      //if is not empty and less than 128 characters
+      //if is not empty and less than 255 characters
       if(isset($notes)){
         
         if(strlen($notes) <= 255){
@@ -193,9 +193,17 @@ class EventModel {
         //echo $notes;
         return $notes;
       }
+      else if ($notes = " " || $notes = null){
+        //then sanitize and fliter input 
+        $notes = trim($notes);
+        $notes = stripslashes($notes);
+        $notes = htmlspecialchars($notes);
+        //echo $notes;
+        return $notes;
+      }
       else{
       
-        echo  "<p style='color:red;'>" . "Please keep your notes under 800 characters."  . "</p>";;
+        echo  "<p style='color:red;'>" . "Please keep your notes under 255 characters."  . "</p>";;
         return false;
         } 
         
