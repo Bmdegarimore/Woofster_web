@@ -16,12 +16,15 @@
             //Switch to see what message to put into the alert
             switch ($_SESSION['event_flag']) {
                 case 'edited':
+                    $alert_color = "success";
                     $alert_message = "Event was updated";
                     break;
                 case 'deleted':
+                    $alert_color = "danger";
                     $alert_message = "Event was deleted";
                     break;
                 case 'added':
+                    $alert_color = "success";
                     $alert_message = "Event was added";
                     break;
             }
@@ -30,7 +33,7 @@
             unset($_SESSION['event_flag']);
 
             //Display the alert
-            echo "<div class='alert alert-success fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>$alert_message</strong></div>";
+            echo "<div class='alert alert-$alert_color fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>$alert_message</strong></div>";
         }
     ?>
     
