@@ -1,31 +1,4 @@
-<?php
-   //Starting session so I can grab stuff from $_SESSION
-  session_start();
-
-  if(!isset($_SESSION['user_uid'])){
-    header("Location: ../../");
-  }
-    require("header.php");
-?>
-<html>
-    <body class="nav-md">
-        <?php
-            require("nav.php");
-        ?>
-        <div class="right_col" role="main">
-            <div class="row">
-            <!-- Page content goes here -->
-            <?php
-              include('controller/controllerEvents.php');
-            ?>
-            </div>
-            <?php
-                require("footer.html");
-            ?>
-        </div>
-        
-
-        <!-- Custom JS -->
+<!-- Custom JS -->
         <script src="assets/js/nprogress.js"></script>
         <script src="assets/js/custom.js"></script>
               
@@ -113,6 +86,5 @@
                 });
             } );
         </script>
-        
-    </body>
-</html>
+</body>
+
