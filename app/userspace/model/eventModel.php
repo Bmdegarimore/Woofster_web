@@ -193,11 +193,8 @@ class EventModel {
         //echo $notes;
         return $notes;
       }
-      else if ($notes = " " || $notes = null){
-        //then sanitize and fliter input 
-        $notes = trim($notes);
-        $notes = stripslashes($notes);
-        $notes = htmlspecialchars($notes);
+      else if ($notes = "" || $notes = null){
+     
         //echo $notes;
         return $notes;
       }
