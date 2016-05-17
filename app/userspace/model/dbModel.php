@@ -1,31 +1,7 @@
 <?php
-     class DBModel{
-        
-        // Place to store the database connection
-        protected static $connection;
-        
-        public function connect(){
-            try {
-                // Retrieves data needed to connect to data base via config.ini
-                $config = parse_ini_file('../../config/config.ini');
-                
-                // Attempts to connect to database
-                self::$connection = new PDO($config['dbname'], $config['username'], $config['password']);
-              
-                } catch (PDOException $e) {
-                    // Displays error message need to change when in production to clean error message
-                    print "Error!: " . $e->getMessage() . "<br/>";
-                    die();
-                    return false;
-                }
-                
-		return self::$connection;
-        
-        }
-        
-        public function disconnect(){
-            self::$connection = null;
-        }
+     require('BaseModel.php');
+     
+     class DBModel extends BaseModel{
         
         public function select($query){
             try{
