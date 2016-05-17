@@ -2,7 +2,7 @@
 session_start();
 include('config.php');
 include('hybridauth/Hybrid/Auth.php');
-include('dbModel.php');
+include('../app/userspace/model/dbModel.php');
 include('UserUniqueIdentifier.php');
 
 /* Handle if headers are already in existance, just destroy them */

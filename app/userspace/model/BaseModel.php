@@ -7,7 +7,7 @@
         public function connect(){
           try {
             // Retrieves data needed to connect to data base via config.ini
-            $config = parse_ini_file('../../../config/config.ini');
+            $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/../config/config.ini');
       
             // Attempts to connect to database
             self::$connection = new PDO($config['dbname'], $config['username'], $config['password']);
