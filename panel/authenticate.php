@@ -1,26 +1,27 @@
 <?php
 
-// Grab User submitted information
-$email = $_POST["users_email"];
-$pass = $_POST["users_pass"];
+session_start();
 
-// Connect to the database
-$con = mysql_connect("localhost","root","");
-// Make sure we connected succesfully
-if(! $con)
+if (!empty($_POST['username']) && !empty($_POST['password']))
 {
-    die('Connection Failed'.mysql_error());
+    // Grab User submitted information
+    $username = $_POST["username"];
+    $pass = $_POST["password"];
+       
+    include('../app/userspace/model/dbModel.php');
+    $db = new DBModel();
+    $db->connect();
+    $_SESSION["username"] = $username;
+    if($db->validatePassword($username,$pass)){
+        header("Location:index.php");
+    }else{
+        // Records an error and goes back to loginAdmin.php
+         $_SESSION["error"] = "Wrong Username or Password";
+         header("Location:loginAdmin.php");
+    }
+}else{
+    $_SESSION["error"] = "Please use all fields";
+    header("Location:loginAdmin.php");
 }
 
-// Select the database to use
-mysql_select_db("my_dbname",$con);
-
-$result = mysql_query("SELECT users_email, users_pass FROM users WHERE users_email = $email");
-
-$row = mysql_fetch_array($result);
-
-if($row["users_email"]==$email && $row["users_pass"]==$pass)
-    echo"You are a validated user.";
-else
-    echo"Sorry, your credentials are not valid, Please try again.";
 ?>

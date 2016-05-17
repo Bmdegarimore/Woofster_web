@@ -102,6 +102,34 @@
 
             $statement->execute();
         }
+	/**
+	 * Checks to validate account exists
+	 **/
+	public function validatePassword($username,$password){
+	  try{
+	       
+                // Creates a prepared select statement
+                $statement = self::$connection->prepare("SELECT password FROM admins WHERE username = :username LIMIT 1");
+                // References namespace of dog to query
+                $statement->bindParam(':username', $username, PDO::PARAM_STR);
+                $statement->execute();
+
+                // Returns selected rows
+                $row = $statement->fetchAll();
+		
+		if(password_verify($password, $row[0]['password'])){
+		    return true;
+		}else{
+		    return false;
+		}
+
+            } catch(PDOException  $e ){
+                print "Error!: " . $e->getMessage() . "<br>";
+                return false;
+            }
+
+            
+	}
     }
 
 ?>

@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,18 +27,22 @@
 
 
     <div class="text-center">
-        <h2 class="form-signin-heading modal-title">Sign in</h2>
-       
-        <form class="form-signin" method="post" action="">
-            <h2 class="form-signin-heading">Please sign in</h2>
+        <form class="form-signin" method="post" action="authenticate.php">
+            <h2 class="form-signin-heading modal-title">Please sign in</h2>
         
-            <input type="text" id="inputEmail" class="form-control" placeholder="Username" name="username" autofocus="">
+            <input type="text" id="inputEmail" class="form-control" placeholder="Username" name="username" autofocus="" value="<?php if(isset($_SESSION['username'])){echo($_SESSION['username']);}?>" required>
             
-            <input type="password" id="inputPassword" class="form-control" password="password" placeholder="Password" >
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required >
            
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Sign in</button>
+            
+            <?php if(!empty($_SESSION['error'])){
+                    echo('<div class="alert alert-danger" role="alert">'.$_SESSION['error'].'</div>');
+                    
+                    unset($_SESSION['error']);
+                }
+             ?>
         </form>
-
     </div>
                  
         </div><!-- /col-lg-6 -->
