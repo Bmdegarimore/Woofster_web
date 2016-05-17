@@ -14,7 +14,7 @@
     <link href='https://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
 
     <!-- Custom Css-->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="../app/userspace/assets/css/panelLoginStyle.css">
 
 </head>
 <body>
