@@ -121,11 +121,7 @@ class EventModel extends BaseModel {
         else{
      
           //echo "<p style='color:red;'>" . "Please enter a title less than 128 characters," . "</p>";
-<<<<<<< Updated upstream
           $_SESSION['error_title'] = 'Title over 128 characters';
-=======
-          $_SESSION['error_title'] = 'Please enter a title less than 128 characters';
->>>>>>> Stashed changes
           return false;
         }
       }else{
@@ -174,22 +170,9 @@ class EventModel extends BaseModel {
         $notes = htmlspecialchars($notes);
         //echo $notes;
         return $notes;
-<<<<<<< Updated upstream
 	}else{
         //echo  "<p style='color:red;'>" . "Please keep your notes under 255 characters."  . "</p>";
 	$_SESSION['error_note'] = "Notes over 255 characters";
-=======
-      }
-      else if ($notes = "" || $notes = null){
-     
-        //echo $notes;
-        return $notes;
-      }
-      else{
-      
-        //echo  "<p style='color:red;'>" . "Please keep your notes under 255 characters."  . "</p>";
-	$_SESSION['error_note'] = "Please keep your notes under 255 characters";
->>>>>>> Stashed changes
         return false;
         } 
       }
@@ -199,5 +182,85 @@ class EventModel extends BaseModel {
       }
   
   }
+
+
+
+
+
+
+
+  /*public function validate($eventTitle){//, $eventDate, $notes){
+
+     $isValid = false;
+
+    //validate title
+    if(!empty($eventTitle)){ //&& strlen($eventTitle) <= 1){
+
+        echo sizeof($eventTitle);
+        $eventTitle = trim($eventTitle);
+        $eventTitle = stripslashes($eventTitle);
+        $eventTitle = htmlspecialchars($eventTitle);
+        $this->eventTitle = $eventTitle;
+        $isValid = true;
+
+        
+    }
+    else{
+      $e = "You must enter a title containing no more than 128 characters.";
+      
+    }
+
+    //validate date
+    if(!empty($eventDate)){
+
+        $eventDate = trim($eventDate);
+        $eventDate = stripslashes($eventDate);
+        $eventDate = htmlspecialchars($eventDate);
+        $isValid = true;
+        
+    }
+    else{
+      $e = "You must enter a date for your event.";
+
+    }
+
+    //validation for notes
+    if(strlen($notes) <= 255){
+
+        $notes = trim($notes);
+        $notes = stripslashes($notes);
+        $notes= htmlspecialchars($notes);
+        $isValid = true;
+        
+    }
+    else{
+      $e = "Your notes must be less than 255 charcters.";
+     
+    }
+    
+    if($isValid = true){
+
+      $_SESSION['eventTitle'] = $eventTitle;
+      $_SESSION['eventDate'] = $eventDate;
+      $_SESSION['notes'] = $notes;
+
+        if($action == "insert"){
+           echo "Your event has been created and added to the database.";
+        }
+        else if($action == "update"){
+          echo "Your event has been updated.";
+        }
+      }//end of isValid = true
+      else if ($isValid = false){
+
+        echo $e;
+      }
+  
+  }//end of validate function*/
+
+
+
+
+}//end of eventModel
 
 ?>

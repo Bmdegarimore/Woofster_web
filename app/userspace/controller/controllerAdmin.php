@@ -45,7 +45,7 @@ switch($action){
         $events = $db->selectAllEvents();
         
         // Load show events
-        include_once 'view/showAllEvents.php';
+        include_once '../view/showAllEvents.php';
         break;
        
    
@@ -56,12 +56,12 @@ switch($action){
         //reload display
         $events = $db->selectAllEvents($uidstr);
         // Load show events
-        include_once 'view/showAllEvents.php';
+        include_once '../view/showAllEvents.php';
         break;
        
     //Display list
     default:
-        include 'view/showAllEvents.php';
+        include '../view/showAllEvents.php';
 		break;    
 }
 ?>

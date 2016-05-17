@@ -10,7 +10,7 @@
             $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/../config/config.ini');
       
             // Attempts to connect to database
-            self::$connection = new PDO($config['dbname'], $config['username'], $config['password']);
+            $this->connection = new PDO($config['dbname'], $config['username'], $config['password']);
       
           } catch (PDOException $e) {
             // Displays error message need to change when in production to clean error message
