@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include('dbModel.php');
+	include('../app/userspace/model/dbModel.php');
 	include('UserUniqueIdentifier.php');
 
 	//Variable declarations

@@ -12,8 +12,8 @@ class EventModel extends BaseModel {
   public function selectEvents($loginID){
     try{
       // Creates a prepared select statement
-      $statement = self::$connection->prepare("select * from events where unique_loginID = :loginID");
-      // $statement = self::$connection->prepare("SELECT * FROM Dogs INNER JOIN Events ON Dogs.dogID = Events.dogID WHERE Dogs.unique_loginID =d41d8cd98f00b204e9800998ecf8427e order by dogs.name");
+      $statement = $this->connection->prepare("select * from events where unique_loginID = :loginID");
+      // $statement = $this->connection->prepare("SELECT * FROM Dogs INNER JOIN Events ON Dogs.dogID = Events.dogID WHERE Dogs.unique_loginID =d41d8cd98f00b204e9800998ecf8427e order by dogs.name");
       // References namespace of dog to query
       $statement->bindParam(':loginID', $loginID, PDO::PARAM_STR);
       $statement->execute();
@@ -34,7 +34,7 @@ class EventModel extends BaseModel {
 
     try{
       //Insert new events
-      $statement = self::$connection->prepare("INSERT INTO events (title,eventDate,notes,unique_loginID)VALUES(:title,:eventDate,:notes,:unique_loginID)");
+      $statement = $this->connection->prepare("INSERT INTO events (title,eventDate,notes,unique_loginID)VALUES(:title,:eventDate,:notes,:unique_loginID)");
         $statement->bindParam(':title', $title, PDO::PARAM_STR);
         $statement->bindParam(':eventDate', $eventDate, PDO::PARAM_STR);
         $statement->bindParam(':notes',$notes, PDO::PARAM_STR);
@@ -54,7 +54,7 @@ class EventModel extends BaseModel {
   public function deleteEvent($eventID,$loginID) {
     try{
       //Grab the event from events table
-      $statement = self::$connection->prepare("SELECT * FROM events WHERE eventID = :eventID and unique_loginID = :loginID");
+      $statement = $this->connection->prepare("SELECT * FROM events WHERE eventID = :eventID and unique_loginID = :loginID");
       $statement->bindParam(':eventID', $eventID, PDO::PARAM_INT);
       $statement->bindParam(':loginID', $loginID, PDO::PARAM_STR);
       $statement->execute();
@@ -67,7 +67,7 @@ class EventModel extends BaseModel {
       $notes = $row[0]['notes'];
 
       //insert the event into the deleted events table
-      $statement2 = self::$connection->prepare("INSERT INTO deletedEvents (title,eventDate,notes,unique_loginID,eventID)VALUES(:title,:eventDate,:notes,:unique_loginID,:eventID)");
+      $statement2 = $this->connection->prepare("INSERT INTO deletedEvents (title,eventDate,notes,unique_loginID,eventID)VALUES(:title,:eventDate,:notes,:unique_loginID,:eventID)");
       $statement2->bindParam(':title', $eventTitle, PDO::PARAM_STR);
       $statement2->bindParam(':eventDate', $eventDate, PDO::PARAM_STR);
       $statement2->bindParam(':notes',$notes, PDO::PARAM_STR);
@@ -76,7 +76,7 @@ class EventModel extends BaseModel {
       $statement2->execute();
 
       // Deletes an event based on eventID and loginID
-      $statement3 = self::$connection->prepare("DELETE FROM events WHERE eventID = :eventID and unique_loginID = :loginID");
+      $statement3 = $this->connection->prepare("DELETE FROM events WHERE eventID = :eventID and unique_loginID = :loginID");
       $statement3->bindParam(':eventID', $eventID, PDO::PARAM_INT);
       $statement3->bindParam(':loginID', $loginID, PDO::PARAM_STR);
       $statement3->execute();
@@ -91,7 +91,7 @@ class EventModel extends BaseModel {
       // Update an event based on eventID and loginID
       //$testTitle,$testDate,$testFreq,$testRepeatFreq,$testNotes,$testEventID,$testUnique
       //Insert new events
-      $statement = self::$connection->prepare("UPDATE events SET title = :title, eventDate = :eventDate, notes= :notes WHERE eventID = :eventID and unique_loginID = :unique_loginID");
+      $statement = $this->connection->prepare("UPDATE events SET title = :title, eventDate = :eventDate, notes= :notes WHERE eventID = :eventID and unique_loginID = :unique_loginID");
       $statement->bindParam(':title', $title, PDO::PARAM_STR);
       $statement->bindParam(':eventDate', $eventDate, PDO::PARAM_STR);
       $statement->bindParam(':notes',$notes, PDO::PARAM_STR);
