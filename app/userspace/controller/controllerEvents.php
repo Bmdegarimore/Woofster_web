@@ -47,14 +47,13 @@ switch($action){
         //if files are valid, then save to db
         if(($validatedTitle != false) && ($validatedDate != false) && ($validatedNotes != false)){
           $db->updateEvent($validatedTitle,$validatedDate,$validatedNotes,$existingEventID,$userID);
+          //Set a flag to indicate that the event has been added
+            $_SESSION['event_flag'] = 'edited';
         }
         else{
-          echo $e;
+            $_SESSION['event_flag'] = 'failed';
         }
-        
-        //Set a flag to indicate that the event has been added
-        $_SESSION['event_flag'] = 'edited';
-
+    
         //reload display
         $events = $db->selectEvents($userID);
         
@@ -94,14 +93,13 @@ switch($action){
         //Attempt to insert into database
         if(($validatedTitle != false) && ($validatedDate != false) && ($validatedNotes != false)){
             $db->insertEvent($validatedTitle,$validatedDate,$validatedNotes,$existingUser);
+            //Set a flag to indicate that the event has been added
+            $_SESSION['event_flag'] = 'added';
         }
         else{
-        	echo $e;
+            $_SESSION['event_flag'] = 'failed';
         }
 
-
-        //Set a flag to indicate that the event has been added
-        $_SESSION['event_flag'] = 'added';
 
         //reload display
         $events = $db->selectEvents($uidstr);

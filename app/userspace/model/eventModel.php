@@ -109,22 +109,25 @@ class EventModel extends BaseModel {
   public function validateTitle($eventTitle){
 
       //if is not empty and less than 128 characters
-      if((!empty($eventTitle)) && (strlen($eventTitle) <= 128)){
-      
-        //then sanitize and fliter input 
-        $eventTitle = trim($eventTitle);
-        $eventTitle = stripslashes($eventTitle);
-        $eventTitle = htmlspecialchars($eventTitle);
-        //echo $eventTitle;
-         return $eventTitle;
-        
-       }   
+      if(!empty($eventTitle)){
+	if(strlen($eventTitle) <= 128){
+	    //then sanitize and fliter input 
+	    $eventTitle = trim($eventTitle);
+	    $eventTitle = stripslashes($eventTitle);
+	    $eventTitle = htmlspecialchars($eventTitle);
+	    //echo $eventTitle;
+	     return $eventTitle;
+	}   
         else{
      
-          echo "<p style='color:red;'>" . "Please enter a title less than 128 characters," . "</p>";
-          //$_SESSION['event_flag'] = 'Was not able to edit your event' . $e ;
+          //echo "<p style='color:red;'>" . "Please enter a title less than 128 characters," . "</p>";
+          $_SESSION['error_title'] = 'Title over 128 characters';
           return false;
         }
+      }else{
+	$_SESSION['error_title'] = 'Title field required';
+	return false;
+      }
        
   }
 
@@ -146,8 +149,8 @@ class EventModel extends BaseModel {
        }   
         else{
 
-          echo "<p style='color:red;'>" . "Please enter a valid date and time for your event,"  . "</p>";;
-          //$_SESSION['event_flag'] = 'Was not able to edit your event';
+          //echo "<p style='color:red;'>" . "Please enter a valid date and time for your event,"  . "</p>";;
+          $_SESSION['error_date'] = 'Date format incorrect';
           return false;
         }
         
@@ -158,7 +161,7 @@ class EventModel extends BaseModel {
   public function validateNotes($notes){
 
       //if is not empty and less than 255 characters
-      if(isset($notes)){
+      if(!empty($notes)){
         
         if(strlen($notes) <= 255){
         //then sanitize and fliter input 
@@ -167,19 +170,17 @@ class EventModel extends BaseModel {
         $notes = htmlspecialchars($notes);
         //echo $notes;
         return $notes;
-      }
-      else if ($notes = "" || $notes = null){
-     
-        //echo $notes;
-        return $notes;
-      }
-      else{
-      
-        echo  "<p style='color:red;'>" . "Please keep your notes under 255 characters."  . "</p>";;
+	}else{
+        //echo  "<p style='color:red;'>" . "Please keep your notes under 255 characters."  . "</p>";
+	$_SESSION['error_note'] = "Notes over 255 characters";
         return false;
         } 
-        
-      }    
+      }
+      else{
+        echo $notes;
+        return $notes = " ";
+      }
+  
   }
 
 

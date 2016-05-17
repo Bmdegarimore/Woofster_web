@@ -27,6 +27,22 @@
                     $alert_color = "success";
                     $alert_message = "Event was added";
                     break;
+                case 'failed':
+                    $alert_color = "danger";
+                    $alert_message = "Failed to process event due to the following errors: ";
+                    if(!empty($_SESSION['error_title'])){
+                        $alert_message = $alert_message.$_SESSION['error_title']." ";    
+                    }
+                    if(!empty($_SESSION['error_note'])){
+                        $alert_message = $alert_message.$_SESSION['error_note']." "; 
+                    }
+                    if(!empty($_SESSION['error_date'])){
+                        $alert_message = $alert_message.$_SESSION['error_date'];
+                    }
+                    unset($_SESSION['error_title']);
+                    unset($_SESSION['error_note']);
+                    unset($_SESSION['error_date']);
+                    break;
             }
 
             //unset the session variable for event_flag
@@ -96,16 +112,14 @@
               </div>
               <div class="modal-body">
                 <div class="text-center container">
-                
-                    
                        <div class="col-lg-12">
                             <label for="eventTitle" class="control-label">Event Title</label>
-                            <input type="text" class="form-control" name="eventTitle" id="eventTitle" maxlength="128" required>
+                            <input type="text" class="form-control" name="eventTitle" id="eventTitle" >
                         </div>
                         <br>
                         <div class="col-lg-12">
                             <label for="notes" class="control-label">Notes</label>
-                            <textarea class="form-control" rows="4" name="notes" id="notes" maxlength="255"></textarea>
+                            <textarea class="form-control" rows="4" name="notes" id="notes" ></textarea>
                         </div>
                         <br>
                         <div class="col-lg-12">
