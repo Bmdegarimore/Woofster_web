@@ -69,6 +69,10 @@
             return $row;
         }
 
+        public function selectEmailUser($email, $password){
+            return null;
+        }
+
         public function selectDog($uid){
             try{
         
