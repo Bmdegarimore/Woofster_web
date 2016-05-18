@@ -53,7 +53,9 @@ ob_start();
         </div>
 
 
-        
+            <?php
+      include('scripts.php');
+    ?>
     </body>
 </html>
 <?php
