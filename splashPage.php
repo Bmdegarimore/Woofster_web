@@ -3,7 +3,7 @@
         $controller = strtoupper($_POST['submit']);
         switch ($controller) {
             case SIGNIN:
-                header("Location: hybridauth/emailSignIn.php");
+                include("hybridauth/emailSignIn.php");
                 break;
             case REGISTER:
                 include("hybridauth/accountRegistration.php");

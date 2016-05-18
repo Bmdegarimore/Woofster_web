@@ -6,7 +6,7 @@ include('../app/userspace/model/dbModel.php');
 include('UserUniqueIdentifier.php');
 
 /* Handle if headers are already in existance, just destroy them */
-if($_SESSION['logged_in'] || $_SESSION['user_uid']){
+if($_SESSION['logged_in'] || $_SESSION['user_uniqueId']){
         session_destroy();
 }
 

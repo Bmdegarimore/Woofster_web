@@ -2,7 +2,7 @@
    //Starting session so I can grab stuff from $_SESSION
   session_start();
 
-  if(!isset($_SESSION['user_uid'])){
+  if(!isset($_SESSION['user_uniqueId'])){
     header("Location: ../../");
   }
     require("header.html");

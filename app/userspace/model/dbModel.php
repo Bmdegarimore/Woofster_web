@@ -45,13 +45,13 @@
             return $row;
         }
 
-        public function selectEmailUser($email, $password){
+        public function selectEmailUser($uid, $password){
             try{
                 // Creates a prepared select statement
-                $statement = $this->connection->prepare("SELECT * FROM users WHERE username = :username and password = :password");
+                $statement = $this->connection->prepare("SELECT * FROM users WHERE unique_loginID = :uid and password = :password");
 
                 // References namespace of dog to query
-                $statement->bindParam(':username', $email, PDO::PARAM_STR);
+                $statement->bindParam(':uid', $uid, PDO::PARAM_STR);
                 $statement->bindParam(':password', $password, PDO::PARAM_STR);
                 $statement->execute();
 
