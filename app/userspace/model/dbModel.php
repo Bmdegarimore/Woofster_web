@@ -46,7 +46,23 @@
         }
 
         public function selectEmailUser($email, $password){
-            return null;
+            try{
+                // Creates a prepared select statement
+                $statement = $this->connection->prepare("SELECT * FROM users WHERE username = :username and password = :password");
+
+                // References namespace of dog to query
+                $statement->bindParam(':username', $email, PDO::PARAM_STR);
+                $statement->bindParam(':password', $password, PDO::PARAM_STR);
+                $statement->execute();
+
+                // Returns selected rows
+                $row = $statement->fetchAll();
+            } catch(PDOException $e){
+                print "Error! " . $e->getMessage() . "<br>";
+                return false;
+            }
+
+            return $row;
         }
 
         public function selectDog($uid){
