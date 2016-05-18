@@ -5,14 +5,15 @@ include_once('../app/userspace/config.php');
 session_start();
 // Start the buffer
 
+
   if(!isset($_SESSION['username'])){
     header("Location: ../../");
   }
-  echo __DIR__; 
+  
+
 ob_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
+
     <?php 
     
     include('header.html'); ?>
@@ -58,6 +59,7 @@ ob_start();
 <?php
     //Flush buffer
     ob_flush();
+    
 
 ?>
 

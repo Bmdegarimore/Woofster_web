@@ -1,4 +1,3 @@
- <?php ?>
   <div class="container body">
 
 
@@ -13,7 +12,7 @@
           <div class="clearfix"></div>
 
           <!-- menu prile quick info -->
-          <!--<div class="profile">
+          <div class="profile">
             <div class="profile_pic">
               <?php 
                 //Get the profile picture
@@ -24,7 +23,7 @@
               ?>
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>-->
+              <span>Welcome,</span>
               <!--<?php 
                 //Show the user's name if it's set
                 /*if(isset($_SESSION['user_name'])) { 
@@ -35,7 +34,7 @@
           </div>
           <!-- /menu prile quick info -->
 
-          <br />
+          <br/>
 
           <!-- sidebar menu -->
           <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -57,7 +56,7 @@
           <!-- /sidebar menu -->
 
         </div>
-      </div>
+      </div><!--end of main container-->
 
       <!-- top navigation Bar -->
       <div class="top_nav">
@@ -84,5 +83,8 @@
           </nav>
     </div>
 
-  </div>    
-<!-- /top navigation -->
+  </div><!--end container body-->   
+  <?php
+ 
+//top navigation 
+?>

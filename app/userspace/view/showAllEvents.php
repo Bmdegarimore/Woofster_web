@@ -1,8 +1,4 @@
-<?php
-   echo "Showing the showAllEvents.php page";
-?>
-
-
+<?php ?>
     <!-- Latest compiled and minified CSS -->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.5/css/jquery.dataTables.css">
@@ -47,7 +43,7 @@
            ?>
         </tbody>
     </table>
-    
+ 
      
     
     

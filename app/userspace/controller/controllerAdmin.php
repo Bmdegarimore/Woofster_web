@@ -2,10 +2,10 @@
 
 session_start();
 
-//include("model/adminModel.php");
 
-include('../model/adminModel');
-//include('/home/woofster/public_html/app/userspace/model/adminModel.php');
+
+include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/model/adminModel.php');
+
 $user = $_SESSION['username'];
 
     
@@ -31,8 +31,8 @@ $db->connect();
  
 //Help pass contacts to different switches
 $events = $db->selectAllEvents();
-require('../view/showAllEvents');
-//include('/home/woofster/public_html/app/userspace/view/showAllEvents');
+include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showAllEvents.php');
+
 
 
 
@@ -65,4 +65,5 @@ require('../view/showAllEvents');
     default:
         include '../view/showAllEvents.php';
 	*/
+      
 ?>
