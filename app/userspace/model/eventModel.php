@@ -15,7 +15,7 @@ class EventModel extends BaseModel {
       $statement = $this->connection->prepare("select * from events where unique_loginID = :loginID");
       // $statement = $this->connection->prepare("SELECT * FROM Dogs INNER JOIN Events ON Dogs.dogID = Events.dogID WHERE Dogs.unique_loginID =d41d8cd98f00b204e9800998ecf8427e order by dogs.name");
       // References namespace of dog to query
-      //$statement->bindParam(':loginID', $loginID, PDO::PARAM_STR);
+      $statement->bindParam(':loginID', $loginID, PDO::PARAM_STR);
       $statement->execute();
 
       // Returns selected rows
