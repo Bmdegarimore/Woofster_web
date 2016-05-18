@@ -1,22 +1,23 @@
 <?php
+include_once('../app/userspace/config.php');
+
 //Start a session
 session_start();
 // Start the buffer
-<<<<<<< Updated upstream
-=======
+
   if(!isset($_SESSION['username'])){
     header("Location: ../../");
   }
->>>>>>> Stashed changes
+  echo __DIR__; 
 ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <?php include('header.html'); ?>
+    <?php 
     
-<<<<<<< Updated upstream
-    <body>
-=======
+    include('header.html'); ?>
+    
+
     <body class = "nav-md">
 
     <?php 
@@ -46,28 +47,19 @@ ob_start();
             ?>
             </div>
             <?php
-                require("footer.html");
+                include("footer.html");
             ?>
         </div>
 
->>>>>>> Stashed changes
+
         
     </body>
 </html>
-<?php include('footer.html'); ?>
-
-
 <?php
     //Flush buffer
     ob_flush();
-<<<<<<< Updated upstream
-?>
-=======
+
 ?>
 
-<?php
 
 
-
- 
->>>>>>> Stashed changes

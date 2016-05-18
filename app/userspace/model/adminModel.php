@@ -5,7 +5,9 @@ $uidstr = $_SESSION['user_uniqueId'];
 $action = $_SESSION['action'];
 $username = $_SESSION['username'];
 
-require('BaseModel.php');
+//define("ROOT",dirname(__FILE__).'/' );
+//require(ROOT . '../app/userspace/model/BaseModel.php');
+include('/home/woofster/public_html/app/userspace/model/BaseModel.php');
 
 
 class AdminModel extends BaseModel{
@@ -14,6 +16,7 @@ class AdminModel extends BaseModel{
   //protected static $connection;
 
   public function selectAllEvents(){
+    echo "Just called the selectAllEvents function.";
     try{
       // Creates a prepared select statement to select all events
       $statement = $this->connection->prepare("SELECT * FROM events ");
@@ -30,6 +33,9 @@ class AdminModel extends BaseModel{
     }
 
     return $row;
+    echo $row;
+
+
   }
 
  
