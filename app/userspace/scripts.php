@@ -56,6 +56,7 @@
                           useCurrent: true
                           
                         });
+                        $('#datetimepicker12').data("DateTimePicker").minDate(new Date());
                     // Loads empty modal
                     if (title == 'Add') {
                         // Make sure add fields are blank
@@ -71,10 +72,12 @@
                         modal.find('#notes').val(jsonEvents[rowSelected].notes);
                           
                         var testTime = jsonEvents[rowSelected].eventDate;
-                        // Set date and time
+                        // Set date and time based on existing date set
                         $('#datetimepicker12').datetimepicker({
                           format: 'YYYY-MM-DD hh:mm:ss'
                         });
+                        
+                        // Uses moment.js to format time
                         $('#datetimepicker12').data("DateTimePicker").date(moment(testTime));
                        
                         if (title == 'Delete') {
