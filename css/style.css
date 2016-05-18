@@ -32,9 +32,10 @@ h1{
 .bg-grey {
       background-color: #69BE28;
   }
+/*
 .socialMediaIcon{
     margin: 1em;
-}
+}*/
 
 .landingText{
     font-size: 1.8em;
@@ -61,28 +62,19 @@ max-width: 80%;
 #socialMedia h1{
     color: #f6f6f6;
 }
+/*
 #socialMedia{
     margin-bottom: 10em;
     padding-top: 10em;
 
 }
+*/
 
-#about{
-    margin-bottom: 5em;
-    margin-top: 5em;
-}
-#team{
-    
-   
-}
 
 .bg-social{
     background-color: #33bbff;
 }
 
-#team h1{
-    color: #f6f6f6;
-}
 
 /***********************
   OUTLINE BUTTONS
@@ -159,20 +151,17 @@ max-width: 80%;
 
 .btn-center{
   width: 50%;
-  text-align: center;
+  /*text-align: center;*/
   margin: inherit;
 }
 
 .social-login-btn {
   margin: .25em;
-  width: 20%;
+  width: 25%;
   font-size: 250%;
   padding: 0;
 }
 
-.social-login-more {
-  width: 45%;
-}
 
 .social-google {
   background-color: #da573b;
@@ -181,15 +170,6 @@ max-width: 80%;
 .social-google:hover{
   background-color: #be5238;
   border-color: #9b4631;
-}
-
-.social-twitter {
-  background-color: #1daee3;
-  border-color: #3997ba;
-}
-.social-twitter:hover {
-  background-color: #3997ba;
-  border-color: #347b95;
 }
 
 .social-facebook {
@@ -201,15 +181,13 @@ max-width: 80%;
   border-color: #3c5173;
 }
 
-.social-linkedin {
-  background-color: #4875B4;
-  border-color: #466b99;
+.tab-content{
+    background: #FFF;
+    padding: 2em;
+    border-color: #ddd;
+    border-style: none solid solid solid;
+    border-width: 1px;
 }
-.social-linkedin:hover {
-  background-color: #466b99;
-  border-color: #3b5a7c;
-}
-
 
 /************************
     Media Query
@@ -218,20 +196,25 @@ max-width: 80%;
 
 @media (max-width: 600px) {
 
-h1{
-    font-size: 3em;
+  h1{
+      font-size: 3em;
+  }
+
+  .landingText{
+      font-size: 1.2em;
+      line-height: 1.8em;
+  }
+
+  .landingImg{
+      display: none;
+  }
+
 }
 
-.landingText{
-    font-size: 1.2em;
-    line-height: 1.8em;
+.img-responsive {
+  margin-right: auto;
+  margin-left: auto;
+  height: 10em;
+  width: 20em;
 }
-
-.landingImg{
-    display: none;
-}
-
-}
-
-
 
