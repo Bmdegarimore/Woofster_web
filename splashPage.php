@@ -8,6 +8,10 @@
             case REGISTER:
                 include("hybridauth/accountRegistration.php");
                 break;
+            /*case RESET:
+                echo("magical reset");
+                print_r($_POST);
+                break;*/
             default:
                 header("Location: index.html");
                 break;
