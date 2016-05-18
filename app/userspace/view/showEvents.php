@@ -39,6 +39,7 @@
                     if(!empty($_SESSION['error_date'])){
                         $alert_message = $alert_message.$_SESSION['error_date'];
                     }
+                    
                     unset($_SESSION['error_title']);
                     unset($_SESSION['error_note']);
                     unset($_SESSION['error_date']);

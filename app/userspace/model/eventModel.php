@@ -159,28 +159,26 @@ class EventModel extends BaseModel {
 
  //validate notes
   public function validateNotes($notes){
-
       //if is not empty and less than 255 characters
+      
       if(!empty($notes)){
-        
-        if(strlen($notes) <= 255){
-        //then sanitize and fliter input 
-        $notes = trim($notes);
-        $notes = stripslashes($notes);
-        $notes = htmlspecialchars($notes);
-        //echo $notes;
-        return $notes;
+        if(strlen($notes) <= 255){   
+	    //then sanitize and fliter input 
+	    $notes = trim($notes);
+	    $notes = stripslashes($notes);
+	    $notes = htmlspecialchars($notes);
+	    //echo $notes;
+	    return $notes;
 	}else{
-        //echo  "<p style='color:red;'>" . "Please keep your notes under 255 characters."  . "</p>";
-	$_SESSION['error_note'] = "Notes over 255 characters";
+	    //echo  "<p style='color:red;'>" . "Please keep your notes under 255 characters."  . "</p>";
+	    $_SESSION['error_note'] = "Notes over 255 characters";
+	
         return false;
         } 
       }
       else{
-        echo $notes;
         return $notes = " ";
       }
-  
   }
 
 
