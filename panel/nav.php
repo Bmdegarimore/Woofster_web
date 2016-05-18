@@ -23,7 +23,7 @@
               ?>
             </div>
             <div class="profile_info">
-              <span>Welcome,</span>
+              <span>Welcome Admin, </span>
               <!--<?php 
                 //Show the user's name if it's set
                 /*if(isset($_SESSION['user_name'])) { 
@@ -42,14 +42,10 @@
             <div class="menu_section">
               <h3>Features</h3>
               <ul class="nav side-menu">
-                <li><a href="?controller=admin"><i class="fa fa-table"></i> Admin <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav side-menu">
-                  <!--TODO: Make this Events controller to display all events-->
-                    <!--<li><a href="?controller=events"><i class="fa fa-table"></i> Events <span class="fa fa-chevron-down"></span></a></li>-->
-                    <li>Some admin function(Get Emails)</li>
-                    <li>Some other admin function</li>
-                  </ul>
-                </li> 
+                <li><a href="?controller=admin"><i class="fa fa-bars"></i>Admin Events View</a></li>
+                <li><a href="?controller=admin"><i class="fa fa-envelope" aria-hidden="true" name="task" value="users"></i> User Emails</a></li>
+                    
+                
               </ul>
             </div>
           </div>

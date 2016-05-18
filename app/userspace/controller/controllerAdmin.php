@@ -10,9 +10,9 @@ $user = $_SESSION['username'];
 
     
 //Get action
-if(isset($_GET['action'])){
-	$action=$_GET['action']; 
-    $_SESSION['action'] = $action; 
+if(isset($_GET['task'])){
+	$action=$_GET['task']; 
+    $_SESSION['task'] = $action; 
 }
 
    

@@ -17,15 +17,17 @@ $note = $_POST['notes'];
 
 $eventID = $_POST['eventID'];
 $userID = $uidstr;
-   
+
 //Post used to confirm change in contact
 if($_POST['update'] == 'update'){
-	$action = 'update';
+    $action = 'update';
 } else if($_POST['update']== 'delete'){
     $action = 'delete';
 } else if($_POST['update']== 'add'){
     $action = 'insert';
 }
+   
+
   
 // Initialize Database
 $db = new EventModel();

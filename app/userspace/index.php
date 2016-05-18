@@ -22,9 +22,7 @@
                     case EVENTS:
                         include('controller/controllerEvents.php');
                         break;
-                    /*case ADMIN:
-                        echo "I'm an admin";
-                        break;*/
+                 
                     default:
                        include('controller/controllerEvents.php');
                 }
