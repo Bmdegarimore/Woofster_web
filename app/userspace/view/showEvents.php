@@ -88,8 +88,8 @@
                 $notes =$row['notes'];
                 $eventID = $row['eventID'];
                 $userID = $row['unique_loginID'];
-                $edit="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Edit' data-value='update' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>";
-                $delete="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modalAdd' data-title='Delete' data-value='delete' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>";
+                $edit="<button type='button' class='btn btn-primary' data-toggle='modal' data-button='Save' data-target='#modalAdd' data-title='Edit' data-value='update' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>";
+                $delete="<button type='button' class='btn btn-primary' data-toggle='modal' data-button='Delete' data-target='#modalAdd' data-title='Delete' data-value='delete' data-event=$eventID data-row=$counter><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>";
                 $counter++;
                 echo "<tr><td>$eventTitle</td><td class='timeDate'>$eventDate</td><td>$notes</td><td>$edit</td><td>$delete</td></tdtr>";
             };
@@ -98,7 +98,7 @@
     </table>
     <br>
      <div class='text-center'>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAdd" data-title='Add' data-value='add'>Add Event</button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-button='Create'data-target="#modalAdd" data-title='Add' data-value='add'>Add Event</button>
         <br><br>
     </div>
      

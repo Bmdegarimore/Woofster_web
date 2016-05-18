@@ -35,6 +35,7 @@
                     // Extract info from data-* attributes
                     var title = button.data('title'); 
                     var changedValue = button.data('value');
+                    var buttonName = button.data('button');
                     
                     // Grabs row to edit or delete
                     var rowSelected = button.data('row');
@@ -42,10 +43,11 @@
                     var modal = $(this);
                     // Updates the Title of Event to Add, Update, or Delete
                     modal.find('.modal-title').text(title + " Event");
-                    modal.find('#button').text(title + " Event");
+                    modal.find('#button').text(buttonName + " Event");
                     modal.find('#button').val(changedValue);
                     
                     //Make sure fields avail to edit basically resets to original state
+                    modal.find("button").removeClass('btn-danger');
                     modal.find('#eventTitle').prop('disabled',false);
                     modal.find('#notes').prop('disabled', false);
 
@@ -82,6 +84,7 @@
                        
                         if (title == 'Delete') {
                           //Adds read only to fields
+                          modal.find('#button').addClass("btn-danger");
                           modal.find('#eventTitle').prop('disabled',true);
                           modal.find('#notes').prop('disabled', true);
                         }
