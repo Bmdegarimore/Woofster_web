@@ -3,18 +3,16 @@
         $controller = strtoupper($_POST['submit']);
         switch ($controller) {
             case SIGNIN:
-                echo "Check if valid account";
-                echo "Redirect";
-            break;
+                header("Location: hybridauth/emailSignIn.php");
+                break;
             case REGISTER:
-                echo "Check if email exists";
-                echo "Either return back to login or create account and login";
+                include("hybridauth/accountRegistration.php");
                 break;
             default:
-                header("Location:index.html");
+                header("Location: index.html");
                 break;
         }
     }else{
-        header("Location:index.html");
+        header("Location: index.html");
     }
 ?>
