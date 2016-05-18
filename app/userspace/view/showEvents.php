@@ -115,12 +115,12 @@
                 <div class="text-center container">
                        <div class="col-lg-12">
                             <label for="eventTitle" class="control-label">Event Title</label>
-                            <input type="text" class="form-control" name="eventTitle" id="eventTitle" >
+                            <input type="text" class="form-control" name="eventTitle" id="eventTitle" maxlength="128" required>
                         </div>
                         <br>
                         <div class="col-lg-12">
                             <label for="notes" class="control-label">Notes</label>
-                            <textarea class="form-control" rows="4" name="notes" id="notes" ></textarea>
+                            <textarea class="form-control" rows="4" name="notes" id="notes" maxlength="255"></textarea>
                         </div>
                         <br>
                         <div class="col-lg-12">
