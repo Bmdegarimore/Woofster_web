@@ -2,20 +2,19 @@
 
 session_start();
 
+ 
+ $user = $_SESSION['username'];
 
+  
+//Get action
+ if(isset($_GET['update'])){
+    $action=$_GET['update']; 
+     $_SESSION['update'] = $action; 
+ }
+ $action = $_SESSION['update'];
 
 include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/model/adminModel.php');
 
-$user = $_SESSION['username'];
-
-    
-//Get action
-if(isset($_GET['task'])){
-	$action=$_GET['task']; 
-    $_SESSION['task'] = $action; 
-}
-
-   
 
 // Initialize Database
 $db = new AdminModel();
@@ -25,6 +24,22 @@ $db->connect();
 $events = $db->selectAllEvents();
 include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showAllEvents.php');
 
+
+switch($action){
+       
+    //Save event after edit
+    case "showUsers":
+
+    
+        //reload display
+        $events = $db->selectAllUsers();
+        
+        // Load show events
+        include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showEmails.php');
+        break;
+       
+        
+}
 
 
       

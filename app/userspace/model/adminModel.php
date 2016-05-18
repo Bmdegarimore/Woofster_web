@@ -3,7 +3,6 @@
 session_start();
 //set uidstr to equal the session id
 $uidstr = $_SESSION['user_uniqueId'];
-$action = $_SESSION['action'];
 $username = $_SESSION['username'];
 
 //define("ROOT",dirname(__FILE__).'/' );
@@ -44,7 +43,7 @@ class AdminModel extends BaseModel{
     
     try{
       // Creates a prepared select statement to select all events
-      $statement = $this->connection->prepare("SELECT username FROM users");
+      $statement = $this->connection->prepare("SELECT `username` FROM `users`");
       
       // References namespace of dog to query
       $statement->execute();

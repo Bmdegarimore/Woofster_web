@@ -6,7 +6,7 @@
     
 
  
-    <h1 class="text-center">User Events Page:</h1>
+    <h1 class="text-center">Users Page:</h1>
     <br>
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
