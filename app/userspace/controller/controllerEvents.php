@@ -13,7 +13,7 @@ $eventDate = $_POST['eventDate'];
 if($_POST['notes'] === " "){
     $_POST['notes'] = null;
 }
-$note = $_POST['notes'];
+$notes = $_POST['notes'];
 
 $eventID = $_POST['eventID'];
 $userID = $uidstr;
