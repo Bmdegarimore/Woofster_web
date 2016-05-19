@@ -145,30 +145,57 @@
 	 * Checks to validate account exists
 	 **/
 	public function validatePassword($username,$password){
-	  try{
+        try{
 	       
-                // Creates a prepared select statement
-                $statement = $this->connection->prepare("SELECT password FROM admins WHERE username = :username LIMIT 1");
-                // References namespace of dog to query
-                $statement->bindParam(':username', $username, PDO::PARAM_STR);
-                $statement->execute();
+            // Creates a prepared select statement
+            $statement = $this->connection->prepare("SELECT password FROM admins WHERE username = :username LIMIT 1");
+            // References namespace of dog to query
+            $statement->bindParam(':username', $username, PDO::PARAM_STR);
+            $statement->execute();
 
-                // Returns selected rows
-                $row = $statement->fetchAll();
-		
-		if(password_verify($password, $row[0]['password'])){
-		    return true;
-		}else{
-		    return false;
-		}
-
-            } catch(PDOException  $e ){
-                print "Error!: " . $e->getMessage() . "<br>";
-                return false;
-            }
+            // Returns selected rows
+            $row = $statement->fetchAll();
+    		
+    		if(password_verify($password, $row[0]['password'])){
+    		    return true;
+    		} else {
+    		    return false;
+    		}
+        } catch(PDOException  $e ){
+            print "Error!: " . $e->getMessage() . "<br>";
+            return false;
+        }
 
             
 	}
+
+    /**
+     * Checks to validate account exists
+     **/
+    public function validateUserPassword($unique_loginID,$password){
+        try{
+           
+            // Creates a prepared select statement
+            $statement = $this->connection->prepare("SELECT password FROM users WHERE unique_loginID = :unique_loginID LIMIT 1");
+            // References namespace of dog to query
+            $statement->bindParam(':unique_loginID', $unique_loginID, PDO::PARAM_STR);
+            $statement->execute();
+
+            // Returns selected rows
+            $row = $statement->fetchAll();
+            
+            if(password_verify($password, $row[0]['password'])){
+                return true;
+            } else {
+                return false;
+            }
+        } catch(PDOException  $e ){
+            print "Error!: " . $e->getMessage() . "<br>";
+            return false;
+        }
+
+            
     }
+}
 
 ?>
