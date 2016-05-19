@@ -1,5 +1,5 @@
 <?php
-include_once('../app/userspace/config.php');
+//include_once('../app/userspace/config.php');
 
 //Start a session
 session_start();
@@ -53,7 +53,7 @@ ob_start();
         </div>
 
 
-            <?php
+    <?php
       include('scripts.php');
     ?>
     </body>
