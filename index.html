@@ -47,47 +47,47 @@
           <div class="col-lg-12">
             <div class="text-center">
               <img class='img-responsive' src="img/logo.png">
-              <form class="form-signin" action="splashPage.php" method="post">
-                  <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#login" aria-controls="home" role="tab" data-toggle="tab">Login</a></li>
-                    <li role="presentation"><a href="#signup" aria-controls="profile" role="tab" data-toggle="tab">Sign Up</a></li>
-                  </ul>
-                  <!-- Tab panes -->
-                  <div class="tab-content">
-                      <div role="tabpanel" class="tab-pane active" id="login">
-                          <h2 class="text-muted" id="titleSignin">Please Sign In</h2>
-                          <fieldset>
-                              <input class="form-control login-input" placeholder="Email Address" name="signinEmail" type="text">
-                              <br>
-                              <input id="passwordField" class="form-control" placeholder="Password" name="signinPassword" type="password">
-                                <a id="forgotPassword" href="#">Forgot Password?</a>
-                              <hr>
-                              <div class="row">
-                                  <button class="btn btn-lg btn-primary col-lg-6 submitButton" id="submitSignin" type="submit" name="submit" value="signin">Sign in</button>
-                                  <span class="socialSpan col-lg-3"><a class="btn btn-primary btn-lg social-facebook" href="hybridauth/login-with.php?provider=Facebook"><i class="fa fa-facebook"></i></a></span>
-                                  <span class="socialSpan col-lg-3"><a class="btn btn-primary btn-lg social-google" href="hybridauth/login-with.php?provider=Google"><i class="fa fa-google-plus"></i></a></span>
-                              </div>
-
-                              
-                          </fieldset >
-                      </div> <!-- END SIGN IN PANEL -->
-                      <div role="tabpanel" class="tab-pane" id="signup">
-                          <h2 class="text-muted">Sign Up for Free</h2>
-                          <fieldset>
-                                  <input class='form-control' placeholder='First Name' type='text' name='fname'>
-                                  <br>
-                                  <input class='form-control' placeholder='Last Name' type='text' name='lname'>
-                                  <br>
-                                  <input class="form-control login-input" placeholder="Email Address" type="text" name='email'>
-                                  <br>
-                                  <input class="form-control" placeholder="Password" type="password"  name='password'>
-                                  <br>
-                                  <button class="btn btn-lg btn-primary btn-block btn-center submitButton" type="submit" name="submit" value="register">Register</button>
-                          </fieldset >
-                      </div> <!-- END SIGN UP PANEL -->
-                  </div> <!-- END TAB CONTENT -->
-              </form>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#login" aria-controls="home" role="tab" data-toggle="tab">Login</a></li>
+                <li role="presentation"><a href="#signup" aria-controls="profile" role="tab" data-toggle="tab">Sign Up</a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="login">
+                  <h2 class="text-muted" id="titleSignin">Please Sign In</h2>
+                  <form class="form-signin" action="splashPage.php" method="post">
+                    <fieldset>
+                        <input class="form-control login-input" placeholder="Email Address" name="signinEmail" type="email" maxlength='45' required>
+                        <br>
+                        <input id="passwordField" class="form-control" placeholder="Password" name="signinPassword" type="password" maxlength='16' required>
+                          <a id="forgotPassword" href="#">Forgot Password?</a>
+                        <hr>
+                        <div class="row">
+                            <button class="btn btn-lg btn-primary col-lg-6 submitButton" id="submitSignin" type="submit" name="submit" value="signin">Sign in</button>
+                            <span class="socialSpan col-lg-3"><a class="btn btn-primary btn-lg social-facebook" href="hybridauth/login-with.php?provider=Facebook"><i class="fa fa-facebook"></i></a></span>
+                            <span class="socialSpan col-lg-3"><a class="btn btn-primary btn-lg social-google" href="hybridauth/login-with.php?provider=Google"><i class="fa fa-google-plus"></i></a></span>
+                        </div>
+                    </fieldset>
+                  </form>
+                </div> <!-- END SIGN IN PANEL -->
+                <div role="tabpanel" class="tab-pane" id="signup">
+                  <h2 class="text-muted">Sign Up for Free</h2>
+                  <form class='form-signin' action='splashPage.php' method='post'>
+                    <fieldset>
+                            <input class='form-control' placeholder='First Name' type='text' name='fname' maxlength='20' required>
+                            <br>
+                            <input class='form-control' placeholder='Last Name' type='text' name='lname' maxlength='20' required>
+                            <br>
+                            <input class="form-control login-input" placeholder="Email Address" type="email" name='email' maxlength='45' required>
+                            <br>
+                            <input class="form-control" placeholder="Password" type="password"  name='password' maxlength='16' required>
+                            <br>
+                            <button class="btn btn-lg btn-primary btn-block btn-center submitButton" type="submit" name="submit" value="register">Register</button>
+                    </fieldset >
+                  </form>
+                </div> <!-- END SIGN UP PANEL -->
+              </div> <!-- END TAB CONTENT -->
             </div> <!-- End Sign in Content area -->
           </div><!-- /col-lg-12 -->
         </div><!-- /row -->

@@ -7,6 +7,7 @@
         private $dailyMail = 'mail.log';
         
          public function connect(){
+            echo "We have connected" . " <br>";
             try {
                 // Retrieves data needed to connect to data base via config.ini
                 $config = parse_ini_file('../../config/config.ini');
@@ -27,11 +28,14 @@
         
         // Disconnects from database
         public function disconnect(){
+            echo "We have disconnected" . " <br>";
+
             self::$connection = null;
         }
         
         // Select emails to send from DB and return emails to send
         private function selectDailyEvents(){
+            echo "We have called the selectDailyEvents functions" . " <br>";
             try{
                 //Grabs todays date and pulls a range of notifications
                 $currentDate = new DateTime(); //current date/time
@@ -65,6 +69,7 @@
         
         // Takes DB queries and sends out emails to customer
         public function checkTheMail(){
+            echo "We have called the checkTheMail" . " <br>";
             // Select all the daily notifications
             $notifications = $this->selectDailyEvents();
          
@@ -81,6 +86,7 @@
         
         // Method that calls email
         private function sendEmail($to, $body , $subject = "Event Reminder"){
+            echo "We have called the sendEmail functions";
             //Email to applicant     
             require_once('swift_required.php');
              
@@ -99,14 +105,14 @@
             $message->setSubject($subject);
             $message->setBody('<html>' .
                                     '<head></head>' .
-                                    '<body>' .
+                                    '<body style=\"background-color: #0099e6; \">' .
                                     $body.
                                     '<br>'.
-                                    '<p></p>'.
-                                    '<h5>Thanks,</h5><br>'.
-                                    '<h5>Woofster Team</h5>'.
-                                    '<h5></h5>'.
-                                    '<p></p>'.
+                                    '<p style=\"font-color: #73879;\"></p>'.
+                                    '<h5 style=\"font-color: #73879;\>Thanks,</h5><br>'.
+                                    '<h5 style=\"font-color: #73879;\><i class="fa fa-paw"></i>Woofster Team</h5>'.
+                                    '<h5 style=\"font-color: #73879;\></h5>'.
+                                    '<p> style=\"font-color: #73879;\</p>'.
                                     '</body>' .
                                     '</html>',
                                       'text/html' // Mark the content-type as HTML
