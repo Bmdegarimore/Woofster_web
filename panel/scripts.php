@@ -1,6 +1,6 @@
 <!-- Custom JS -->
-        <script src="assets/js/nprogress.js"></script>
-        <script src="assets/js/custom.js"></script>
+        <script src="$_SERVER['DOCUMENT_ROOT'].'app/userspace/assets/js/nprogress.js'"></script>
+        <script src="$_SERVER['DOCUMENT_ROOT'].'app/userspace/assets/js/custom.js'"></script>
               
         <!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
         <script src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>

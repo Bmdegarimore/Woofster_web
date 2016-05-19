@@ -6,9 +6,9 @@ session_start();
 // Start the buffer
 
 
-  if(!isset($_SESSION['username'])){
-    header("Location: ../../");
-  }
+if(!isset($_SESSION['username'])){
+    header("Location: loginAdmin.php");
+}
   
 
 ob_start();
