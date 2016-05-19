@@ -13,23 +13,8 @@
 
           <!-- menu prile quick info -->
           <div class="profile">
-            <div class="profile_pic">
-              <?php 
-                //Get the profile picture
-                if(isset($_SESSION['user_photoURL'])) { 
-                  echo "<img src='" . $_SESSION['user_photoURL'] . 
-                        "' alt='User profile picture' class='img-circle profile_img'>"; 
-                }
-              ?>
-            </div>
             <div class="profile_info">
               <span>Welcome Admin, </span>
-              <!--<?php 
-                //Show the user's name if it's set
-                /*if(isset($_SESSION['user_name'])) { 
-                  echo "<h2>" . $_SESSION['user_name'] . "</h2>"; 
-                }*/
-              ?>-->
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -42,7 +27,7 @@
             <div class="menu_section">
               <h3>Features</h3>
               <ul class="nav side-menu">
-                <li><a href="?controller=admin&update=events "><i class="fa fa-bars" ></i>Admin Events View</a></li>
+                <li><a href="?controller=admin$update=events"><i class="fa fa-bars" ></i>Admin Events View</a></li>
                 <li><a href="?controller=admin&update=showUsers"><i class="fa fa-envelope" aria-hidden="true" ></i> User Emails</a></li>
                     <?php
                     echo $_POST['update'];
@@ -64,12 +49,6 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <?php 
-                    //Get the profile picture & username
-                    if(isset($_SESSION['user_name'])) { 
-                      echo $_SESSION['user_name']; 
-                    }
-                  ?>
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
