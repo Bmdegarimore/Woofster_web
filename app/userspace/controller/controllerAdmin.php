@@ -49,8 +49,21 @@ switch($action){
       $db->disconnect();
       $chartModel = new ChartModel();
       $chartModel->connect();
+      // Counts the total amount events for the month
+      $countedEvents = $chartModel->numberOfEvents(date(m));
+      // Used to show stats on the bar graph per day
       $totalEvents = $chartModel->selectEvents(date(m));
-      $col[]= ['day','hour','count'];
+      // Number of users
+      $numberUsers = $chartModel->numberOfUsers(date(m));
+      // Calculate Avg Events Per User
+      $avgEventsPerUser = round((int)$countedEvents / (int)$numberUsers);
+      //Count the amount of social media users
+      $numberSocialMediaUsers = $chartModel->numberOfSocialMedia(date(m));
+      // Count the amount of email users
+      $numberEmailUsers = $chartModel->numberOfEmailUsers(date(m));
+      
+      $numberOfNotificationsPast = $chartModel->notificationSent(date(m),date(d));
+    
       $data = '[';
       foreach($totalEvents as $event){
          //$data .="[new Date(".$event['year'].",".$event['month'].",".$event['day']."),".$event['count']."],";
