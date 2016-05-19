@@ -11,18 +11,19 @@
 function drawBasic() {
 
       var data = new google.visualization.DataTable();
-      data.addColumn('timeofday', 'Day');
+      data.addColumn('number', 'Day');
       data.addColumn('number', 'Total Events per Day');
 
       data.addRows(<?php echo($data);?>);
+      
       var options = {
         title: 'Usage Per Day',
         hAxis: {
           title: 'Day',
-          format: 'h:mm a',
+          format: 'Day:',
           viewWindow: {
-            min: [1, 0, 0],
-            max: [24, 0, 0]
+            min: [1],
+            max: [31]
           }
         },
         vAxis: {
@@ -32,9 +33,11 @@ function drawBasic() {
 
       var chart = new google.visualization.ColumnChart(
         document.getElementById('chart_div'));
-
+        
       chart.draw(data, options);
     }
 </script>
-
-    <div id="chart_div"></div>
+    <div class="row">
+        <div id="chart_div"></div>    
+    </div>
+    
