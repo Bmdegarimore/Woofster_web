@@ -21,6 +21,10 @@
                   echo "<img src='" . $_SESSION['user_photoURL'] . 
                         "' alt='User profile picture' class='img-circle profile_img'>"; 
                 }
+                else {
+                  echo "<img src='../../img/defaultProfilePicture.png' alt='User profile picture'
+                        class='img-circle profile_img'>";
+                }
               ?>
             </div>
             <div class="profile_info">
@@ -66,6 +70,9 @@
                     if(isset($_SESSION['user_photoURL']) && isset($_SESSION['user_name'])) { 
                       echo "<img src='" . $_SESSION['user_photoURL'] . 
                             "' alt='User profile picture'> " . $_SESSION['user_name']; 
+                    }
+                    else {
+                      echo "<img src='../../img/defaultProfilePicture.png' alt='User profile picture'> " . $_SESSION['user_name'];
                     }
                   ?>
                   <span class=" fa fa-angle-down"></span>
