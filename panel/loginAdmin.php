@@ -1,8 +1,12 @@
 <?php
-    //Kills any connection to other sessions such as client side
-    session_destroy();
+
     // Restarts Session
     session_start();
+    
+    /* Handle if headers are already in existance, just destroy them */
+    if($_SESSION['logged_in'] || $_SESSION['user_uniqueId']){
+       session_destroy();
+    }
     
 ?>
 <!DOCTYPE html>
