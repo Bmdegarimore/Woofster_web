@@ -28,16 +28,25 @@
     $model->connect();
 
     //Hard coded temporarily
-    $result = $model->selectEmailUser($uidstr, $signinPassword);
-
+    //$result = $model->selectEmailUser($uidstr, $signinPassword);
+    $result = $model->validatePassword($uidstr,$signinPassword);
+	echo($result);
 	//Check if the account and password matches
 	if(count($result) == 1){
 		//If yes, then navigate to the app
 		$_SESSION['user_name'] = $result[0]['username'];
 		$_SESSION['logged_in'] = true;
-
-		//TODO: See if you can just remove this
 		$_SESSION['user_uid'] = $uidstr;
+
+		//Query profile info for name
+
+
+		/* From the login-with.php. These are some of the fields they pulled
+		$_SESSION['user_email'] = $user_profile->email;
+        $_SESSION['user_uid'] = $user_profile->identifier;
+        $_SESSION['user_name'] = $user_profile->displayName;
+        $_SESSION['user_photoURL'] = $user_profile->photoURL;
+        */
 
 		//Store the user's uniqueIdentifier 
         $_SESSION['user_uniqueId'] = $uidstr;

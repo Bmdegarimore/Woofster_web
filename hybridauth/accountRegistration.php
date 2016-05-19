@@ -35,8 +35,10 @@
 	$result = $model->selectUser($uidstr);
 
 	if(count($result) == 0){
+		// Hash password based on stand hash for php
+		$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 		//Insert the user into the users table
-		$model->insertEmailUser($email, $password, $uidstr);
+		$model->insertEmailUser($email, $hashedPassword, $uidstr);
 
 		//Insert the profile information into the profile info table
 		$model->insertProfileInfo($uidstr, $fname, $lname, $email);
