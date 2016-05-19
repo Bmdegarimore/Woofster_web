@@ -72,17 +72,23 @@
 
 			//Insert the profile information into the profile info table
 			$model->insertProfileInfo($uidstr, $fname, $lname, $email);
+
+			$model->disconnect();
+			unset($model);
+
+			//Set header to email sign in after making sure that the email and password post variables are still available
+			$_POST['signinEmail'] = $email;
+			$_POST['signinPassword'] = $password;
+			$_POST['submit'] = 'SIGNIN';
+			header('Location: splashPage.php');
 		}
 		else if(count($result) == 1){
-			echo "That account already exists!";
+			echo "That account already exists!<br>";
+			echo "<a href='../'>Back to home page</a>";
 		}
 		else {
-			echo "There are multiple accounts with this email address, please contact an administrator";
+			echo "There are multiple accounts with this email address, please contact an administrator <br>";
+			echo "<a href='../'>Back to home page</a>";
 		}
-
-		//Set header to email sign in after making sure that the email and password post variables are still available
-		/*$_POST['email'] = $email;
-		$_POST['password'] = $password;
-		header('Location: emailSignIn.php');*/
 	}
 ?>
