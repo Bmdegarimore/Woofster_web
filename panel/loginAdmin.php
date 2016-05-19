@@ -1,4 +1,7 @@
 <?php
+    //Kills any connection to other sessions such as client side
+    session_destroy();
+    // Restarts Session
     session_start();
     
 ?>
