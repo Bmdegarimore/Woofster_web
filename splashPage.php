@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('app/userspace/model/dbModel.php');
+// Create connection to DB for clients and admins
 $DB = new DBModel();
 $DB->connect();
     if(isset($_POST['submit'])){
@@ -13,9 +14,17 @@ $DB->connect();
                 include("hybridauth/accountRegistration.php");
                 break;
             case RESET:
-                if($DB->confirmEmail($_POST['signinEmail'])){
-                    echo('path to reset');
-                    include("loginFPass.php");
+                $email = $_POST['signinEmail'];
+                if($DB->confirmEmail($email)){
+                    // Create a connection to mailman to send email
+                    include_once('email/mailman.php');
+                    $resetURL = $DB->createToken($email);
+                    $mailMan = new Mailman();
+                    $mailMan->connect();
+                    $mailMan->sendPasswordReset($email,$resetURL);
+                    //Insert a message reset was sent....
+                    header("Location: index.php");
+                    
                 }else{
                     $_SESSION['error'] = "Account not found. Please create an account.";
                     header("Location: index.php");

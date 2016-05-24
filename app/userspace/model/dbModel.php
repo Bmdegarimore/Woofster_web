@@ -92,6 +92,82 @@
 
 
 	}
+	  /**
+	   * Private method used with create token to find the unique_login_ID that needs to be reset.
+	   **/
+	  private function findUID($userEmail, $socialMediaType){
+	       try{
+		     // Creates a prepared select statement
+		     $statement = $this->connection->prepare("SELECT unique_loginID AS userid FROM users WHERE username = :userEmail and socialNetwork = :socialMedia");
+     
+		     // References namespace of dog to query
+		     $statement->bindParam(':userEmail', $userEmail, PDO::PARAM_STR);
+		     $statement->bindParam(':socialMedia', $socialMediaType, PDO::PARAM_STR);
+		     $statement->execute();
+     
+		     // Returns selected rows
+		     $row = $statement->fetchAll();
+		 } catch(PDOException $e){
+		     print "Error! " . $e->getMessage() . "<br>";
+		     return false;
+		 }
+	       if(!empty($row)){
+		 return $row[0]['userid']; 
+	       }
+		 return false;
+	  }
+	  
+	/**
+	 * Generates a token the user needs to reset password. This is done to make it more secure.
+	 **/
+	public function createToken($userEmail){
+	  $uid = $this->findUID($userEmail,'email');
+	  
+	  $selector = bin2hex(random_bytes(8));
+	  $token = random_bytes(32);
+	  
+	  
+	  $expires = new DateTime('NOW');
+	  $expires->add(new DateInterval('PT24H')); // 24hour
+     
+	  $statement = $this->connection->prepare("INSERT INTO passwordRecovery (unique_login, selector, token, expires) VALUES (:userid, :selector, :token, :expires);");
+	  $statement->bindParam(':userid',$uid, PDO::PARAM_STR);
+	  $statement->bindParam(':selector',$selector, PDO::PARAM_STR);
+	  $statement->bindParam(':token',hash('sha256', $token),PDO::PARAM_STR);
+	  $statement->bindParam(':expires', $expires->format('Y-m-d H:i:s'), PDO::PARAM_STR);
+	
+          $statement->execute();
+	  
+	  
+	  return $urlToEmail = 'http://woofster.greenrivertech.net/loginFPass.php?'.http_build_query([
+	      'selector' => $selector,
+	      'validator' => bin2hex($token)
+	  ]);
+	}
+	/**
+	 * Selects the selector from email reset and compares the expiration date.  If expired then token is deleted, but
+	 * if valid the method forwards the user to another page to change passwords.  The token is then deleted.
+	 **/
+	public function checkToken($selector, $validator){
+	  $statement = $this->connection->prepare("SELECT * FROM passwordRecovery WHERE selector = :selector AND expires >= NOW()");
+	  $statement->bindParam(':selector',$selector, PDO::PARAM_STR);
+	  $statement->execute();
+	  
+	  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+	  //print_r($results);
+	  if (!empty($results)) {
+	      $calc = hash('sha256', hex2bin($validator));
+	  
+	      if (hash_equals($calc, $results[0]['token'])) {
+		  // The reset token is valid. Authenticate the user.
+		  return true;
+	      } else{
+	       return false;
+	      }
+	      // Remove the token from the DB regardless of success or failure.
+	      echo("delete token");
+	  }
+	}
 
         public function selectDog($uid){
             try{

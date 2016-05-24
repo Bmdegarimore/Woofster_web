@@ -27,6 +27,7 @@ class AdminModel extends BaseModel{
 
       // Returns selected rows
       $row = $statement->fetchAll();
+      return $row;
 
     } catch(PDOException  $e ){
       print "Error!: " . $e->getMessage() . "<br/>";
@@ -34,7 +35,7 @@ class AdminModel extends BaseModel{
     }
 
     return $row;
-    echo $row;
+   
 
 
   }
@@ -57,18 +58,10 @@ class AdminModel extends BaseModel{
     }
 
     return $row;
-    echo $row;
 
 
   }
-
- 
-
-
   
-
-
-
 }//end of AdminModel
 
 
