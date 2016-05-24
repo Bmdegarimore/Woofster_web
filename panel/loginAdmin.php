@@ -36,19 +36,18 @@
     <div class="text-center">
         <form class="form-signin" method="post" action="authenticate.php">
             <h2 class="form-signin-heading modal-title">Please sign in</h2>
-        
-            <input type="text" id="inputEmail" class="form-control" placeholder="Username" name="username" autofocus="" value="<?php if(isset($_SESSION['username'])){echo($_SESSION['username']);}?>" required>
-            
-            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required >
-           
-            <button class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Sign in</button>
-            
             <?php if(!empty($_SESSION['error'])){
                     echo('<div class="alert alert-danger" role="alert">'.$_SESSION['error'].'</div>');
                     
                     unset($_SESSION['error']);
                 }
              ?>
+            <input type="text" id="inputEmail" class="form-control" placeholder="Username" name="username" autofocus="" value="<?php if(isset($_SESSION['username'])){echo($_SESSION['username']);}?>" required>
+            
+            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required >
+           
+            <button class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Sign in</button>
+            
         </form>
     </div>
                  
