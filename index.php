@@ -1,3 +1,10 @@
+<?php
+    session_start();
+     /* Handle if headers are already in existance, just destroy them */
+    if($_SESSION['logged_in'] || $_SESSION['user_uniqueId']){
+       session_destroy();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,6 +54,12 @@
           <div class="col-lg-12">
             <div class="text-center">
               <img class='img-responsive' src="img/logo.png">
+                    <?php if(!empty($_SESSION['error'])){
+                            echo('<div class="alert alert-danger" role="alert">'.$_SESSION['error'].'</div>');
+                        
+                            unset($_SESSION['error']);
+                        }
+                    ?>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#login" aria-controls="home" role="tab" data-toggle="tab">Login</a></li>
@@ -184,6 +197,7 @@
         // Will be used to 
         $( "#forgotPassword" ).toggle(function() {
             $( "#passwordField" ).hide();
+            $("#passwordField").prop('disabled', true);
             $(".socialSpan").hide();
             $("#submitSignin").text("Reset");
             $("#submitSignin").val("reset");
@@ -191,6 +205,7 @@
             $("#forgotPassword").text("Cancel");
             
         }, function(){
+            $("#passwordField").prop('disabled', false);
             $( "#passwordField" ).show();
             $(".socialSpan").show();
             $("#submitSignin").text("Sign in");
@@ -198,16 +213,17 @@
             $("#titleSignin").text("Please Sign In");
             $("#forgotPassword").text("Forgot Password?");
         });
-        
+        /*
         $(".submitButton").click(function(){
-            if ($(this).val=== "register") {
-                //code
-            }else if ($(this).val === "signin") {
+            if ($(this).val()=== "register") {
+                
+            }else if ($(this).val() === "signin") {
                 //code
             }else {
                 
             }
-        });
+            
+        });*/
     </script>
   </body>
 </html>

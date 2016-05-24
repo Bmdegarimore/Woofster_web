@@ -64,6 +64,34 @@
 
             return $row;
         }
+	
+	
+	/**
+	 * Checks email to verify it exists.  Returns true or false. Used to in part to reset customer's password
+	 **/
+	public function confirmEmail($userEmail){
+	  try{
+	       $statement = $this->connection->prepare("SELECT * FROM `users` WHERE username = :userEmail and socialNetwork = 'email'");
+	       // References namespace of email
+                $statement->bindParam(':userEmail', $userEmail, PDO::PARAM_STR);
+                $statement->execute();
+
+                // Returns selected rows
+                $row = $statement->fetchAll();
+		
+            } catch(PDOException $e){
+                print "Error! " . $e->getMessage() . "<br>";
+                return false;
+            }
+	    
+	  if(count($row) >= 1){
+	       return true;
+	  } else {
+	       return false;
+	  }
+
+
+	}
 
         public function selectDog($uid){
             try{
