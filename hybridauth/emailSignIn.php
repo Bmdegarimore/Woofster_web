@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include('app/userspace/model/dbModel.php');
+	//include('app/userspace/model/dbModel.php');
 	include('hybridauth/UserUniqueIdentifier.php');
 
 	//Set validation flags to false
@@ -39,17 +39,17 @@
 		$uidstr = $uniqueIdentifier->uniqueId;
 
 		//Query the model to see if the user is in the database, if they're not, add them to it
-	    $model = new DBModel();
+	    //$model = new DBModel();
 
-	    $model->connect();
+	    //$model->connect();
 
 	    //Hard coded temporarily
-	    //$result = $model->selectEmailUser($uidstr, $signinPassword);
-	    $result = $model->validateUserPassword($uidstr,$signinPassword);
+	    //$result = $DB->selectEmailUser($uidstr, $signinPassword);
+	    $result = $DB->validateUserPassword($uidstr,$signinPassword);
 
 		//Check if the account and password matches
 		if($result){
-			$result = $model->selectUser($uidstr);
+			$result = $DB->selectUser($uidstr);
 
 			//If yes, then navigate to the app
 			$_SESSION['user_name'] = $result[0]['username'];
@@ -60,14 +60,14 @@
 	        $_SESSION['user_uniqueId'] = $uidstr;
 
 			//Navigate forward to the app
-			$model->disconnect();
+			$DB->disconnect();
 			header("Location: app/userspace/");
 		}
 		//If no, then display the login fields again, and provide a redirect back to the home page
 		else {
 			//TODO: Add login from this actual page
 			//Temporarily navigating back to the home page
-			$model->disconnect();
+			$DB->disconnect();
 			session_destroy();
 			header("Location: ../");
 		}
