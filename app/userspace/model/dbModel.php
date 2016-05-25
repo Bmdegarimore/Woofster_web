@@ -92,6 +92,28 @@
 
 
 	}
+	
+	/**
+	 * Changes the password for user account once they validate content. Used with change case in splashPage.php
+	 **/
+	public function changePassword($email,$password){
+	  try{
+	       // Creates a prepared select statement
+	       $statement = $this->connection->prepare("UPDATE users SET password = :password WHERE unique_loginID = :unique_loginID");
+     
+	       // References namespace of dog to query
+	       $statement->bindParam(':unique_loginID', $email+'_email', PDO::PARAM_STR);
+	       $statement->bindParam(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
+	       $statement->execute();
+     
+	       // Returns selected rows
+	       $row = $statement->fetchAll();
+	  }catch(PDOException $e){
+	       print "Error! " . $e->getMessage() . "<br>";
+	       return false;
+	  }
+	}
+	
 	  /**
 	   * Private method used with create token to find the unique_login_ID that needs to be reset.
 	   **/
@@ -164,9 +186,16 @@
 	      } else{
 	       return false;
 	      }
-	      // Remove the token from the DB regardless of success or failure.
-	      echo("delete token");
 	  }
+	}
+	
+	public function deleteToken($selector){
+	  $statement = $this->connection->prepare("DELETE FROM passwordRecovery WHERE selector = :selector");
+	  $statement->bindParam(':selector',$selector, PDO::PARAM_STR);
+	  $statement->execute();
+	  
+	  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+     
 	}
 
         public function selectDog($uid){

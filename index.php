@@ -58,6 +58,9 @@
                             echo('<div class="alert alert-danger" role="alert">'.$_SESSION['error'].'</div>');
                         
                             unset($_SESSION['error']);
+                        }else if(!empty($_SESSION['passed'])){
+                            echo('<div class="alert alert-success" role="alert">'.$_SESSION['passed'].'</div>');
+                            unset($_SESSION['passed']);
                         }
                     ?>
               <!-- Nav tabs -->

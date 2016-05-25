@@ -7,10 +7,10 @@
         private $dailyMail = 'mail.log';
         
          public function connect(){
-            echo "We have connected" . " <br>";
+            
             try {
                 // Retrieves data needed to connect to data base via config.ini
-                $config = parse_ini_file('../../config/config.ini');
+                $config = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/../config/config.ini');
 
                 // Attempts to connect to database
                 self::$mailman = new PDO($config['dbname'], $config['username'], $config['password']);
@@ -75,11 +75,15 @@
          
             foreach($notifications as $individualEvents){
                 echo("Title:".$individualEvents['title']);
-                echo("Note:".$individualEvents['notes']);
+                echo("Notes:".$individualEvents['notes']);
                 echo("Date:".$individualEvents['eventDate']);
                 echo("Email:".$individualEvents['username']."\n");
-                $message = "<p><b>Title:</b> ".$individualEvents['title']." Event</p><p>Date and Time".$individualEvents['eventDate']."</p><p><b>Notes for Event:</b> ".$individualEvents['notes']."</p>";
+                $message = '<p style="font-size: 16pt;">'. '<b>Title:</b>'.$individualEvents['title'].' Event</p>'. '<p style="font-style: italic; font-size: 10pt;">(Tip: Hover over time below to add to your calendar)</p>'. '<p><b>Date and Time</b>'. 
+                $individualEvents['eventDate'].'</p><p><b>Notes for Event:</b> '.$individualEvents['notes'].'</p>';
                 $this->sendEmail($individualEvents['username'], $message);
+
+               /* $message = "<p><b>Title:</b> ".$individualEvents['title']." Event</p><p>Date and Time".$individualEvents['eventDate']."</p><p><b>Notes for Event:</b> ".$individualEvents['notes']."</p>";
+                $this->sendEmail($individualEvents['username'], $message);*/
                 
             }
         }
@@ -101,18 +105,62 @@
             $message->setTo(array(
               "$to" => "$to"
             ));
+            
     
             $message->setSubject($subject);
             $message->setBody('<html>' .
-                                    '<head></head>' .
-                                    '<body style=\"background-color: #0099e6; \">' .
+                                    '<head>'.'<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">'.'</head>' .
+                                    '<body style="background-color: #C4CFDA; border-style: solid; border-color: #0099e6;">' .
                                     $body.
                                     '<br>'.
-                                    '<p style=\"font-color: #73879;\"></p>'.
-                                    '<h5 style=\"font-color: #73879;\>Thanks,</h5><br>'.
-                                    '<h5 style=\"font-color: #73879;\><i class="fa fa-paw"></i>Woofster Team</h5>'.
-                                    '<h5 style=\"font-color: #73879;\></h5>'.
-                                    '<p> style=\"font-color: #73879;\</p>'.
+                                    '<p></p>'.
+                                    '<h5 style="font-size:14pt;">Thanks,</h5><br>'.
+                                    '<h5 style="font-size: 14pt; font-color: #73879;">Woofster Team</h5>'.
+                                    '<p style="font-size:14pt;"></p>'.
+                                    '</body>' .
+                                    '</html>',
+                                      'text/html' // Mark the content-type as HTML
+              );
+            $message->setFrom("DoNotReply@Woofster.com", "WoofsterMailer");
+             
+            // Send the email
+            $mailer = Swift_Mailer::newInstance($transport);
+            $mailer->send($message);
+    
+            //END OF EMAIL
+        }
+        /**
+         * Sends an email with a reset password link to email address
+         **/
+        public function sendPasswordReset($to, $url, $subject = "Reset Request"){
+            //Email to applicant     
+            require_once('swift_required.php');
+             
+            $email_address = "";
+            //Create the Transport
+            $transport = Swift_MailTransport::newInstance();
+                  
+            //Create the Mailer using your created Transport
+            $mailer = Swift_Mailer::newInstance($transport);
+            // Create the message
+            $message = Swift_Message::newInstance();
+            $message->setTo(array(
+              "$to" => "$to"
+            ));
+            
+    
+            $message->setSubject($subject);
+            $message->setBody('<html>' .
+                                    '<head>'.'<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">'.'</head>' .
+                                    '<body style="background-color: #C4CFDA; border-style: solid; border-color: #0099e6;">' .
+                                    '<br>'.
+                                    '<p>You recently requested a password reset. To change your password, click or paste the following link into you browser:<a href="'.
+                                    $url.
+                                    '">'.$url.'</a> '.
+                                    'Link will expires in 24 hours</p>'.
+                                    '<h5 style="font-size:14pt;">Thanks,</h5><br>'.
+                                    '<h5 style="font-size: 14pt; font-color: #73879;">Woofster Team</h5>'.
+                                    '<p style="font-size:14pt;"></p>'.
                                     '</body>' .
                                     '</html>',
                                       'text/html' // Mark the content-type as HTML
