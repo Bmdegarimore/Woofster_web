@@ -36,7 +36,10 @@ $DB->connect();
             case CHANGE:
                 // Confirm post was sent
                 if(isset($_POST['email']) && $_SESSION["validated"] == "true"){
-    
+                    // Unset session validator and selector session
+                    unset($_SESSION["selector"]);
+                    
+                    unset($_SESSION["validator"]);
                     //Check to make sure passwords are the same
                     if($_POST['rePassword'] == $_POST['password']){
                         // INSERT VALIDATION FOR EMAIL
@@ -51,9 +54,9 @@ $DB->connect();
                         }
                             
                     }else{
-                         print_r($_POST);
+                         //print_r($_POST);
                         $_SESSION['error'] = "Passwords missmatched! Please resubmit request.";
-                        //header("Location: index.php");
+                        header("Location: index.php");
                     }
                 }else{
                     $_SESSION['error'] = "Empty email or password field when resetting. Please resubmit.";

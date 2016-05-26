@@ -98,12 +98,14 @@
 	 **/
 	public function changePassword($email,$password){
 	  try{
+	       $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+	       $email .= "_email";
 	       // Creates a prepared select statement
 	       $statement = $this->connection->prepare("UPDATE users SET password = :password WHERE unique_loginID = :unique_loginID");
      
 	       // References namespace of dog to query
-	       $statement->bindParam(':unique_loginID', $email+'_email', PDO::PARAM_STR);
-	       $statement->bindParam(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
+	       $statement->bindParam(':password',$hashedPassword , PDO::PARAM_STR);
+	       $statement->bindParam(':unique_loginID', $email, PDO::PARAM_STR);
 	       $statement->execute();
      
 	       // Returns selected rows
@@ -316,9 +318,12 @@
 
             // Returns selected rows
             $row = $statement->fetchAll();
-            
+	    $hash = $row[0]['password'];
+	    
+	    
+	 
             if(password_verify($password, $row[0]['password'])){
-                return true;
+		return true;
             } else {
                 return false;
             }

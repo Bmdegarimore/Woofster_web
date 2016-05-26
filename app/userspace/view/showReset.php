@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_SESSION["selector"]) && !isset($_SESSION["validator"])){
         session_destroy();
-        header("Location:index.php");
+        header("Location: ../.../../index.php");
     }
     
     
