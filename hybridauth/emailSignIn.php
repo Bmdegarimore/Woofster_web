@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	//DONT NEED INHERITING FROM SPLASHPAGE
 	//include('app/userspace/model/dbModel.php');
 	include('hybridauth/UserUniqueIdentifier.php');
 

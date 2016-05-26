@@ -1,5 +1,6 @@
 <?php
-	include('app/userspace/model/dbModel.php');
+	//DONT NEED INHERITING FROM SPLASHPAGE
+	//include('app/userspace/model/dbModel.php');
 	include('hybridauth/UserUniqueIdentifier.php');
 
 	//initialize the valid flags to false
@@ -72,15 +73,31 @@
 
 			//Insert the profile information into the profile info table
 			$model->insertProfileInfo($uidstr, $fname, $lname, $email);
+			
+			$result = $DB->selectUser($uidstr);
 
+			//If yes, then navigate to the app
+			$_SESSION['user_name'] = $result[0]['username'];
+			$_SESSION['logged_in'] = true;
+			$_SESSION['user_uid'] = $uidstr;
+
+			//Store the user's uniqueIdentifier 
+			$_SESSION['user_uniqueId'] = $uidstr;
+
+			//Navigate forward to the app
 			$model->disconnect();
+			unset($model);
+			
+			header("Location: app/userspace/");
+
+			/* $model->disconnect();
 			unset($model);
 
 			//Set header to email sign in after making sure that the email and password post variables are still available
 			$_POST['signinEmail'] = $email;
 			$_POST['signinPassword'] = $password;
 			$_POST['submit'] = 'SIGNIN';
-			header('Location: splashPage.php');
+			header('Location: splashPage.php');*/
 		}
 		else if(count($result) == 1){
 			echo "That account already exists!<br>";
