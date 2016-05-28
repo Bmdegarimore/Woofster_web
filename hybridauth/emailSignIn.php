@@ -64,13 +64,11 @@
 			$DB->disconnect();
 			header("Location: app/userspace/");
 		}
-		//If no, then display the login fields again, and provide a redirect back to the home page
-		else {
-			//TODO: Add login from this actual page
-			//Temporarily navigating back to the home page
-			$DB->disconnect();
-			session_destroy();
-			header("Location: ../");
-		}
 	}
+
+	//If no, then display the login fields again, and provide a redirect back to the home page
+	$DB->disconnect();
+
+	$_SESSION['error'] = 'Login credentials are invalid. Please check your username and password';
+	header("Location: ../");
 ?>
