@@ -187,13 +187,36 @@
 
       </div>
     </div>
+    
+    <!-- Terms of service modal -->
+    <div id='termsModal' class='modal fade' role='dialog'>
+      <div class='modal-dialog'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class='modal-title'>Terms of Agreement</h4>
+          </div>
+          
+          <div class='modal-body'>
+            <p>
+              Woofster will use your personal data to provide you a high quality experience. 
+              Privacy is a priority for us. We hate spam too. We will never share your information.
+             </p>
+          </div>
+
+          <div class='modal-footer'>
+            <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="container-fluid text-center bg-grey">
       <a class="topPage" href="#myPage" title="To Top">
         <i class="glyphicon glyphicon-chevron-up"></i>
       </a>
-      <p><a href="terms.html">Terms Of Service</a></p>
-      <p>&copy; 2016 Team Woofster</p>		
+      <p><a data-toggle="modal" href="#termsModal">Terms Of Service</a></p>
+      <p>&copy; 2016 Team Woofster</p>    
     </footer>
     
     <script>
