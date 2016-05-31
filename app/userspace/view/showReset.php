@@ -57,7 +57,7 @@
                                 <span class="input-group-addon" >
                                     <span id="check2" class="glyphicon glyphicon-asterisk"></span>
                                 </span>
-                                <input class="form-control" placeholder="New Password" type="password"  id='password' name='password' maxlength='16' required>
+                                <input class="form-control" placeholder="New Password" type="password"  id='password' name='password' maxlength='17' required>
                                 <span id="show"class="input-group-addon">
                                     <span class="glyphicon glyphicon-eye-open" type="button"></span>
                                 </span>
@@ -69,7 +69,7 @@
                                     <li id="uppercase" class= "text-muted">Uppercase</li>
                                     <li id="lowercase" class= "text-muted">Lowercase</li>
                                     <li id="numeric" class= "text-muted">Numeric</li>
-                                    <li id="specialCharacter" class= "text-muted">Special Character</li>
+                                    <li id="specialCharacter" class= "text-muted">Special Character: $@$!%*?&</li>
                                 </ul>
                             </div>
             

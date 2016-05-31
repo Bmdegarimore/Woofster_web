@@ -17,6 +17,8 @@
 		if(strlen($fname) > 0 && strlen($fname) < 21){
 			$fname = filter_var($fname, FILTER_SANITIZE_STRING);
 			$fnameValid = true;
+		} else{
+			$_SESSION['error'] = "First name is not a valid format.";
 		}
 	}
 
@@ -28,6 +30,8 @@
 		if(strlen($lname) > 0 && strlen($lname) < 21){
 			$lname = filter_var($lname, FILTER_SANITIZE_STRING);
 			$lnameValid = true;
+		} else {
+			$_SESSION['error'] = "Last name is not a valid format.";
 		}
 	}
 
@@ -39,17 +43,64 @@
 		if(strlen($email) < 50 && filter_var($email, FILTER_VALIDATE_EMAIL)){
 			$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 			$emailValid = true;
+		}else{
+			$_SESSION['error'] = "Email is not a valid format.";
 		}
 	}
 
 	//Get the password
 	if(isset($_POST['password'])){
 		$password = $_POST['password'];
-
-		//sanitize password
-		if(strlen($password) > 5 && strlen($password) < 17){
-			$passwordValid = true;
+		$isLength = false;
+		$isLowercase = false;
+		$isUppercase = false;
+		$isNumeric = false;
+		$isSpecialCharacter = false;
+		
+		$LOWERCASE = '/^(?=.*[a-z])/';
+		$UPPERCASE = '/^(?=.*[A-Z])/';
+		$NUMERIC = '/^(?=.*\d)/';
+		$SPECIAL_CHARACTER = '/^(?=.*[$@$!%*?&])/';
+		
+		//Validate password
+		if(strlen($password) >= 8 && strlen($password) < 17){
+			
+			$isLength = true;
+		}else{
+			$isLength = false;
 		}
+	
+		if (preg_match($LOWERCASE, $password)) {
+		    $isLowercase = true;
+		} else {
+		    $isLowercase = false;
+		}
+		
+		if (preg_match($UPPERCASE, $password)) {
+		    $isUppercase = true;
+		} else {
+		    $isUppercase = false;
+		}
+		
+		if (preg_match($NUMERIC, $password)) {
+		    $isNumeric = true;
+		} else {
+		    $isNumeric = false;
+		}
+		
+		if (preg_match($SPECIAL_CHARACTER, $password)) {
+		    $SPECIAL_CHARACTER = true;
+		} else {
+		    $SPECIAL_CHARACTER = false;
+		}
+		
+		if($LOWERCASE && $UPPERCASE && $NUMERIC && $SPECIAL_CHARACTER ){
+			$passwordValid = true;
+		} else {
+			$passwordValid = false;
+			$_SESSION['error'] = "Password invalid. Needs 8 to 17 characters including 1 uppercase, 1 lowercase, 1 numeric, 1 special character.";
+		}
+		
 	}
 
 	if($fnameValid && $lnameValid && $emailValid && $passwordValid){
@@ -100,12 +151,14 @@
 			header('Location: splashPage.php');*/
 		}
 		else if(count($result) == 1){
-			echo "That account already exists!<br>";
-			echo "<a href='../'>Back to home page</a>";
+			$_SESSION['error']= "That account already exists!";
+			header("Location: index.php");
 		}
 		else {
-			echo "There are multiple accounts with this email address, please contact an administrator <br>";
-			echo "<a href='../'>Back to home page</a>";
+			$_SESSION['error'] = "There are multiple accounts with this email address, please contact an administrator.";
+			header("Location: index.php");
 		}
+	}else{
+		header("Location: index.php");
 	}
 ?>

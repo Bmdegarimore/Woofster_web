@@ -23,7 +23,7 @@ $DB->connect();
                     $mailMan = new Mailman();
                     $mailMan->connect();
                     $mailMan->sendPasswordReset($email,$resetURL);
-                    //Insert a message reset was sent....
+                    //Insert a message reset was sent
                     $_SESSION['passed']= "A reset request was sent to your email.";
                     header("Location: index.php");
                     
