@@ -81,8 +81,8 @@
                         <hr>
                         <div class="row">
                             <button class="btn btn-lg btn-primary col-lg-6 submitButton" id="submitSignin" type="submit" name="submit" value="signin">Sign in</button>
-                            <span class="socialSpan col-lg-3"><a class="btn btn-primary btn-lg social-facebook" href="hybridauth/login-with.php?provider=Facebook"><i class="fa fa-facebook"></i></a></span>
-                            <span class="socialSpan col-lg-3"><a class="btn btn-primary btn-lg social-google" href="hybridauth/login-with.php?provider=Google"><i class="fa fa-google-plus"></i></a></span>
+                            <span class="socialSpan col-lg-2"><a class="btn btn-primary btn-lg social-facebook" href="hybridauth/login-with.php?provider=Facebook"><i class="fa fa-facebook"></i></a></span>
+                            <span class="socialSpan col-lg-2"><a class="btn btn-primary btn-lg social-google" href="hybridauth/login-with.php?provider=Google"><i class="fa fa-google-plus"></i></a></span>
                         </div>
                     </fieldset>
                   </form>
