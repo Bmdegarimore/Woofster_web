@@ -50,7 +50,7 @@
     <!-- Landing Section -->
     <div class="landing">
       <div class="container">
-        <div class="row animated bounceInDown well">
+        <div class="row animated bounceInDown well col-md-6 col-md-offset-3">
           <div class="col-lg-12">
             <div class="text-center">
               <img class='img-responsive' src="img/logo.png">
@@ -95,9 +95,9 @@
                             <br>
                             <input class='form-control' placeholder='Last Name' type='text' name='lname' maxlength='20' required>
                             <br>
-                            <input class="form-control login-input" placeholder="Email Address" type="email" name='email' maxlength='45' required>
+                            <input class="form-control login-input" placeholder="Email Address" type="email" name='email'  minlength="3" maxlength='45' required>
                             <br>
-                            <input class="form-control" placeholder="Password" type="password"  name='password' maxlength='16' required>
+                            <input class="form-control" placeholder="Password" type="password"  name='password' minlength="8" maxlength='16' required>
                             <br>
                             <button class="btn btn-lg btn-primary btn-block btn-center submitButton" type="submit" name="submit" value="register">Register</button>
                     </fieldset >

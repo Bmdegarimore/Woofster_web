@@ -30,7 +30,7 @@
 <!-- Landing Section -->
   <div class="landing">
     <div class="container">
-      <div class="row animated bounceInDown well">
+      <div class="row animated bounceInDown well col-md-6 col-md-offset-3">
         <div class="col-lg-12">
 
 
