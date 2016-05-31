@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" type="text/css" href="../assets/css/resetStyle.css">
     <!-- Custom Css-->
     <link rel="stylesheet" type="text/css" href="../../../css/style.css">
     <!-- Global JS -->
@@ -36,30 +36,56 @@
     <!-- Landing Section -->
     <div class="landing">
       <div class="container">
-        <div class="row animated bounceInDown well">
+        
+        <div class="row well col-md-6 col-md-offset-3">
           <div class="col-lg-12">
             <div class="text-center">
-              
-                  
-                    <h2 class="text-muted">Password Reset</h2>
-                    <form class='form-signin' action='splashPage.php' method='post'>
-                      <fieldset>
-                            <input class="form-control login-input" placeholder="Email Address" type="email" name='email' maxlength='45' required>
+                <h2 class="text-muted">Password Reset</h2>
+                    <form class='form-vertical' role= "form" action='splashPage.php' method='post'>
+                            <p id="required"><span class="glyphicon glyphicon-asterisk"></span> = required.</p>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span id="check1" class="glyphicon glyphicon-asterisk"></span>
+                                </span>
+                                <input class="form-control" id="email" placeholder="Current Email Address" type="email" name='email' maxlength='45' required>
+                            </div>
+                            <div>
+                                <p id="emailExample" class= "text-muted">Email format: username@email.com</p>
+                            </div>
                             <br>
-                            <input class="form-control" placeholder="Password" type="password"  name='password' maxlength='16' required>
+                            <div class="password-group input-group">
+                                <span class="input-group-addon" >
+                                    <span id="check2" class="glyphicon glyphicon-asterisk"></span>
+                                </span>
+                                <input class="form-control" placeholder="New Password" type="password"  id='password' name='password' maxlength='16' required>
+                                <span id="show"class="input-group-addon">
+                                    <span class="glyphicon glyphicon-eye-open" type="button"></span>
+                                </span>
+                            </div>
+                            <div class="col-lg-12 password-group">
+                                <h4 class= "text-muted" id="requirements">Requires:</h4>
+                                <ul>
+                                    <li id="length" class= "text-muted">8 or More Characters</li>
+                                    <li id="uppercase" class= "text-muted">Uppercase</li>
+                                    <li id="lowercase" class= "text-muted">Lowercase</li>
+                                    <li id="numeric" class= "text-muted">Numeric</li>
+                                    <li id="specialCharacter" class= "text-muted">Special Character</li>
+                                </ul>
+                            </div>
+            
                             <br>
-                            <input class="form-control" placeholder="Password" type="password"  name='rePassword' maxlength='16' required>
+                        
                             <br>
-                            <button class="btn btn-lg btn-primary btn-block btn-center submitButton" type="submit" name="submit" value="change">Register</button>
-                      </fieldset >
+                            <button id="submit" class="btn btn-primary submitButton" type="submit" name="submit" value="change">Change Password</button>
+                    
                     </form>
             </div>
           </div><!-- /col-lg-12 -->
-        </div><!-- /row -->
+        
       </div><!-- /container -->
     </div> <!-- /landing -->
 
-    
+    <script src="../assets/js/formStyle.js"></script>
 
     <footer class="container-fluid text-center bg-grey">
      

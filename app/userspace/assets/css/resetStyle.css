@@ -1,0 +1,29 @@
+        .correct{
+            color: green;
+            text-align: left;
+        }
+        
+        .incorrect, #required{
+            color: red;
+            text-align: left;
+        }
+        
+        .text-muted{
+            text-align: left;
+        }
+        
+        li.text-muted{
+            font-weight: bold;
+        }
+        
+        .glyphicon-asterisk{
+            color:red;
+        }
+        
+        .glyphicon-eye-open:hover{
+            opacity: 0.5;
+        }
+        
+        #submit{
+            float: left;
+        }
