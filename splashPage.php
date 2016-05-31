@@ -40,24 +40,18 @@ $DB->connect();
                     unset($_SESSION["selector"]);
                     
                     unset($_SESSION["validator"]);
-                    //Check to make sure passwords are the same
-                    if($_POST['rePassword'] == $_POST['password']){
                         // INSERT VALIDATION FOR EMAIL
                         $email = $_POST['email'];
                         //INSERT VALIDATION FOR PASSWORD
                         $password = $_POST['password'];
+    
                         // Checks email exists and changes password
                         if($DB->confirmEmail($email)){
                             $DB->changePassword($email,$password);
                             $_SESSION['passed']= "Password reset! Please sign in";
                             header("Location: index.php");
                         }
-                            
-                    }else{
-                         //print_r($_POST);
-                        $_SESSION['error'] = "Passwords missmatched! Please resubmit request.";
-                        header("Location: index.php");
-                    }
+                 
                 }else{
                     $_SESSION['error'] = "Empty email or password field when resetting. Please resubmit.";
                         header("Location: index.php");

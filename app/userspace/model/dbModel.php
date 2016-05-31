@@ -100,6 +100,7 @@
 	  try{
 	       $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 	       $email .= "_email";
+     
 	       // Creates a prepared select statement
 	       $statement = $this->connection->prepare("UPDATE users SET password = :password WHERE unique_loginID = :unique_loginID");
      

@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../assets/css/resetStyle.css">
+    <link rel="stylesheet" type="text/css" href="app/userspace/assets/css/resetStyle.css">
     <!-- Custom Css-->
-    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- Global JS -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -85,7 +85,7 @@
       </div><!-- /container -->
     </div> <!-- /landing -->
 
-    <script src="../assets/js/formStyle.js"></script>
+    <script src="app/userspace/assets/js/formStyle.js"></script>
 
     <footer class="container-fluid text-center bg-grey">
      

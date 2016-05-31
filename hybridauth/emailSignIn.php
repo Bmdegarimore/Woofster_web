@@ -47,7 +47,6 @@
 	    //Hard coded temporarily
 	    //$result = $DB->selectEmailUser($uidstr, $signinPassword);
 	    $result = $DB->validateUserPassword($uidstr,$signinPassword);
-
 		//Check if the account and password matches
 		if($result){
 			$result = $DB->selectUser($uidstr);
@@ -64,11 +63,12 @@
 			$DB->disconnect();
 			header("Location: app/userspace/");
 		}
-	}
+	}else{
 
 	//If no, then display the login fields again, and provide a redirect back to the home page
 	$DB->disconnect();
-
+	//session_destroy();
 	$_SESSION['error'] = 'Login credentials are invalid. Please check your username and password';
 	header("Location: ../");
+	}
 ?>
