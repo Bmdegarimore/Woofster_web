@@ -38,11 +38,7 @@ switch($action){
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showAllEvents.php');
       break;
    
-   case download:
-      $data = $db->selectAllUsers();
-      include_once('download.php');
-      break;
-   
+  
    case stats:
       //Loads the model for our stats
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/model/chartModel.php');
@@ -73,6 +69,12 @@ switch($action){
       $data .= ']';
       
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showCalendarChart.php');
+      break;
+   
+
+
+   case download:
+      include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/download.php');
       break;
    
    default:

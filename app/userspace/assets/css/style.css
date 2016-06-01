@@ -723,6 +723,13 @@ article.media {
   width: 100%;
 }
 
+#excelBtn{
+  display:inline-block;
+
+}
+#users{
+  dispay:inline-block;
+}
 /* *********  custom accordion  **************************** */
 
 *, *:before, *:after {
@@ -2438,6 +2445,11 @@ input.parsley-error, textarea.parsley-error, select.parsley-error {
   right: -10px;
   font-size: 10px;
   font-weight: 400;
+}
+
+.btn.btn-primary #downloadBtn{
+  background-color: #0099e6;
+
 }
 
 /* ***** /buttons *******/
