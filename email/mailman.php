@@ -152,17 +152,25 @@
             $message->setSubject($subject);
             $message->setBody('<html>' .
                                     '<head>'.'<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">'.'</head>' .
-                                    '<body style="background-color: #C4CFDA; border-style: solid; border-color: #0099e6;">' .
-                                    '<br>'.
-                                    '<p>You recently requested a password reset. To change your password, click or paste the following link into you browser:<a href="'.
-                                    $url.
-                                    '">'.$url.'</a> '.
-                                    'Link will expires in 24 hours</p>'.
-                                    '<h5 style="font-size:14pt;">Thanks,</h5><br>'.
-                                    '<h5 style="font-size: 14pt; font-color: #73879;">Woofster Team</h5>'.
-                                    '<p style="font-size:14pt;"></p>'.
+                                    '<head>'.'<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">'.'</head>' .
+                                    '<body>' .
+                                        '<div class="container">'.
+                                            '<div class="row">'.
+                                                '<div class="col-sm-12">'.
+                                                    '<h1>Howdy from Woofster!</h1>'.
+                                                    '<br>'.
+                                                    '<div style="margin-left: 2%;">'.
+                                                        '<p>Click below to fetch your new password:</p>'.
+                                                        '<p><a href="'.$url.'"><button class="btn btn-primary">Reset password</button></a></p>'.
+                                                        '<p><i>Note: Link will expires in 24 hours</i></p>'.
+                                                    '</div>'.
+                                                    '<h5 style="font-size:14pt;">Thanks,</h5>'.
+                                                    '<span><img style="width:2.5em; height: 2.5em; display: inline" class="img-responsive"src="http://woofster.greenrivertech.net/img/paw.png" alt="image of a paw"> Woofster Team</span>'.   
+                                                '</div>'.
+                                            '</div>'.
+                                        '</div>'.
                                     '</body>' .
-                                    '</html>',
+                                '</html>',
                                       'text/html' // Mark the content-type as HTML
               );
             $message->setFrom("DoNotReply@Woofster.com", "WoofsterMailer");
