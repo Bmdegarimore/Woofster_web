@@ -39,6 +39,8 @@ ob_start();
                     /*case ADMIN:
                         echo "I'm an admin";
                         break;*/
+                    /*case DOWNLOAD:
+                        include('../app/userspace/controller/controllerDownload.php');*/
                     default:
                        include('../app/userspace/controller/controllerAdmin.php');
                 }
@@ -61,9 +63,4 @@ ob_start();
 <?php
     //Flush buffer
     ob_flush();
-    
-
 ?>
-
-
-

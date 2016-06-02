@@ -65,5 +65,4 @@ function drawBasic() {
     </div>
     <div class="row">
         <div id="chart_div"></div>    
-    </div>
-    
+    </div>   

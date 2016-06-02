@@ -36,10 +36,12 @@ if (PHP_SAPI == 'cli')
 
 /** Include PHPExcel */
 //require_once dirname(__FILE__) . '../Classes/PHPExcel.php';
-require ($_SERVER['DOCUMENT_ROOT'].'assets/Classes/PHPExcel.php');
-//require "dbcon.php";
-require ($_SERVER['DOCUMENT_ROOT'].'model/AdminModel.php');
-
+require "assets/Classes/PHPExcel.php";
+//require ($_SERVER['DOCUMENT_ROOT'].'/app/userspace/assets/Classes/PHPExcel.php');
+require "dbcon.php";
+//require ($_SERVER['DOCUMENT_ROOT'].'/app/userspace/dbcon.php');
+require "model/downloadModel.php";
+//require($_SERVER['DOCUMENT_ROOT'].'/app/userspace/model/downloadModel.php');
 // Create new PHPExcel object
 $objPHPExcel = new PHPExcel();
 
@@ -47,38 +49,36 @@ $objPHPExcel = new PHPExcel();
 
 // Set document properties
 $objPHPExcel->getProperties()->setCreator("Woofster Tech Team")
-							 ->setLastModifiedBy("Woofster Tech")
-							 ->setTitle("Office 2007 XLSX User Emails")
-							 ->setSubject("Office 2007 XLSX User Emails")
-							 ->setDescription("Woofster User Emails")
-							 ->setKeywords("Woofster Dogs Contacts Emails Notifications")
+							 ->setLastModifiedBy("Woofster Tech Team")
+							 ->setTitle("Office 2007 XLSX Email List")
+							 ->setSubject("Office 2007 XLSX Email List")
+							 ->setDescription("Woofster Email List")
+							 ->setKeywords("Woofster Emails Contacts Users")
 							 ->setCategory("Email List");
 
-$db = new AdminModel();
-$db->connect();
+$db = connect();
+$dbmodel = new DownloadModel($db);
+$users = $dbmodel->selectAllUsers();
 
-$sampleList = $db->selectAllUsers();
                         
 
-//help pass samples to various switches
- 
 //Set Row Titles
 
 $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A1', 'User');
+            ->setCellValue('A1', 'Users');
 
 $rowCount = 2;
 
 // Add some data
-foreach($events as $row){
+while($row = $users->fetch(PDO::FETCH_ASSOC)){
 $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A' . $rowCount, $row['User']);
-
+            ->setCellValue('A' . $rowCount, $row['username']);
+        
     $rowCount++;
 }
 
 // Rename worksheet
-$objPHPExcel->getActiveSheet()->setTitle('User List');
+$objPHPExcel->getActiveSheet()->setTitle('Email List');
 
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
@@ -86,17 +86,18 @@ $objPHPExcel->setActiveSheetIndex(0);
 
 
 // Redirect output to a client’s web browser (Excel2007)
+header('Content-Type:application/vnd.google-apps.spreadsheet');
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment;filename="MiteCount.xlsx"');
-header('Cache-Control: max-age=0');
+header('Content-Disposition:attachment;filename="EmailList.xlsx"');
+header('Cache-Control:max-age=0');
 // If you're serving to IE 9, then the following may be needed
-header('Cache-Control: max-age=1');
+header('Cache-Control:max-age=1');
 
-// If you're serving to IE over SSL, then the following may be needed
+/*// If you're serving to IE over SSL, then the following may be needed
 header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
 header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
 header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
-header ('Pragma: public'); // HTTP/1.0
+header ('Pragma: public'); // HTTP/1.0*/
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 $objWriter->save('php://output');

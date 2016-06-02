@@ -70,19 +70,15 @@ switch($action){
       
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showCalendarChart.php');
       break;
+
+
+
    
-
-
-   case download:
-      include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/download.php');
-      break;
    
    default:
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showAllEvents.php');
       break;
         
 }
-
-
-      
+     
 ?>

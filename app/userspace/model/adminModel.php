@@ -66,6 +66,3 @@ class AdminModel extends BaseModel{
 
 
 ?>
-
-
-

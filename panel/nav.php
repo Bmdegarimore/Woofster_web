@@ -1,7 +1,10 @@
   <?php
+
     session_start();
     $_SESSION['update'] = $_GET['update'];
+
   ?>
+
   <div class="container body">
     <div class="main_container">
       <div class="col-md-3 left_col">
@@ -30,7 +33,7 @@
                 <li><a href="?update=events"><i class="fa fa-bars" ></i>Admin Events View</a></li>
                 <li><a href="?update=showUsers"><i class="fa fa-envelope" aria-hidden="true" ></i> User Emails</a></li>
                  <li><a href="?update=stats"><i class="fa fa-pie-chart" aria-hidden="true"></i> Event Stats</a></li>
-                 <li><a href="?update=download"><i class="fa fa-file-excel-o" aria-hidden="true"></i></i> Download Email List</a></li>
+                 <li><a href="../../app/userspace/download.php"><i class="fa fa-file-excel-o" aria-hidden="true"></i></i> Download Email List</a></li>
               </ul>
             </div>
           </div>
