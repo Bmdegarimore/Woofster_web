@@ -64,6 +64,25 @@
 
             return $row;
         }
+
+        public function selectProfileInfo($uid){
+            try{
+                // Creates a prepared select statement
+                $statement = $this->connection->prepare("SELECT * FROM profileInfo WHERE unique_loginID = :uid");
+
+                // References namespace of dog to query
+                $statement->bindParam(':uid', $uid, PDO::PARAM_STR);
+                $statement->execute();
+
+                // Returns selected rows
+                $row = $statement->fetchAll();
+            } catch(PDOException $e){
+                print "Error! " . $e->getMessage() . "<br>";
+                return false;
+            }
+
+            return $row;
+        }
 	
 	
 	/**

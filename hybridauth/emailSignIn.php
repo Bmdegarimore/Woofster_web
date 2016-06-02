@@ -49,10 +49,10 @@
 	    $result = $DB->validateUserPassword($uidstr,$signinPassword);
 		//Check if the account and password matches
 		if($result){
-			$result = $DB->selectUser($uidstr);
+			$result = $DB->selectProfileInfo($uidstr);
 
 			//If yes, then navigate to the app
-			$_SESSION['user_name'] = $result[0]['username'];
+			$_SESSION['user_name'] = $result[0]['firstName'] . ' ' . $result[0]['lastName'];
 			$_SESSION['logged_in'] = true;
 			$_SESSION['user_uid'] = $uidstr;
 
