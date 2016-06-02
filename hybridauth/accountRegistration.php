@@ -60,7 +60,8 @@
 		$LOWERCASE = '/^(?=.*[a-z])/';
 		$UPPERCASE = '/^(?=.*[A-Z])/';
 		$NUMERIC = '/^(?=.*\d)/';
-		$SPECIAL_CHARACTER = '/^(?=.*[$@$!%*?&])/';
+		$SPECIAL_CHARACTER = '/^(?=.*[!"#$%&()*+,-./:;<=>?@[\]^_`{|}~])/';
+		//$SPECIAL_CHARACTER = '/^(?=.*[$@$!%*?&#])/';
 		
 		//Validate password
 		if(strlen($password) >= 8 && strlen($password) < 17){

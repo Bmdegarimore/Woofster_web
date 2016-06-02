@@ -49,19 +49,23 @@
 	    $result = $DB->validateUserPassword($uidstr,$signinPassword);
 		//Check if the account and password matches
 		if($result){
-			$result = $DB->selectUser($uidstr);
+			$result = $DB->selectProfileInfo($uidstr);
 
 			//If yes, then navigate to the app
-			$_SESSION['user_name'] = $result[0]['username'];
+			$_SESSION['user_name'] = $result[0]['firstName'] . ' ' . $result[0]['lastName'];
 			$_SESSION['logged_in'] = true;
 			$_SESSION['user_uid'] = $uidstr;
 
 			//Store the user's uniqueIdentifier 
-	        $_SESSION['user_uniqueId'] = $uidstr;
+			$_SESSION['user_uniqueId'] = $uidstr;
 
 			//Navigate forward to the app
 			$DB->disconnect();
 			header("Location: app/userspace/");
+		}else{
+			//session_destroy();
+			$_SESSION['error'] = 'Username or password incorrect. Please check your username and password';
+			header("Location: ../");
 		}
 	}else{
 
