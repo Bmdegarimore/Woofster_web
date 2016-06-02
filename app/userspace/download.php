@@ -78,7 +78,8 @@ $objPHPExcel->setActiveSheetIndex(0)
 }
 
 // Rename worksheet
-$objPHPExcel->getActiveSheet()->setTitle('Email List');
+$objPHPExcel->getActiveSheet()->setTitle('Email List')
+							  ->getColumnDimension('A')->setWidth(30);
 
 
 // Set active sheet index to the first sheet, so Excel opens this as the first sheet
