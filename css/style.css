@@ -15,7 +15,7 @@ h1{
 	padding-top: 8em;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 60em;
+	
 	width: 100%;
 	
     -webkit-background-size: 100%;
@@ -62,13 +62,6 @@ max-width: 80%;
 #socialMedia h1{
     color: #f6f6f6;
 }
-/*
-#socialMedia{
-    margin-bottom: 10em;
-    padding-top: 10em;
-
-}
-*/
 
 
 .bg-social{
@@ -183,10 +176,19 @@ max-width: 80%;
 
 .tab-content{
     background: #FFF;
-    padding: 2em;
+    padding: .5em;
     border-color: #ddd;
     border-style: none solid solid solid;
     border-width: 1px;
+}
+
+#submitSignin{
+    margin-bottom: 1em;
+    width: 90%;
+}
+
+.socialSpan{
+    text-align: center;
 }
 
 /************************
@@ -216,5 +218,32 @@ max-width: 80%;
   margin-left: auto;
   height: 10em;
   width: 20em;
+}
+
+@media (max-width: 500px){
+    html{
+	height: 98%;
+    }
+    .landing{
+	padding: 0%;
+    }
+    .container{
+	padding: 0%;
+	margin: 0%;
+    }
+    
+    .img-responsive {
+	height: auto;
+	width: 10em;
+    }
+    
+    #submitSignin{
+	margin-bottom: 1em;
+	
+    }
+    
+    .row{
+	margin: 0%;
+    }
 }
 

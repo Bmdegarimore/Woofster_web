@@ -45,10 +45,7 @@
     <!-- End Of Analytics -->
 
   </head>
-  <body>
-
-    <!-- Landing Section -->
-    <div class="landing">
+  <body class="landing">
       <div class="container">
         <div class="row animated bounceInDown well col-md-6 col-md-offset-3">
           <div class="col-lg-12">
@@ -80,9 +77,14 @@
                           <a id="forgotPassword" href="#">Forgot Password?</a>
                         <hr>
                         <div class="row">
-                            <button class="btn btn-lg btn-primary col-lg-6 submitButton" id="submitSignin" type="submit" name="submit" value="signin">Sign in</button>
-                            <span class="socialSpan col-lg-2"><a class="btn btn-primary btn-lg social-facebook" href="hybridauth/login-with.php?provider=Facebook"><i class="fa fa-facebook"></i></a></span>
-                            <span class="socialSpan col-lg-2"><a class="btn btn-primary btn-lg social-google" href="hybridauth/login-with.php?provider=Google"><i class="fa fa-google-plus"></i></a></span>
+                                <button class="btn btn-lg btn-primary submitButton" id="submitSignin" type="submit" name="submit" value="signin">Sign in</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <span class="socialSpan col-lg-5"><a class="btn btn-primary btn-lg social-facebook" href="hybridauth/login-with.php?provider=Facebook"><i class="fa fa-facebook"></i></a></span>
+                                <span class="socialSpan"><a class="btn btn-primary btn-lg social-google" href="hybridauth/login-with.php?provider=Google"><i class="fa fa-google-plus"></i></a></span>
+                            </div>
+
                         </div>
                     </fieldset>
                   </form>
@@ -98,8 +100,10 @@
                             <input class="form-control login-input" placeholder="Email Address" type="email" name='email'  minlength="3" maxlength='45' required>
                             <br>
                             <input class="form-control" placeholder="Password" type="password"  name='password' minlength="8" maxlength='16' required>
-                            <br>
-                            <button class="btn btn-lg btn-primary btn-block btn-center submitButton" type="submit" name="submit" value="register">Register</button>
+                            <hr>
+                            <div class="row">
+                                <button id="submitSignin" class="btn btn-lg btn-primary submitButton" type="submit" name="submit" value="register">Register</button>
+                            </div>
                     </fieldset >
                   </form>
                 </div> <!-- END SIGN UP PANEL -->
@@ -108,7 +112,6 @@
           </div><!-- /col-lg-12 -->
         </div><!-- /row -->
       </div><!-- /container -->
-    </div> <!-- /landing -->
 
     <!-- Modal Sign Up -->
     <div id="signUpModal" class="modal fade" role="dialog">

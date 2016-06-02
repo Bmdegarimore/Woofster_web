@@ -31,10 +31,7 @@
 
 
   </head>
-  <body>
-
-    <!-- Landing Section -->
-    <div class="landing">
+  <body class="landing">
       <div class="container">
         
         <div class="row well col-md-6 col-md-offset-3">
@@ -80,11 +77,9 @@
                     
                     </form>
             </div>
-          </div><!-- /col-lg-12 -->
-        
+        </div><!-- /col-lg-12 -->
+        </div><!-- /row -->
       </div><!-- /container -->
-    </div> <!-- /landing -->
-
     <script src="app/userspace/assets/js/formStyle.js"></script>
 
     <footer class="container-fluid text-center bg-grey">
