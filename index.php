@@ -97,9 +97,9 @@
                             <br>
                             <input class='form-control' placeholder='Last Name' type='text' name='lname' maxlength='20' required>
                             <br>
-                            <input class="form-control login-input" placeholder="Email Address" type="email" name='email'  minlength="3" maxlength='45' required>
+                            <input class="form-control login-input" placeholder="Email Address" id="email" type="email" name='email'  minlength="3" maxlength='45' required>
                             <br>
-                            <input class="form-control" placeholder="Password" type="password"  name='password' minlength="8" maxlength='16' required>
+                            <input class="form-control" placeholder="Password" type="password"  id='password' name='password' minlength="8" maxlength='16' required>
                             <hr>
                             <div class="row">
                                 <button id="submitSignin" class="btn btn-lg btn-primary submitButton" type="submit" name="submit" value="register">Register</button>

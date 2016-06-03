@@ -60,7 +60,7 @@
 		$LOWERCASE = '/^(?=.*[a-z])/';
 		$UPPERCASE = '/^(?=.*[A-Z])/';
 		$NUMERIC = '/^(?=.*\d)/';
-		$SPECIAL_CHARACTER = '/^(?=.*[!"#$%&()*+,-./:;<=>?@[\]^_`{|}~])/';
+		$SPECIAL_CHARACTER = '/^(?=.*[!"#$%&()*])/';
 		//$SPECIAL_CHARACTER = '/^(?=.*[$@$!%*?&#])/';
 		
 		//Validate password
