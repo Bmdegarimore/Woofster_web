@@ -11,7 +11,7 @@ var passwordRequirement= function(password){
         const LOWERCASE = /^(?=.*[a-z])/;
         const UPPERCASE = /^(?=.*[A-Z])/;
         const NUMERIC = /^(?=.*\d)/;
-        const SPECIAL_CHARACTER = /^(?=.*[$@$!%*?&])/;
+        const SPECIAL_CHARACTER = /^(?=.*[$@$!%*?&#])/;
         
         // Confirm met all criterias
         var isLower = false;
