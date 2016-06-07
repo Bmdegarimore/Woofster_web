@@ -106,20 +106,37 @@
               "$to" => "$to"
             ));
             
+           
     
             $message->setSubject($subject);
-            $message->setBody('<html>' .
-                                    '<head>'.'<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">'.'</head>' .
-                                    '<body style="background-color: #C4CFDA; border-style: solid; border-color: #0099e6;">' .
-                                    $body.
-                                    '<br>'.
-                                    '<p></p>'.
-                                    '<h5 style="font-size:14pt;">Thanks,</h5><br>'.
-                                    '<h5 style="font-size: 14pt; font-color: #73879;">Woofster Team</h5>'.
-                                    '<p style="font-size:14pt;"></p>'.
-                                    '</body>' .
-                                    '</html>',
-                                      'text/html' // Mark the content-type as HTML
+            $message->setBody('<html>'.
+                                '<head>'.
+                                    '<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">'.
+                                    '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">'.
+                                '</head>'.
+                                
+                                '<body style="background-color:#00a8ff;  font-family: Helvetica Neue, Roboto, Arial, Droid Sans, sans-serif;">'.
+                                    '<div class="container" style="background-color:#00a8ff; border-style:solid;">'.
+                                        '<div class = "row" style="background-color:#bdc3c7;">'.
+                                            '<div class="col-lg-12" style="display:inline;">'.
+                                                '<h1 style = "color: #5B6479;">Woofster Event Reminder</h1>'.
+                                            '</div>'.
+                                            '<br>'.
+                                        '</div>'.
+                                        '<div class="row" style="background-color:#fff;">'.
+                                            '<div class="col-lg-12">'.
+                                                $body.
+                                            '</div>'.
+                                        '</div>'.
+                                        '<div class="row" style="padding-bottom: 2px; background-color:#bdc3c7;">'.
+                                            '<h5 style="margin-left: 1em; font-size:14pt;">Thanks,</h5>'.
+                                            '<span style="margin-left: 1em;"><img style="width:2.5em; height: 2.5em; display: inline" class="img-responsive"src="http://woofster.greenrivertech.net/img/paw.png" alt="image of a paw"> Woofster Team</span>'.
+                                        '</div>'.
+                                    '</div>'.
+                                '</body>'.
+                            '</html>',
+                                      'text/html' // Mark the content-type as HTM
+
               );
             $message->setFrom("DoNotReply@Woofster.com", "WoofsterMailer");
              
@@ -148,7 +165,7 @@
               "$to" => "$to"
             ));
             
-    
+
             $message->setSubject($subject);
             $message->setBody('<html>' .
                                     '<head>'.'<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">'.'</head>' .
@@ -164,7 +181,7 @@
                                                         '<p><a href="'.$url.'"><button class="btn btn-primary">Reset password</button></a></p>'.
                                                         '<p><i>Note: Link will expires in 24 hours</i></p>'.
                                                     '</div>'.
-                                                    '<h5 style="font-size:14pt;">Thanks,</h5>'.
+                                                    '<h5 style="font-size:14pt;display:inline;">' . 'Thanks,' . '</h5>'.
                                                     '<span><img style="width:2.5em; height: 2.5em; display: inline" class="img-responsive"src="http://woofster.greenrivertech.net/img/paw.png" alt="image of a paw"> Woofster Team</span>'.   
                                                 '</div>'.
                                             '</div>'.
