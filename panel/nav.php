@@ -4,7 +4,11 @@
     $_SESSION['update'] = $_GET['update'];
 
   ?>
-
+  <style>
+    .active{
+      background: black;
+    }
+  </style>
   <div class="container body">
     <div class="main_container">
       <div class="col-md-3 left_col">
@@ -30,9 +34,9 @@
             <div class="menu_section">
               <h3>Features</h3>
               <ul class="nav side-menu">
-                <li><a href="?update=events"><i class="fa fa-bars" ></i>Admin Events View</a></li>
-                <li><a href="?update=showUsers"><i class="fa fa-envelope" aria-hidden="true" ></i> User Emails</a></li>
-                 <li><a href="?update=stats"><i class="fa fa-pie-chart" aria-hidden="true"></i> Event Stats</a></li>
+                <li id="events"><a href="?update=events"><i class="fa fa-bars" ></i>Admin Events View</a></li>
+                <li id="showUsers"><a href="?update=showUsers"><i class="fa fa-envelope" aria-hidden="true" ></i> User Emails</a></li>
+                 <li id="stats"><a href="?update=stats"><i class="fa fa-pie-chart" aria-hidden="true"></i> Event Stats</a></li>
                  <li><a href="../../app/userspace/download.php"><i class="fa fa-file-excel-o" aria-hidden="true"></i></i> Download Email List</a></li>
               </ul>
             </div>

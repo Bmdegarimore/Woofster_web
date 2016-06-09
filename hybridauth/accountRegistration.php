@@ -126,10 +126,10 @@
 			//Insert the profile information into the profile info table
 			$model->insertProfileInfo($uidstr, $fname, $lname, $email);
 			
-			$result = $DB->selectUser($uidstr);
+			$result = $model->selectProfileInfo($uidstr);
 
 			//If yes, then navigate to the app
-			$_SESSION['user_name'] = $result[0]['username'];
+			$_SESSION['user_name'] = $result[0]['firstName'] . ' ' . $result[0]['lastName'];
 			$_SESSION['logged_in'] = true;
 			$_SESSION['user_uid'] = $uidstr;
 

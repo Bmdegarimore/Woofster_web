@@ -29,17 +29,19 @@ switch($action){
    case showUsers:
       //reload display
       $events = $db->selectAllUsers();
-        
+      $activeSelection = "showUsers";
       // Load show events
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showEmails.php');
       break;
    
    case events:
+      $activeSelection = "events";
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showAllEvents.php');
       break;
    
   
    case stats:
+      $activeSelection = "stats";
       //Loads the model for our stats
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/model/chartModel.php');
       $db->disconnect();
@@ -76,6 +78,7 @@ switch($action){
    
    
    default:
+      $activeSelection = "events";
       include($_SERVER['DOCUMENT_ROOT'].'/app/userspace/view/showAllEvents.php');
       break;
         

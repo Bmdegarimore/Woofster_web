@@ -74,12 +74,13 @@
             $notifications = $this->selectDailyEvents();
          
             foreach($notifications as $individualEvents){
-                echo("Title:".$individualEvents['title']);
-                echo("Notes:".$individualEvents['notes']);
-                echo("Date:".$individualEvents['eventDate']);
-                echo("Email:".$individualEvents['username']."\n");
-                $message = '<p style="font-size: 16pt;">'. '<b>Title:</b>'.$individualEvents['title'].' Event</p>'. '<p style="font-style: italic; font-size: 10pt;">(Tip: Hover over time below to add to your calendar)</p>'. '<p><b>Date and Time</b>'. 
-                $individualEvents['eventDate'].'</p><p><b>Notes for Event:</b> '.$individualEvents['notes'].'</p>';
+                echo("Title: ".$individualEvents['title']);
+                echo("Notes: ".$individualEvents['notes']);
+                $userFriendlyDateTime = $individualEvents['eventDate'];
+                echo("Date: ".date('m/d/Y h:i a', strtotime($userFriendlyDateTime)));
+                echo("Email: ".$individualEvents['username']."\n");
+                $message = '<p style="font-size: 16pt;">'. '<b>Title:</b> '.$individualEvents['title'].' Event</p>'. '<p style="font-style: italic; font-size: 10pt;">(Tip: Hover over time below to add to your calendar)</p>'. '<p><b>Date and Time:</b> '. 
+                date('m/d/Y h:i a', strtotime($individualEvents['eventDate'])).'</p><p><b>Notes for Event:</b> '.$individualEvents['notes'].'</p>';
                 $this->sendEmail($individualEvents['username'], $message);
 
                /* $message = "<p><b>Title:</b> ".$individualEvents['title']." Event</p><p>Date and Time".$individualEvents['eventDate']."</p><p><b>Notes for Event:</b> ".$individualEvents['notes']."</p>";
@@ -117,7 +118,7 @@
                                 
                                 '<body style="background-color:#00a8ff;  font-family: Helvetica Neue, Roboto, Arial, Droid Sans, sans-serif;">'.
                                     '<div class="container" style="background-color:#00a8ff; border-style:solid;">'.
-                                        '<div class = "row" style="background-color:#bdc3c7;">'.
+                                        '<div class = "row" style="background-color:#69BE28;">'.
                                             '<div class="col-lg-12" style="display:inline;">'.
                                                 '<h1 style = "color: #5B6479;">Woofster Event Reminder</h1>'.
                                             '</div>'.
@@ -128,7 +129,7 @@
                                                 $body.
                                             '</div>'.
                                         '</div>'.
-                                        '<div class="row" style="padding-bottom: 2px; background-color:#bdc3c7;">'.
+                                        '<div class="row" style="padding-bottom: 2px; background-color:#69BE28;">'.
                                             '<h5 style="margin-left: 1em; font-size:14pt;">Thanks,</h5>'.
                                             '<span style="margin-left: 1em;"><img style="width:2.5em; height: 2.5em; display: inline" class="img-responsive"src="http://woofster.greenrivertech.net/img/paw.png" alt="image of a paw"> Woofster Team</span>'.
                                         '</div>'.

@@ -14,6 +14,8 @@
                 "scrollCollapse": false,
                 "paging":         false
                 } );
+                //Based on the GET passed determines which selection is set to current
+                $("#<?php echo($activeSelection); ?>").addClass("current-page");
             } );
         </script>
 </body>
